@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/store/static/css/main.6b5bdfa6.chunk.css",
+    "main.js": "/store/static/js/main.e76b79db.chunk.js",
+    "main.js.map": "/store/static/js/main.e76b79db.chunk.js.map",
+    "runtime-main.js": "/store/static/js/runtime-main.aec958be.js",
+    "runtime-main.js.map": "/store/static/js/runtime-main.aec958be.js.map",
+    "static/js/2.20784642.chunk.js": "/store/static/js/2.20784642.chunk.js",
+    "static/js/2.20784642.chunk.js.map": "/store/static/js/2.20784642.chunk.js.map",
+    "static/js/3.5cb7c9d0.chunk.js": "/store/static/js/3.5cb7c9d0.chunk.js",
+    "static/js/3.5cb7c9d0.chunk.js.map": "/store/static/js/3.5cb7c9d0.chunk.js.map",
+    "index.html": "/store/index.html",
+    "static/css/main.6b5bdfa6.chunk.css.map": "/store/static/css/main.6b5bdfa6.chunk.css.map",
+    "static/js/2.20784642.chunk.js.LICENSE.txt": "/store/static/js/2.20784642.chunk.js.LICENSE.txt",
+    "static/media/angle-left.5e10c1b2.svg": "/store/static/media/angle-left.5e10c1b2.svg",
+    "static/media/angle-right.5057806c.svg": "/store/static/media/angle-right.5057806c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aec958be.js",
+    "static/js/2.20784642.chunk.js",
+    "static/css/main.6b5bdfa6.chunk.css",
+    "static/js/main.e76b79db.chunk.js"
+  ]
+}

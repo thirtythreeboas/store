@@ -1,0 +1,44 @@
+.showCards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.card-content {
+  width: 32%;
+}
+
+.card {
+  width: 100%;
+  margin-top: 1em;
+  height: auto;
+  border: none;
+  background-color: inherit;
+
+  a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 10px;
+    height: 200px;
+  }
+
+  p {
+    text-align: justify;
+    padding: 0;
+  }
+
+}
+
+@media (max-width: 1050px) {
+  .showCards {
+    display: none;
+  }
+}

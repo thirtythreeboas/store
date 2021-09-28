@@ -1,0 +1,13 @@
+/* SLIDER JSX */
+
+.arrow:hover {
+  transform: scale(1.1);
+}
+
+.arrow img:focus {
+ outline: 0;
+}
+
+.arrow img {
+  width: 22px;
+}

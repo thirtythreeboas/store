@@ -21,8 +21,10 @@ const NavBarComponent = (props) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const displayMenu = () => {
-    document.querySelector('.main-container').style.display = `${showMenu === false ? 'none' : 'flex'}`;
+    if (width > 767)
     document.querySelector('.footer-container').style.display = `${showMenu === false ? 'none' : 'flex'}`;
+    
+    document.querySelector('.main-container').style.display = `${showMenu === false ? 'none' : 'flex'}`;
     setShowMenu(!showMenu);
   }
 

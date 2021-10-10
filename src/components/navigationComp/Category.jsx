@@ -3,7 +3,7 @@ import '../../css/stylesheet.scss';
 
 const Category = props => {
   return (
-      <li><a href="">{props.name}</a></li>
+      <li className="category-item"><a href="">{props.name}</a></li>
   )
 }
 

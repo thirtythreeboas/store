@@ -4,30 +4,10 @@ import '../../css/stylesheet.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const NavBarComponent = (props) => {
-
+  const [deletedCategories, setDeletedCategories] = useState([]);
   const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
-
-  const updateDimensions = () => {
-      const width = window.innerWidth;
-      setWidth(width);
-  };
-
-  const [showMenu, setShowMenu] = useState(false);
-
-  const displayMenu = () => {
-    if (width > 767)
-    document.querySelector('.footer-container').style.display = `${showMenu === false ? 'none' : 'flex'}`;
-    
-    document.querySelector('.main-container').style.display = `${showMenu === false ? 'none' : 'flex'}`;
-    setShowMenu(!showMenu);
-  }
-
+  const [categoryArray, setCategoryArray] = useState([]);
+  // get rid of the array below
   const [categories, setCategories] = useState({
     menu: [
       'Книги',
@@ -42,15 +22,73 @@ const NavBarComponent = (props) => {
       'Туризм'
     ]
   })
+  const [showMenu, setShowMenu] = useState(false);
+
+  useEffect(() => {
+    const arr = document.getElementsByClassName('category-item');
+    let categoryArray = Array.prototype.slice.call(arr);
+    setCategoryArray(categoryArray);
+  }, []);
+
+  useEffect(() => {
+    if (categoryArray.length === 0) return false;
+    const itemsToNumbers = categoryArray.map(x => x.clientWidth);
+    const sum = itemsToNumbers.reduce((a, b) =>  a + b);
+
+    const handleDelete = () => {
+      categoryArray[categoryArray.length - 1].style.display = 'none';
+      let arr = deletedCategories.concat(categoryArray[categoryArray.length - 1])
+      setDeletedCategories(arr);
+      categoryArray.splice(-1, 1);
+    };
+
+    const handlePush = () => {
+      console.log('kekemba');
+      let arr = categoryArray.concat(deletedCategories[deletedCategories.length - 1]);
+      setCategoryArray(arr);
+      deletedCategories.splice(-1, 1);
+      categoryArray[categoryArray.length - 1].style.display = 'flex';
+    }
+
+    let deleteLastElement = width <= sum ? handleDelete() : false;
+
+    if (deletedCategories.length != 0) {
+      console.log(deletedCategories[deletedCategories.length - 1].clientWidth);
+      // let addDeletedElements =  sum + deletedCategories[deletedCategories.length - 1].clientWidth <= width ? handlePush() : false;
+    };
+  }, [categoryArray, width])
+
+
+  // console.log(deletedCategories);
+
+  useEffect(() => {
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
+  const updateDimensions = () => {
+      const width = window.innerWidth;
+      setWidth(width);
+  };
+
+  const displayMenu = () => {
+    if (width > 767)
+    document.querySelector('.footer-container').style.display = `${showMenu === false ? 'none' : 'flex'}`;
+
+    document.querySelector('.main-container').style.display = `${showMenu === false ? 'none' : 'flex'}`;
+    setShowMenu(!showMenu);
+  }
 
   const { menu } = categories;
 
   const css = {
     transition: 'transform 0.3s ease-out',
-    display: `${showMenu === false && 900 >= width ? 'none': 'flex'}`,
+    display: `${showMenu === false && 767 >= width ? 'none': 'flex'}`,
   }
+
   const listMenuCss = {
-    display: `${width >= 900 ? 'none': 'flex'}`,
+    display: `${width >= 767 ? 'none' : 'flex'}`,
   }
 
   return (
@@ -142,6 +180,7 @@ const NavBarComponent = (props) => {
                 name={item}
               />
             ))}
+            <li><span><FontAwesomeIcon icon="ellipsis-v" /></span></li>
           </ul>
         </div>
       </nav>

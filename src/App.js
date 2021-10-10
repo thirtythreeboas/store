@@ -4,7 +4,7 @@ import './App.scss';
 import data from './data/data';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 import NavBarComponent from './components/navigationComp/Navbar';
 import Container from './components/mainContent/Container';
 import Footer from './components/footerComp/Footer';
@@ -12,7 +12,7 @@ import ProductPage from './components/mainContent/goods/ProductPage';
 
 const App = () => {
 
-  library.add( fab, faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen );
+  library.add( fab, faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV );
 
   const scrollDown = useRef();
 

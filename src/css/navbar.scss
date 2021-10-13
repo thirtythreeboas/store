@@ -183,6 +183,7 @@
   list-style: none;
   padding: 0;
   text-align: left;
+  white-space: nowrap;
   a {
     font-size: .8em;
     display: block;
@@ -190,7 +191,6 @@
     text-decoration: none;
     padding: 1em;
     border-bottom: 1px solid #fff;
-    white-space: nowrap;
   }
   a:hover {
     background-color: #77AF7A;

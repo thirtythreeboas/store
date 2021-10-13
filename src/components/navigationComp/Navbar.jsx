@@ -32,19 +32,25 @@ const NavBarComponent = (props) => {
 
   useEffect(() => {
     if (categoryArray.length === 0) return false;
+
     const itemsToNumbers = categoryArray.map(x => x.clientWidth);
     const sum = itemsToNumbers.reduce((a, b) =>  a + b);
 
+    console.log(`sum: ${sum}; width: ${width}; array: ${itemsToNumbers.length}`);
+
     const handleDelete = () => {
+      let arr = deletedCategories.concat(
+        {
+          element: categoryArray[categoryArray.length - 1],
+          width: categoryArray[categoryArray.length - 1].clientWidth
+        })
       categoryArray[categoryArray.length - 1].style.display = 'none';
-      let arr = deletedCategories.concat(categoryArray[categoryArray.length - 1])
       setDeletedCategories(arr);
       categoryArray.splice(-1, 1);
     };
 
     const handlePush = () => {
-      console.log('kekemba');
-      let arr = categoryArray.concat(deletedCategories[deletedCategories.length - 1]);
+      let arr = categoryArray.concat(deletedCategories[deletedCategories.length - 1].element);
       setCategoryArray(arr);
       deletedCategories.splice(-1, 1);
       categoryArray[categoryArray.length - 1].style.display = 'flex';
@@ -53,13 +59,9 @@ const NavBarComponent = (props) => {
     let deleteLastElement = width <= sum ? handleDelete() : false;
 
     if (deletedCategories.length != 0) {
-      console.log(deletedCategories[deletedCategories.length - 1].clientWidth);
-      // let addDeletedElements =  sum + deletedCategories[deletedCategories.length - 1].clientWidth <= width ? handlePush() : false;
+      let addDeletedElements = width >= (sum + deletedCategories[deletedCategories.length - 1].width) ? handlePush() : false;
     };
   }, [categoryArray, width])
-
-
-  // console.log(deletedCategories);
 
   useEffect(() => {
     updateDimensions();

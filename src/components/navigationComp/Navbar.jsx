@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const NavBarComponent = (props) => {
   const [deletedCategories, setDeletedCategories] = useState([]);
   const [width, setWidth] = useState(0);
+  const [sum, setSum] = useState(0);
   const [categoryArray, setCategoryArray] = useState([]);
-  // get rid of the array below
   const [categories, setCategories] = useState({
     menu: [
       'Книги',
@@ -24,44 +24,81 @@ const NavBarComponent = (props) => {
   })
   const [showMenu, setShowMenu] = useState(false);
 
+
   useEffect(() => {
-    const arr = document.getElementsByClassName('category-item');
-    let categoryArray = Array.prototype.slice.call(arr);
-    setCategoryArray(categoryArray);
+    const obj = document.getElementsByClassName('category-item');
+    let arr = Array.prototype.slice.call(obj);
+    setCategoryArray(categoryArray => arr);
   }, []);
 
   useEffect(() => {
-    if (categoryArray.length === 0) return false;
+    if (categoryArray.length === 0 && categoryArray.length !== 10) return false;
+    let itemsToNumbers = categoryArray.map(x => x.clientWidth);
+    let sum = itemsToNumbers.reduce((a, b) =>  a + b);
+    setSum(sum);
+  }, [categoryArray]);
 
-    const itemsToNumbers = categoryArray.map(x => x.clientWidth);
-    const sum = itemsToNumbers.reduce((a, b) =>  a + b);
+  // console.log(`outer sum: ${sum}`);
 
-    console.log(`sum: ${sum}; width: ${width}; array: ${itemsToNumbers.length}`);
+  useEffect(() => {
+    if (categoryArray.length === 0 || sum === 0 || width < 768) return;
+    // console.log(`sum: ${sum}; width: ${width}; length: ${categoryArray.length}`);
+
+    const sumSubtraction = () => {
+      let subtractSum = sum - categoryArray[categoryArray.length - 1].clientWidth;
+      setSum(subtractSum);
+    }
 
     const handleDelete = () => {
-      let arr = deletedCategories.concat(
-        {
-          element: categoryArray[categoryArray.length - 1],
-          width: categoryArray[categoryArray.length - 1].clientWidth
-        })
-      categoryArray[categoryArray.length - 1].style.display = 'none';
-      setDeletedCategories(arr);
-      categoryArray.splice(-1, 1);
+      let sumDel = sum;
+      // console.log(`here ${sumDel}`);
+      let catArr = categoryArray;
+      let delCat = [];
+      console.log('Handle Delete');
+      while (width < sumDel + 50) {
+        let clientWidth = categoryArray[categoryArray.length - 1].clientWidth;
+        sumDel = sumDel - clientWidth;
+        delCat = deletedCategories.concat(
+          {
+            element: categoryArray[categoryArray.length - 1],
+            width: categoryArray[categoryArray.length - 1].clientWidth
+          }
+        );
+        console.log(`sumDel: ${sumDel}, width: ${width}`);
+        categoryArray[categoryArray.length - 1].style.display = 'none';
+        categoryArray.splice(-1, 1);
+        catArr = categoryArray
+        console.log(catArr);
+        if (width >= sumDel) {
+          console.log('lelo');
+          setCategoryArray(catArr);
+          setDeletedCategories(deletedCategories => delCat);
+          break;
+        }
+      }
     };
 
     const handlePush = () => {
+      if (sum === 0) return false;
+      console.log('Handle Push');
+      deletedCategories.[deletedCategories.length - 1].element.style.display = "flex";
       let arr = categoryArray.concat(deletedCategories[deletedCategories.length - 1].element);
+      let subtractSum = sum + deletedCategories.[deletedCategories.length - 1].width;
+      setSum(subtractSum);
       setCategoryArray(arr);
-      deletedCategories.splice(-1, 1);
-      categoryArray[categoryArray.length - 1].style.display = 'flex';
+      let spliceArr = deletedCategories.splice(-1, 1);
+      setDeletedCategories(deletedCategories);
     }
 
-    let deleteLastElement = width <= sum ? handleDelete() : false;
+    // НЕ ЭЛЕГАНТНО НЕ РЕЛЕВАНТНО (width < sum + 50!!!)
+    if (width >= 768) {
+      let deleteLastElement = width < sum + 50 ? handleDelete() : false;
+    };
 
     if (deletedCategories.length != 0) {
-      let addDeletedElements = width >= (sum + deletedCategories[deletedCategories.length - 1].width) ? handlePush() : false;
+      let addDeletedElements = width >= (sum + deletedCategories[deletedCategories.length - 1].width + 50) ? handlePush() : false;
     };
-  }, [categoryArray, width])
+  }, [width, sum])
 
   useEffect(() => {
     updateDimensions();

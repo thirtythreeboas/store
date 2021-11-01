@@ -56,6 +56,7 @@ const NavBarComponent = (props) => {
       let delCat = [];
       console.log('Handle Delete');
       while (width < sumDel + 50) {
+        console.log(`sum: ${sumDel}; catArr: ${catArr.length}; width: ${width}`);
         let clientWidth = categoryArray[categoryArray.length - 1].clientWidth;
         sumDel = sumDel - clientWidth;
         delCat = deletedCategories.concat(
@@ -70,7 +71,7 @@ const NavBarComponent = (props) => {
         catArr = categoryArray
         console.log(catArr);
         if (width >= sumDel) {
-          console.log('lelo');
+          setSum(sum => sumDel);
           setCategoryArray(catArr);
           setDeletedCategories(deletedCategories => delCat);
           break;

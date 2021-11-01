@@ -81,9 +81,9 @@ const NavBarComponent = (props) => {
     const handlePush = () => {
       if (sum === 0) return false;
       console.log('Handle Push');
-      deletedCategories.[deletedCategories.length - 1].element.style.display = "flex";
+      deletedCategories[deletedCategories.length - 1].element.style.display = "flex";
       let arr = categoryArray.concat(deletedCategories[deletedCategories.length - 1].element);
-      let subtractSum = sum + deletedCategories.[deletedCategories.length - 1].width;
+      let subtractSum = sum + deletedCategories[deletedCategories.length - 1].width;
       setSum(subtractSum);
       setCategoryArray(arr);
       let spliceArr = deletedCategories.splice(-1, 1);

@@ -218,6 +218,9 @@
 .categories ul li:last-child {
   display: none;
   cursor: pointer;
+  #open-menu {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {

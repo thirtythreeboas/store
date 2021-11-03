@@ -30,7 +30,6 @@ const NavBarComponent = (props) => {
     let arr = Array.prototype.slice.call(obj);
     setCategoryArray(categoryArray => arr);
   }, []);
-
   useEffect(() => {
     if (categoryArray.length === 0 && categoryArray.length !== 10) return false;
     let itemsToNumbers = categoryArray.map(x => x.clientWidth);
@@ -38,42 +37,45 @@ const NavBarComponent = (props) => {
     setSum(sum);
   }, [categoryArray]);
 
-  // console.log(`outer sum: ${sum}`);
 
   useEffect(() => {
     if (categoryArray.length === 0 || sum === 0 || width < 768) return;
-    // console.log(`sum: ${sum}; width: ${width}; length: ${categoryArray.length}`);
 
-    const sumSubtraction = () => {
-      let subtractSum = sum - categoryArray[categoryArray.length - 1].clientWidth;
-      setSum(subtractSum);
-    }
-
+    // const appendDeletedCatsToMenu = () => {
+    //   if (deletedCategories.length === 0) return;
+      // const collapseMenu = document.getElementById('open-menu');
+      // const elem = deletedCategories[deletedCategories.length - 1].element;
+    //   collapseMenu.append(elem);
+    // }
+      console.log(deletedCategories);
     const handleDelete = () => {
-      let sumDel = sum;
-      // console.log(`here ${sumDel}`);
+      let sumSubtraction = sum;
       let catArr = categoryArray;
       let delCat = [];
-      console.log('Handle Delete');
-      while (width < sumDel + 50) {
-        console.log(`sum: ${sumDel}; catArr: ${catArr.length}; width: ${width}`);
-        let clientWidth = categoryArray[categoryArray.length - 1].clientWidth;
-        sumDel = sumDel - clientWidth;
-        delCat = deletedCategories.concat(
-          {
-            element: categoryArray[categoryArray.length - 1],
-            width: categoryArray[categoryArray.length - 1].clientWidth
-          }
-        );
-        console.log(`sumDel: ${sumDel}, width: ${width}`);
-        categoryArray[categoryArray.length - 1].style.display = 'none';
+      while (width < sumSubtraction + 50) {
+        const collapseMenu = document.getElementById('open-menu');
+        let element = categoryArray[categoryArray.length - 1];
+        let clientWidth = element.clientWidth;
+        sumSubtraction = sumSubtraction - clientWidth;
+        element.remove();
+        collapseMenu.append(element)
+        // const elem = deletedCategories[deletedCategories.length - 1].element;
+        // delCat = deletedCategories.concat(
+        //   {
+        //     element: element,
+        //     width: clientWidth
+        //   }
+        // );
+
+        // element.style.display = 'none';
         categoryArray.splice(-1, 1);
         catArr = categoryArray
-        console.log(catArr);
-        if (width >= sumDel) {
-          setSum(sum => sumDel);
-          setCategoryArray(catArr);
+        if (width >= sumSubtraction) {
+          document.getElementById('collapse-menu').style.display = 'flex';
+          setSum(sum => sumSubtraction);
+          setCategoryArray(categoryArray => catArr);
           setDeletedCategories(deletedCategories => delCat);
+          // appendDeletedCatsToMenu();
           break;
         }
       }
@@ -81,18 +83,19 @@ const NavBarComponent = (props) => {
 
     const handlePush = () => {
       if (sum === 0) return false;
-      console.log('Handle Push');
-      deletedCategories[deletedCategories.length - 1].element.style.display = "flex";
-      let arr = categoryArray.concat(deletedCategories[deletedCategories.length - 1].element);
-      let subtractSum = sum + deletedCategories[deletedCategories.length - 1].width;
+      let element = deletedCategories[deletedCategories.length - 1];
+      let arr = categoryArray.concat(element.element);
+      let subtractSum = sum + element.width;
+      element.element.style.display = "flex";
       setSum(subtractSum);
       setCategoryArray(arr);
       let spliceArr = deletedCategories.splice(-1, 1);
       setDeletedCategories(deletedCategories);
+      if (deletedCategories.length === 0) document.getElementById('collapse-menu').style.display = 'none';
     }
 
-    // НЕ ЭЛЕГАНТНО НЕ РЕЛЕВАНТНО (width < sum + 50!!!)
     if (width >= 768) {
+      // НЕ ЭЛЕГАНТНО НЕ РЕЛЕВАНТНО (width < sum + 50!!!)
       let deleteLastElement = width < sum + 50 ? handleDelete() : false;
     };
 
@@ -220,7 +223,11 @@ const NavBarComponent = (props) => {
                 name={item}
               />
             ))}
-            <li><span><FontAwesomeIcon icon="ellipsis-v" /></span></li>
+            <li id="collapse-menu">
+              <span><FontAwesomeIcon icon="ellipsis-v"/></span>
+              <ul id="open-menu">
+              </ul>
+            </li>
           </ul>
         </div>
       </nav>

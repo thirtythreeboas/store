@@ -24,7 +24,6 @@ const NavBarComponent = (props) => {
   })
   const [showMenu, setShowMenu] = useState(false);
 
-
   useEffect(() => {
     const obj = document.getElementsByClassName('category-item');
     let arr = Array.prototype.slice.call(obj);
@@ -32,18 +31,21 @@ const NavBarComponent = (props) => {
   }, []);
 
   useEffect(() => {
-    if (categoryArray.length === 0 && categoryArray.length !== 10) return false;
+    if (categoryArray.length === 0 || categoryArray.length !== 10) return false;
     let itemsToNumbers = categoryArray.map(x => x.clientWidth);
     let sum = itemsToNumbers.reduce((a, b) =>  a + b);
     setSum(sum);
-  }, [categoryArray]);
+  }, [categoryArray, width]);
+
 
 
   useEffect(() => {
     if (categoryArray.length === 0 || sum === 0 || width < 768) return;
+    let num = document.getElementById('cat-menu-container').clientWidth;
+    let deleteNumWidth = num / 7;
+    let pushNumWidth = num / 4;
 
     const handleDelete = () => {
-      console.log('here');
       let sumSubtraction = sum;
       let catArr = categoryArray;
       let delCat = [];
@@ -51,13 +53,16 @@ const NavBarComponent = (props) => {
         const collapseMenu = document.getElementById('open-menu');
         let element = categoryArray[categoryArray.length - 1];
         let clientWidth = element.clientWidth;
+        if (clientWidth === 0) return;
+        let delCat = deletedCategories.concat(clientWidth);
         sumSubtraction = sumSubtraction - clientWidth;
         element.remove();
-        collapseMenu.append(element)
+        collapseMenu.append(element);
         categoryArray.splice(-1, 1);
         if (width >= sumSubtraction) {
           document.getElementById('collapse-menu').style.display = 'flex';
           setSum(sum => sumSubtraction);
+          setDeletedCategories(deletedCategories => delCat);
           setCategoryArray(categoryArray => catArr);
           break;
         }
@@ -65,35 +70,42 @@ const NavBarComponent = (props) => {
     };
 
     const handlePush = () => {
+      let sumSubtraction = sum;
+      let catArr = [];
       const openMenu = document.getElementById("open-menu").getElementsByTagName("li");
-      // const menuElem = openMenu.getElementsByTagName("li");
-      // let arr = [...menuElem];
       let arr = [...openMenu];
-      if (sum === 0) return false;
-      const catArr = categoryArray.concat(arr[arr.length - 1]);
-      console.log(catArr);
-      setCategoryArray(catArr);
-      let element = categoryArray[categoryArray.length - 1];
-      let categoryMenu = document.getElementById('category-menu');
-      element.remove();
-      categoryMenu.append(element);
-      let subtractSum = sum + element.width;
-      setSum(subtractSum);
-      if (deletedCategories.length === 0) document.getElementById('collapse-menu').style.display = 'none';
+      if (sumSubtraction === 0) {
+        return false;
+      }
+      while (width > sumSubtraction + deleteNumWidth) {
+        if (arr.length === 0) return false;
+        let categoryMenu = document.getElementById('category-menu');
+        let element = arr[arr.length - 1];
+        catArr = categoryArray.concat(element);
+        element.remove();
+        categoryMenu.append(element);
+        element.style.display = 'flex';
+        let clientWidth = deletedCategories[deletedCategories.length - 1];
+        let subtractSum = sumSubtraction + clientWidth;
+        deletedCategories.splice(-1, 1);
+        if (width >= sumSubtraction + deleteNumWidth) {
+          setDeletedCategories(deletedCategories => deletedCategories);
+          setCategoryArray(categoryArray => catArr);
+          setSum(sum => subtractSum);
+          if (deletedCategories.length === 0) {
+            document.getElementById('collapse-menu').style.display = 'none';
+          }
+          break;
+        }
+      }
     }
 
+    let menu = document.getElementById('cat-menu-container');
+
     if (width >= 768) {
-      // НЕ ЭЛЕГАНТНО НЕ РЕЛЕВАНТНО (width < sum + 50!!!)
-      let deleteLastElement = width < sum + 50 ? handleDelete() : false;
+      let removeElement = width < sum + deleteNumWidth ? handleDelete() : false;
     };
-
-    // let loleska = categoryArray[categoryArray.length - 1].clientWidth;
-
-    let addDeletedElements = width >= (sum + 50) ? handlePush() : false;
-
-    // if (deletedCategories.length != 0) {
-    //   let addDeletedElements = width >= (sum + deletedCategories[deletedCategories.length - 1].width + 50) ? handlePush() : false;
-    // };
+    let addElement = width >= sum + pushNumWidth ? handlePush() : false;
   }, [width, sum])
 
   useEffect(() => {
@@ -101,6 +113,12 @@ const NavBarComponent = (props) => {
     window.addEventListener('resize', updateDimensions);
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
+
+  const openHiddenMenu = () => {
+    let css = document.getElementById('open-menu');
+    let displayProp = css.style.display === 'none' ? 'flex' : 'none';
+    css.style.display = displayProp;
+  }
 
   const updateDimensions = () => {
       const width = window.innerWidth;
@@ -208,19 +226,21 @@ const NavBarComponent = (props) => {
             <h3>Товары</h3>
             <span className="close" onClick={displayMenu}>&times;</span>
           </div>
-          <ul id="category-menu">
-            {menu.map((item, i) => (
-              <Category
+          <div id="cat-menu-container">
+            <ul id="category-menu">
+              {menu.map((item, i) => (
+                <Category
                 key={i}
                 name={item}
-              />
-            ))}
-            <li id="collapse-menu">
+                />
+              ))}
+            </ul>
+            <button id="collapse-menu" onClick={openHiddenMenu}>
               <span><FontAwesomeIcon icon="ellipsis-v"/></span>
               <ul id="open-menu">
               </ul>
-            </li>
-          </ul>
+            </button>
+          </div>
         </div>
       </nav>
     </>

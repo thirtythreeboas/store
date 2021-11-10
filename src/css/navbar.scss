@@ -134,6 +134,7 @@
   }
 }
 
+
 .categories {
   display: flex;
   flex-direction: column;
@@ -173,7 +174,13 @@
   }
 }
 
-.categories ul {
+#cat-menu-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#category-menu {
   max-width: 220px;
   display: flex;
   justify-content: space-between;
@@ -183,8 +190,12 @@
   list-style: none;
   padding: 0;
   text-align: left;
-  .category-item {
-    flex-shrink: 0;
+}
+
+.category-item {
+  flex-shrink: 0;
+  &:hover {
+    background-color: #77AF7A;
   }
   a {
     min-width: 0;
@@ -194,34 +205,54 @@
     text-decoration: none;
     padding: 1em;
     border-bottom: 1px solid #fff;
-    // white-space: nowrap;
-  }
-  a:hover {
-    background-color: #77AF7A;
   }
 }
 
-.categories ul li:last-child span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 3em;
-  height: 100%;
-  color: #fff;
-  // background-color: #616176;
-  background-color: #5a5a6f;
-  &:hover {
-    background-color: #aeaedf;
-  }
-}
-
-.categories ul li:last-child {
+#collapse-menu {
+  position: relative;
   display: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+    height: 100%;
+    color: #fff;
+    // background-color: #616176;
+    background-color: #5a5a6f;
+    &:hover {
+      background-color: #aeaedf;
+    }
+  }
   #open-menu {
     display: none;
+    flex-direction: column;
+    width: auto;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    z-index: 2;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #5a5a6f;
+    // display: none;
+    li {
+      margin: 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+    a {
+      white-space: nowrap;
+      font-size: .8rem;
+      border: none;
+    }
   }
 }
+
 
 @media (min-width: 768px) {
   .sections {
@@ -255,7 +286,7 @@
     .header-categories {
       display: none;
     }
-    ul {
+    #category-menu {
       width: 100%;
       max-width: 1050px;
       flex-direction: row;

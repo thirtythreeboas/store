@@ -17,24 +17,34 @@ const App = () => {
   const scrollDown = useRef();
 
   const [state, setState] = useState(data);
-  const [windowWidthValue, setWindowWidthValue] = useState(0);
+  const [width, setWidth] = useState(0);
   const [displayFooterMenu, setDisplayFooterMenu] = useState(false);
 
-  const changeStateDisplay = () => {
-    setDisplayFooterMenu(!displayFooterMenu);
-  }
+  useEffect(() => {
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
+  useEffect(() => {
+    if (width >= 768) setDisplayFooterMenu(false);
+  }, [width])
+
+  const updateDimensions = () => {
+    const width = window.innerWidth;
+    setWidth(width);
+  };
+
+  const containerDisplay = width >= 768 ? document.querySelector('.main-container').style.display = 'flex' : false;
 
   const closeFooter = () => {
-    if (windowWidthValue <= 767) {
-      changeStateDisplay();
-      styleBodyOverflow()
+    if (width < 768) {
+      setDisplayFooterMenu(displayFooterMenu => !displayFooterMenu);
+      let prop = document.querySelector('.main-container');
+      prop.style.display = displayFooterMenu === false ? 'none' : 'flex';
     }
-    if (windowWidthValue > 767)
+    if (width > 767)
     handleDisplayFooter();
-  }
-
-  const styleBodyOverflow = () => {
-    document.querySelector('.main-container').style.display = `${displayFooterMenu === false ? 'none' : 'flex'}`;
   }
 
   const handleDisplayFooter = () => {
@@ -46,37 +56,26 @@ const App = () => {
     }, 2000);
   }
 
-  useEffect(() => {
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
-
-  const updateDimensions = () => {
-      const windowWidthValue = window.innerWidth;
-      setWindowWidthValue(windowWidthValue);
-  };
 
   const { cardAd, footer, phones, books, devices } = state;
 
   const footerMenu = {
-    display: `${windowWidthValue > 767 ? 'flex' : displayFooterMenu === false ? 'none' : 'flex'}`
+    display: `${width > 767 ? 'flex' : displayFooterMenu === false ? 'none' : 'flex'}`
   }
+
   const footerHeader = {
-    display: `${windowWidthValue > 767 ? 'none' : 'flex'}`
+    display: `${width > 767 ? 'none' : 'flex'}`
   }
 
   return (
     <div className="page">
       <NavBarComponent
-        changeStateDisplay={changeStateDisplay}
-        styleBodyOverflow={styleBodyOverflow}
         handleFooter={closeFooter}
       />
       <div className="main-container" style={{marginBottom: '50px'}}>
         <Container
           data={data}
-          windowWidth={windowWidthValue}
+          windowWidth={width}
         />
       </div>
       <div
@@ -84,11 +83,10 @@ const App = () => {
         ref={scrollDown}
         id="highlightFooter"
         className="container footer-container"
-        // style={{display: 'none'}}
       >
         <div style={footerHeader} className="footer-header">
           <h3>По вопросам</h3>
-          <span className="close" onClick={closeFooter}>&times;</span>
+          <span className="close" onClick={() => closeFooter()}>&times;</span>
         </div>
         {
           footer.map((list, i) => (

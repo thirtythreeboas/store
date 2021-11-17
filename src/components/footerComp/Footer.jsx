@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import '../../css/stylesheet.scss'
 
 const Footer = ({footerData, header}) => {

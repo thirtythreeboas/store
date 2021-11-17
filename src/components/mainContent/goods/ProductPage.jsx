@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import '../../../css/stylesheet.scss';
 
 const ProductPage = ({phones}) => {

@@ -25,6 +25,17 @@ const NavBarComponent = (props) => {
   const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
+  const updateDimensions = () => {
+    const width = window.innerWidth;
+    setWidth(width);
+  };
+
+  useEffect(() => {
     const obj = document.getElementsByClassName('category-item');
     let arr = Array.prototype.slice.call(obj);
     setCategoryArray(categoryArray => arr);
@@ -33,65 +44,67 @@ const NavBarComponent = (props) => {
   useEffect(() => {
     if (categoryArray.length === 0 || categoryArray.length !== 10) return false;
     let itemsToNumbers = categoryArray.map(x => x.clientWidth);
-    let sum = itemsToNumbers.reduce((a, b) =>  a + b);
+    let sum = itemsToNumbers.reduce((a, b) => a + b);
     setSum(sum);
+
   }, [categoryArray, width]);
 
-
-
   useEffect(() => {
-    if (categoryArray.length === 0 || sum === 0 || width < 768) return;
-    let num = document.getElementById('cat-menu-container').clientWidth;
-    let deleteNumWidth = num / 7;
-    let pushNumWidth = num / 4;
+    // console.log(`sum: ${sum}, width: ${width} value: ${width < sum}`);
+    const defaultShowMenu = width >= 768 ? setShowMenu(false) : undefined;
+    // let num = document.getElementById('category-menu').clientWidth;
+    // let deleteNumWidth = num / 8;
+    // console.log(deleteNumWidth);
+
+    if (categoryArray.length === 0 || sum === 0 || showMenu === true) return;
 
     const handleDelete = () => {
       let sumSubtraction = sum;
-      let catArr = categoryArray;
-      let delCat = [];
-      while (width < sumSubtraction + 50) {
+      let arrCat = categoryArray;
+      let delCat = deletedCategories;
+      while (width < sumSubtraction) {
         const collapseMenu = document.getElementById('open-menu');
-        let element = categoryArray[categoryArray.length - 1];
+        let element = arrCat[arrCat.length - 1];
         let clientWidth = element.clientWidth;
         if (clientWidth === 0) return;
-        let delCat = deletedCategories.concat(clientWidth);
         sumSubtraction = sumSubtraction - clientWidth;
+        delCat = delCat.concat(clientWidth);
         element.remove();
         collapseMenu.append(element);
-        categoryArray.splice(-1, 1);
+        arrCat.splice(-1, 1);
         if (width >= sumSubtraction) {
           document.getElementById('collapse-menu').style.display = 'flex';
-          setSum(sum => sumSubtraction);
-          setDeletedCategories(deletedCategories => delCat);
-          setCategoryArray(categoryArray => catArr);
+          setSum(sumSubtraction);
+          setDeletedCategories(delCat);
+          setCategoryArray(arrCat);
           break;
         }
       }
     };
 
     const handlePush = () => {
+      if (sum === 0) return;
       let sumSubtraction = sum;
+      let num = deletedCategories;
       let catArr = [];
+      const collapseMenu = document.getElementById('collapse-menu');
+      const menuWidth = collapseMenu.clientWidth;
       const openMenu = document.getElementById("open-menu").getElementsByTagName("li");
       let arr = [...openMenu];
-      if (sumSubtraction === 0) {
-        return false;
-      }
-      while (width > sumSubtraction + deleteNumWidth) {
-        if (arr.length === 0) return false;
+      while (width > sumSubtraction + num[num.length - 1] + menuWidth) {
         let categoryMenu = document.getElementById('category-menu');
         let element = arr[arr.length - 1];
         catArr = categoryArray.concat(element);
         element.remove();
         categoryMenu.append(element);
-        element.style.display = 'flex';
-        let clientWidth = deletedCategories[deletedCategories.length - 1];
-        let subtractSum = sumSubtraction + clientWidth;
-        deletedCategories.splice(-1, 1);
-        if (width >= sumSubtraction + deleteNumWidth) {
-          setDeletedCategories(deletedCategories => deletedCategories);
-          setCategoryArray(categoryArray => catArr);
-          setSum(sum => subtractSum);
+        element.style.display = 'list-item';
+        let clientWidth = num[num.length - 1];
+        sumSubtraction = sumSubtraction + clientWidth;
+        num.splice(-1, 1);
+        if (width >= sumSubtraction) {
+          setDeletedCategories(num);
+          setCategoryArray(catArr);
+          setSum(sumSubtraction);
           if (deletedCategories.length === 0) {
             document.getElementById('collapse-menu').style.display = 'none';
           }
@@ -100,19 +113,44 @@ const NavBarComponent = (props) => {
       }
     }
 
-    let menu = document.getElementById('cat-menu-container');
+    const appendToCatMenu = () => {
+      let catArr = categoryArray;
+      let elements = document.getElementById('open-menu').getElementsByTagName('li');
+      let arr = [...elements].reverse();
+      let mainCatMenu = document.getElementById('category-menu');
+      let button = document.getElementById('collapse-menu').style.display = 'none';
+      mainCatMenu.style.justifyContent = 'çenter';
+      for (let i = 0; i < arr.length; i++) {
+        catArr = catArr.concat(arr[i])
+        arr[i].remove();
+        mainCatMenu.append(arr[i]);
+      }
+      setCategoryArray(catArr);
+    }
+
+    const sumRecover = () => {
+      const reduceDeletedCats = deletedCategories.reduce((a, b) => a + b);
+      let newSum = sum + reduceDeletedCats;
+      appendToCatMenu();
+      setSum(newSum);
+      setDeletedCategories([]);
+    };
+
+    const buttonLaunchedMenu = width < 768 && deletedCategories.length !== 0 ? sumRecover() : false;
 
     if (width >= 768) {
-      let removeElement = width < sum + deleteNumWidth ? handleDelete() : false;
-    };
-    let addElement = width >= sum + pushNumWidth ? handlePush() : false;
+      const removeElement = width < sum ? handleDelete() : false;
+    }
+
+    if (width >= 768) {
+      const addElement = width >= sum && deletedCategories.length !== 0 ? handlePush() : false;
+    }
+
+
   }, [width, sum])
 
-  useEffect(() => {
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
+
+  const { menu } = categories;
 
   const openHiddenMenu = () => {
     let css = document.getElementById('open-menu');
@@ -120,10 +158,6 @@ const NavBarComponent = (props) => {
     css.style.display = displayProp;
   }
 
-  const updateDimensions = () => {
-      const width = window.innerWidth;
-      setWidth(width);
-  };
 
   const displayMenu = () => {
     if (width > 767)
@@ -133,15 +167,14 @@ const NavBarComponent = (props) => {
     setShowMenu(!showMenu);
   }
 
-  const { menu } = categories;
 
   const css = {
     transition: 'transform 0.3s ease-out',
-    display: `${showMenu === false && 767 >= width ? 'none': 'flex'}`,
+    display: `${showMenu === false && width < 768 ? 'none': 'flex'}`
   }
 
   const listMenuCss = {
-    display: `${width >= 767 ? 'none' : 'flex'}`,
+    display: `${width > 767 ? 'none' : 'flex'}`,
   }
 
   return (
@@ -177,7 +210,7 @@ const NavBarComponent = (props) => {
                 <li
                   className="list"
                   style={listMenuCss}
-                  onClick={displayMenu}
+                  onClick={() => displayMenu()}
                 >
                   <a className="nav-link" href="#">
                     <span><FontAwesomeIcon
@@ -190,7 +223,7 @@ const NavBarComponent = (props) => {
 
                 <li
                   className="list"
-                  onClick={props.handleFooter}
+                  onClick={() => props.handleFooter()}
                 >
                   <a className="nav-link">
                     <span><FontAwesomeIcon icon="question-circle" /></span>
@@ -221,10 +254,10 @@ const NavBarComponent = (props) => {
 
         </div>
 
-        <div style={css} className="categories">
+        <div style={css} id="categories">
           <div className="header-categories">
             <h3>Товары</h3>
-            <span className="close" onClick={displayMenu}>&times;</span>
+            <span className="close" onClick={() => displayMenu()}>&times;</span>
           </div>
           <div id="cat-menu-container">
             <ul id="category-menu">
@@ -235,9 +268,9 @@ const NavBarComponent = (props) => {
                 />
               ))}
             </ul>
-            <button id="collapse-menu" onClick={openHiddenMenu}>
+            <button id="collapse-menu" onClick={() => openHiddenMenu()}>
               <span><FontAwesomeIcon icon="ellipsis-v"/></span>
-              <ul id="open-menu">
+              <ul id="open-menu" style={{display: 'none'}}>
               </ul>
             </button>
           </div>

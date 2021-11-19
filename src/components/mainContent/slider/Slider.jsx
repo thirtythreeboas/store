@@ -44,7 +44,7 @@ const Slider = () => {
   }, [activeSlide]);
 
   const updateDimensions = () => {
-    let width = window.innerWidth;
+    let width = window.innerWidth <= 360 ? 360 : window.innerWidth;
     setWidth(width);
     setState((prevState) => ({
       ...prevState,
@@ -86,7 +86,9 @@ const Slider = () => {
     }))
   };
 
-  const nextbtn = () => {
+  const nextSlide = () => {
+    console.log('kek');
+    if (activeSlide >= slides.length - 1) return;
     setState((prevState) => ({
       ...prevState,
       transition: 'transform ease-out 0.45s',
@@ -95,23 +97,14 @@ const Slider = () => {
     }))
   }
 
-  const prevbtn = () => {
-    setState((prevState) => ({
-      ...prevState,
-      transition: 'transform ease-out 0.45s',
-      activeSlide: activeSlide - 1,
-      translate: width * (activeSlide - 1)
-    }))
-  }
-
-  const nextSlide = () => {
-    if (activeSlide >= slides.length - 1) return;
-    nextbtn();
-  }
-
   const prevSlide = () => {
     if (activeSlide <= 0) return;
-    prevbtn();
+    setState((prevState) => ({
+     ...prevState,
+     transition: 'transform ease-out 0.45s',
+     activeSlide: activeSlide - 1,
+     translate: width * (activeSlide - 1)
+   }))
   }
 
   const smooth = () => {
@@ -134,6 +127,7 @@ const Slider = () => {
   const slider = {
     position: `relative`,
     width: `${width}px`,
+    minWidth: `360px`,
     maxWidth: `1050px`,
     marginBottom: '25px',
     overflow: `hidden`

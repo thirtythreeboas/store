@@ -31,7 +31,7 @@ const Arrow = ({ direction, handleClick, width }) => {
     <div
       className="arrow"
       style={css}
-      onClick={handleClick}>
+      onClick={() => handleClick()}>
         {direction === 'right' ? <img style={imgCss} src={rightArrow} /> : <img style={imgCss} src={leftArrow} />}
     </div>
   )

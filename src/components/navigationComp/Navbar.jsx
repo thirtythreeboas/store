@@ -50,19 +50,15 @@ const NavBarComponent = (props) => {
   }, [categoryArray, width]);
 
   useEffect(() => {
-    // console.log(`sum: ${sum}, width: ${width} value: ${width < sum}`);
     const defaultShowMenu = width >= 768 ? setShowMenu(false) : undefined;
-    // let num = document.getElementById('category-menu').clientWidth;
-    // let deleteNumWidth = num / 8;
-    // console.log(deleteNumWidth);
-
     if (categoryArray.length === 0 || sum === 0 || showMenu === true) return;
 
     const handleDelete = () => {
       let sumSubtraction = sum;
       let arrCat = categoryArray;
       let delCat = deletedCategories;
-      while (width < sumSubtraction) {
+      /// +5??? lol chto?
+      while (width < sumSubtraction + 45) {
         const collapseMenu = document.getElementById('open-menu');
         let element = arrCat[arrCat.length - 1];
         let clientWidth = element.clientWidth;
@@ -88,7 +84,8 @@ const NavBarComponent = (props) => {
       let num = deletedCategories;
       let catArr = [];
       const collapseMenu = document.getElementById('collapse-menu');
-      const menuWidth = collapseMenu.clientWidth;
+      /// +5??? lol chto?
+      const menuWidth = collapseMenu.clientWidth + 5;
       const openMenu = document.getElementById("open-menu").getElementsByTagName("li");
       let arr = [...openMenu];
       while (width > sumSubtraction + num[num.length - 1] + menuWidth) {
@@ -97,7 +94,7 @@ const NavBarComponent = (props) => {
         catArr = categoryArray.concat(element);
         element.remove();
         categoryMenu.append(element);
-        element.style.display = 'list-item';
+        element.style.display = 'inline';
         let clientWidth = num[num.length - 1];
         sumSubtraction = sumSubtraction + clientWidth;
         num.splice(-1, 1);
@@ -139,7 +136,8 @@ const NavBarComponent = (props) => {
     const buttonLaunchedMenu = width < 768 && deletedCategories.length !== 0 ? sumRecover() : false;
 
     if (width >= 768) {
-      const removeElement = width < sum ? handleDelete() : false;
+      /// +45??? lol chto?
+      const removeElement = width < sum + 45 ? handleDelete() : false;
     }
 
     if (width >= 768) {

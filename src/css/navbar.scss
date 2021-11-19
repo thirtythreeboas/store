@@ -112,6 +112,7 @@
   display: flex;
   height: 2.4em;
   width: 100%;
+  padding: 0 10px;
   border-radius: .3em;
   border: none;
   align-items: center;
@@ -156,7 +157,7 @@
   z-index: 10;
   background-color: #9292a2;
   text-align: center;
-  overflow: hidden;
+  // overflow: hidden;
   .header-categories {
     display: flex;
     justify-content: space-between;
@@ -279,9 +280,9 @@
     display: flex;
     align-items: center;
   }
-  .nav-link span:first-child {
-    margin-right: .4em;
-  }
+  // .nav-link span:first-child {
+  //   margin-right: .4em;
+  // }
   .search-box {
     padding: 0;
     width: auto;
@@ -315,5 +316,8 @@
 @media (min-width: 900px) {
   .nav-link span:nth-child(2) {
     display: flex;
+  }
+  .nav-link span:first-child {
+    margin-right: .4em;
   }
 }

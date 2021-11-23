@@ -45,6 +45,7 @@ const data = {
   ],
   phones: [
     {
+      key: 1,
       image: 'https://avatars.mds.yandex.net/get-mpic/1361544/img_id2422915895010770552.jpeg/9hq',
       price: '7 490',
       name: 'Honor 7A 2/16GB',
@@ -64,36 +65,43 @@ const data = {
       }
     },
     {
+      key: 1,
       image: 'https://cdn1.ozone.ru/s3/multimedia-n/wc1200/6019810931.jpg',
       price: '10 490',
       name: 'Huawei Y7 2019 4/64GB'
     },
     {
+      key: 2,
       image: 'https://cdn1.ozone.ru/s3/multimedia-f/wc1200/6012395823.jpg',
       price: '10 490',
       name: 'Realme C3 3/64GB'
     },
     {
+      key: 3,
       image: 'https://cdn1.ozone.ru/s3/multimedia-1/wc1200/6019317889.jpg',
       price: '8 480',
       name: 'Xiaomi Redmi 9A 2/32GB'
     },
     {
+      key: 4,
       image: 'https://cdn1.ozone.ru/s3/multimedia-8/wc1200/6033444620.jpg',
       price: '12 480',
       name: 'Poco M3 4/64GB'
     },
     {
+      key: 5,
       image: 'https://cdn1.ozone.ru/s3/multimedia-y/wc1200/6020628034.jpg',
       price: '8 284',
       name: 'Xiaomi Redmi 9C 2/32GB'
     },
     {
+      key: 6,
       image: 'https://cdn1.ozone.ru/s3/multimedia-k/wc1200/6027038432.jpg',
       price: '12 119',
       name: 'Vivo Y20 4/64GB'
     },
     {
+      key: 7,
       image: 'https://cdn1.ozone.ru/s3/multimedia-s/wc1200/6016959628.jpg',
       price: '15 842',
       name: 'Huawei P30 Lite 4/128GB'

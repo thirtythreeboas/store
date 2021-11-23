@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
+import ProductPage from '../goods/ProductPage';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import '../../../css/stylesheet.scss';
 
 const Product = ({items}) => {
+  console.log('kek');
   return (
-    <div className="making-margin-right">
-      <div className="product-card">
-          <div className="image">
-            <a href="">
-              <img src={items.image} alt=""/>
-            </a>
-          </div>
-          <div className="info">
-            <p>{items.price}</p>
-            <a href="" title={items.name}>{items.name}</a>
-            <button>В корзину</button>
-          </div>
-      </div>
-    </div>
+    <Link style={{textDecoration: 'none'}} to="/productpage">
+      <span className="making-margin-right">
+        <div className="product-card">
+            <div className="image">
+              <a href="">
+                <img src={items.image} alt=""/>
+              </a>
+            </div>
+            <div className="info">
+              <p>{items.price}</p>
+              <a href="" title={items.name}>{items.name}</a>
+              <button>В корзину</button>
+            </div>
+        </div>
+      </span>
+    </Link>
   )
 };
 
@@ -48,13 +53,14 @@ const Content = ({data, windowWidth}) => {
             </a>
           </div>
           <div className="products">
-            {
-              data.phones.map((item, i) => (
-                <Product items={item}
-                  key={item + i}
-                />
-              ))
-            }
+                {
+                  data.phones.map((item, i) => (
+                        <Product items={item}
+                          key={item.key + i}
+                        />
+                  ))
+                }
+              <Route path="/productpage" component="ProductPage"/>
           </div>
 
         </div>

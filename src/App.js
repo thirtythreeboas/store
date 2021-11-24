@@ -5,9 +5,10 @@ import data from './data/data';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Switch, Route, Link } from 'react-router-dom';
 import NavBarComponent from './components/navigationComp/Navbar';
 import Container from './components/mainContent/Container';
+import FooterContainer from './components/footerComp/FooterContainer';
 import Footer from './components/footerComp/Footer';
 import ProductPage from './components/mainContent/goods/ProductPage';
 
@@ -69,38 +70,25 @@ const App = () => {
   }
 
   return (
-    <div className="page">
+    <Switch>
+      <div className="page">
         <NavBarComponent
           handleFooter={closeFooter}
         />
-        <Route path="/"/>
-        <div className="main-container" style={{marginBottom: '50px'}}>
-          <Container
-            data={data}
-            windowWidth={width}
-          />
-        </div>
-        <div
-          style={footerMenu}
-          ref={scrollDown}
-          id="highlightFooter"
-          className="container footer-container"
+        <Container
+          data={data}
+          windowWidth={width}
         >
-          <div style={footerHeader} className="footer-header">
-            <h3>По вопросам</h3>
-            <span className="close" onClick={() => closeFooter()}>&times;</span>
-          </div>
-          {
-            footer.map((list, i) => (
-              <Footer
-                key={i}
-                header={list.header}
-                footerData={list}
-              />
-            ))
-          }
-        </div>
-    </div>
+        </Container>
+        <FooterContainer
+          footer={footer}
+          footerMenu={footerMenu}
+          footerHeader={footerHeader}
+          myRef={scrollDown}
+          closeFooter={closeFooter}
+        />
+      </div>
+    </Switch>
   );
 }
 

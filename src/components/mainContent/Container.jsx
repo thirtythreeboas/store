@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import '../../css/stylesheet.scss';
 import Slider from './slider/Slider';
 import Card from './Card';
 import Content from './content/Сontent';
+import ProductPage from './goods/ProductPage';
+
 
 const Container = ({data,  windowWidth}) => {
 
@@ -22,7 +25,15 @@ const Container = ({data,  windowWidth}) => {
           <Content
             data={data}
             windowWidth={windowWidth}
-          />
+          >
+            <Switch>
+              {
+                data.phones.map(i => (
+                  <Route to=":nameId" component={ProductPage} />
+                ))
+              }
+            </Switch>
+          </Content>
         </div>
       </div>
     </div>

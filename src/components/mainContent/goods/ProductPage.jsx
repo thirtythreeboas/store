@@ -1,7 +1,20 @@
 import React from 'react';
 import '../../../css/stylesheet.scss';
+import { useParams } from 'react-router-dom';
+import data from '../../../data/data.js'
 
-const ProductPage = ({phones}) => {
+const ProductPage = () => {
+
+  let params = useParams();
+
+  const func = () => {
+    let info = data.phones.find(i => params.nameId === i.name);
+    return info;
+  }
+
+  // const func = () => {
+  //   let info = data.phones.find(i => params.nameId === i.name ? console.log('lol') : console.log('aha'))
+  // }
 
   return (
     <div className="detailed-product-page">
@@ -11,7 +24,7 @@ const ProductPage = ({phones}) => {
 
           <div className="sub-img-block">
 
-            <h2>Honor 7A 2/16GB</h2>
+            <h2>func.name</h2>
             <div className="">
               <img src="https://avatars.mds.yandex.net/get-mpic/1361544/img_id2422915895010770552.jpeg/9hq" alt="" className=""/>
             </div>
@@ -24,47 +37,47 @@ const ProductPage = ({phones}) => {
             <div className="specifications">
               <dl>
                 <dt>Экран</dt>
-                <dd>{phones[0].description.display}</dd>
+                <dd>{func.description.display}</dd>
               </dl>
               <dl>
                 <dt>Оперативная память</dt>
-                <dd>{phones[0].description.ram}</dd>
+                <dd>{func.description.ram}</dd>
               </dl>
               <dl>
                 <dt>Память</dt>
-                <dd>{phones[0].description.internalStorage}</dd>
+                <dd>{func.description.internalStorage}</dd>
               </dl>
               <dl>
                 <dt>Камера</dt>
-                <dd>{phones[0].description.primaryCamera}</dd>
+                <dd>{func.description.primaryCamera}</dd>
               </dl>
               <dl>
                 <dt>Аккумулятор</dt>
-                <dd>{phones[0].description.batteryCapacity}</dd>
+                <dd>{func.description.batteryCapacity}</dd>
               </dl>
               <dl>
                 <dt>Процессор</dt>
-                <dd>{phones[0].description.processorType}</dd>
+                <dd>{func.description.processorType}</dd>
               </dl>
               <dl>
                 <dt>SIM-карты</dt>
-                <dd>{phones[0].description.simType}</dd>
+                <dd>{func.description.simType}</dd>
               </dl>
               <dl>
                 <dt>Операционная система</dt>
-                <dd>{phones[0].description.operatingSystem}</dd>
+                <dd>{func.description.operatingSystem}</dd>
               </dl>
               <dl>
                 <dt>Беспроводные интерфейсы</dt>
-                <dd>{phones[0].description.remoteConnection}</dd>
+                <dd>{func.description.remoteConnection}</dd>
               </dl>
               <dl>
                 <dt>Интернет</dt>
-                <dd>{phones[0].description.internet}</dd>
+                <dd>{func.description.internet}</dd>
               </dl>
               <dl>
                 <dt>Вес</dt>
-                <dd>{phones[0].description.weight}</dd>
+                <dd>{func.description.weight}</dd>
               </dl>
           </div>
         </div>
@@ -73,7 +86,7 @@ const ProductPage = ({phones}) => {
           <div className="button-div">
             <button className="add-to-cart-button">
               <div className="add">Добавить в корзину</div>
-              <div className="product-price">{phones[0].price}</div>
+              <div className="product-price">{func.price}</div>
             </button>
           </div>
         </div>

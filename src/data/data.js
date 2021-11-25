@@ -65,43 +65,43 @@ const data = {
       }
     },
     {
-      key: 1,
+      key: 2,
       image: 'https://cdn1.ozone.ru/s3/multimedia-n/wc1200/6019810931.jpg',
       price: '10 490',
       name: 'Huawei Y7 2019 4/64GB'
     },
     {
-      key: 2,
+      key: 3,
       image: 'https://cdn1.ozone.ru/s3/multimedia-f/wc1200/6012395823.jpg',
       price: '10 490',
       name: 'Realme C3 3/64GB'
     },
     {
-      key: 3,
+      key: 4,
       image: 'https://cdn1.ozone.ru/s3/multimedia-1/wc1200/6019317889.jpg',
       price: '8 480',
       name: 'Xiaomi Redmi 9A 2/32GB'
     },
     {
-      key: 4,
+      key: 5,
       image: 'https://cdn1.ozone.ru/s3/multimedia-8/wc1200/6033444620.jpg',
       price: '12 480',
       name: 'Poco M3 4/64GB'
     },
     {
-      key: 5,
+      key: 6,
       image: 'https://cdn1.ozone.ru/s3/multimedia-y/wc1200/6020628034.jpg',
       price: '8 284',
       name: 'Xiaomi Redmi 9C 2/32GB'
     },
     {
-      key: 6,
+      key: 7,
       image: 'https://cdn1.ozone.ru/s3/multimedia-k/wc1200/6027038432.jpg',
       price: '12 119',
       name: 'Vivo Y20 4/64GB'
     },
     {
-      key: 7,
+      key: 8,
       image: 'https://cdn1.ozone.ru/s3/multimedia-s/wc1200/6016959628.jpg',
       price: '15 842',
       name: 'Huawei P30 Lite 4/128GB'
@@ -202,72 +202,84 @@ const data = {
   ],
   devices: [
     {
+      key: 1,
       category: 'mouse',
       image: 'https://images.g2a.com/newlayout/470x470/1x1x0/79dadaacedc7/5f31078e46177c2d481ccdc2',
       price: '5 999',
       name: 'Игровая мышь SteelSeries Sensei Ten'
     },
     {
+      key: 2,
       category: 'mouse',
       image: 'https://cdn1.ozone.ru/s3/multimedia-g/wc1200/6068706412.jpg',
       price: '2 490',
       name: 'Игровая мышь Razer DeathAdder Essential'
     },
     {
+      key: 3,
       category: 'mouse',
       image: 'https://cdn1.ozone.ru/s3/multimedia-9/wc1200/6049982265.jpg',
       price: '279',
       name: 'Игровая мышь Defender Cyber'
     },
     {
+      key: 4,
       category: 'monitor',
       image: 'https://cdn1.ozone.ru/s3/multimedia-b/wc1200/6036183107.jpg',
       price: '10 990',
       name: 'Монитор Xiaomi Mi Monitor 1C'
     },
     {
+      key: 5,
       category: 'monitor',
       image: 'https://cdn1.ozone.ru/s3/multimedia-d/wc1200/6023235421.jpg',
       price: '9 748',
       name: 'Монитор BenQ BL2480'
     },
     {
+      key: 6,
       category: 'monitor',
       image: 'https://cdn1.ozone.ru/s3/multimedia-6/wc1200/6058213302.jpg',
       price: '50 990',
       name: 'Монитор Samsung Odyssey G5 C34G55TWWI'
     },
     {
+      key: 7,
       category: 'keyboard',
       image: 'https://cdn1.ozone.ru/s3/multimedia-k/wc1200/6000073892.jpg',
       price: '3 990',
       name: 'Игровая клавиатура проводная Redragon Hara RU'
     },
     {
+      key: 8,
       category: 'laptop',
       image: 'https://cdn1.ozone.ru/s3/multimedia-8/wc1200/6064489508.jpg',
       price: '23 690',
       name: 'Ноутбук HP Laptop 14s-fq0018ur'
     },
     {
+      key: 9,
       category: 'tablet',
       image: 'https://cdn1.ozone.ru/s3/multimedia-2/wc1200/6069174398.jpg',
       price: '19 980',
       name: 'Планшет Samsung Galaxy Tab A7'
     },
     {
+      key: 10,
       category: 'tablet',
       image: 'https://cdn1.ozone.ru/s3/multimedia-d/wc1200/6032119681.jpg',
       price: '16 980',
       name: 'Планшет Huawei MatePad T 10s'
     },
     {
+      key: 11,
       category: 'headphone',
       image: 'https://nowatermark.ozone.ru/s3/multimedia-d/wc1200/6016914577.jpg',
       price: '6 990',
       name: 'Беспроводные наушники Xiaomi Redmi Airdots'
     },
     {
+      key: 12,
       category: 'headphone',
       image: 'https://cdn1.ozone.ru/s3/multimedia-j/wc1200/6069419611.jpg',
       price: '3 490',

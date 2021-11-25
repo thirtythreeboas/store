@@ -1,27 +1,22 @@
 import React, { useState } from 'react';
 import ProductPage from '../goods/ProductPage';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, Outlet } from 'react-router-dom';
 import '../../../css/stylesheet.scss';
 
 const Product = ({items}) => {
-  console.log('kek');
   return (
-    <Link style={{textDecoration: 'none'}} to="/productpage">
-      <span className="making-margin-right">
+      <div className="making-margin-right">
         <div className="product-card">
             <div className="image">
-              <a href="">
-                <img src={items.image} alt=""/>
-              </a>
+              <img src={items.image} alt=""/>
             </div>
             <div className="info">
               <p>{items.price}</p>
-              <a href="" title={items.name}>{items.name}</a>
+              <span title={items.name}>{items.name}</span>
               <button>В корзину</button>
             </div>
         </div>
-      </span>
-    </Link>
+      </div>
   )
 };
 
@@ -55,12 +50,17 @@ const Content = ({data, windowWidth}) => {
           <div className="products">
                 {
                   data.phones.map((item, i) => (
-                        <Product items={item}
-                          key={item.key + i}
-                        />
+                    <Link
+                      style={{textDecoration: 'none'}}
+                      to={`/${item.name}`}
+                      key={item.key + item.name}
+                    >
+                      <Product
+                        items={item}
+                      />
+                    </Link>
                   ))
                 }
-              <Route path="/productpage" component="ProductPage"/>
           </div>
 
         </div>
@@ -77,7 +77,7 @@ const Content = ({data, windowWidth}) => {
             {
               booksList.map((item, i) => (
                 <Product items={item}
-                  key={item + i}
+                  key={item.key + item.name}
                 />
               ))
             }
@@ -101,7 +101,7 @@ const Content = ({data, windowWidth}) => {
               // ))
               deviceList.map((item, i) => (
                 <Product items={item}
-                  key={item + i}
+                  key={item.key + item.name}
                 />
               ))
             }
@@ -109,7 +109,7 @@ const Content = ({data, windowWidth}) => {
         </div>
 
       </div>
-
+      <Outlet/>
     </div>
   );
 }

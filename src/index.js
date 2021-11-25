@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
     <BrowserRouter>
       <Switch>
-        <Route path="/" element={<App />}>
+        <Route path="/" component={App}>
         </Route>
       </Switch>
     </BrowserRouter>,

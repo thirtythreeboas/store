@@ -11,6 +11,11 @@ ReactDOM.render(
     <BrowserRouter>
       <Switch>
         <Route path="/" component={App}>
+          {
+            data.phones.map(i => (
+              <Route to=":nameId" component={ProductPage} />
+            ))
+          }
         </Route>
       </Switch>
     </BrowserRouter>,

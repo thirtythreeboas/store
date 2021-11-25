@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ProductPage from '../goods/ProductPage';
-import { BrowserRouter as Router, Switch, Route, Link, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import '../../../css/stylesheet.scss';
 
 const Product = ({items}) => {
@@ -109,7 +109,6 @@ const Content = ({data, windowWidth}) => {
         </div>
 
       </div>
-      <Outlet/>
     </div>
   );
 }

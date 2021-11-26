@@ -4,9 +4,12 @@ import '../../css/stylesheet.scss';
 import Slider from './slider/Slider';
 import Card from './Card';
 import Content from './content/Сontent';
+import ProductPage from './goods/ProductPage';
 
 
 const Container = ({data,  windowWidth}) => {
+
+  const containerDisplay = windowWidth >= 768 ? document.querySelector('.main-container').style.display = 'flex' : false;
 
   return (
     <div className="main-container" style={{marginBottom: '50px'}}>
@@ -33,3 +36,12 @@ const Container = ({data,  windowWidth}) => {
 }
 
 export default Container;
+
+
+// <Switch>
+// {
+//   data.phones.map(i => (
+//     <Route exact to=":nameId" component={ProductPage} />
+//   ))
+// }
+// </Switch>

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './css/stylesheet.scss'
 import './App.scss';
-import data from './data/data';
+import { getData } from './data/data';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBarComponent from './components/navigationComp/Navbar';
 import Container from './components/mainContent/Container';
 import FooterContainer from './components/footerComp/FooterContainer';
@@ -17,6 +17,7 @@ const App = () => {
   library.add( fab, faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV );
 
   const scrollDown = useRef();
+  const data = getData();
 
   const [state, setState] = useState(data);
   const [width, setWidth] = useState(0);
@@ -37,7 +38,7 @@ const App = () => {
     setWidth(width);
   };
 
-  const containerDisplay = width >= 768 ? document.querySelector('.main-container').style.display = 'flex' : false;
+  // const containerDisplay = width >= 768 ? document.querySelector('.main-container').style.display = 'flex' : false;
 
   const closeFooter = () => {
     if (width < 768) {
@@ -75,10 +76,9 @@ const App = () => {
           handleFooter={closeFooter}
         />
         <Container
-          data={data}
-          windowWidth={width}
-        >
-        </Container>
+        data={data}
+        windowWidth={width}
+        />
         <FooterContainer
           footer={footer}
           footerMenu={footerMenu}

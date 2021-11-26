@@ -318,4 +318,12 @@ const data = {
   ],
 }
 
-export default data;
+export function getData() {
+  return data;
+};
+
+export function getPhoneData(name) {
+  return data.phones.find(
+    item => item.name === name
+  );
+}

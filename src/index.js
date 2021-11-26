@@ -3,22 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Container from './components/mainContent/Container';
+import Content from "./components/mainContent/content/Сontent";
 import ProductPage from './components/mainContent/goods/ProductPage';
 import data from './data/data';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" component={App}>
-          {
-            data.phones.map(i => (
-              <Route to=":nameId" component={ProductPage} />
-            ))
-          }
-        </Route>
-      </Switch>
-    </BrowserRouter>,
+  <BrowserRouter>
+    <Route path="/" exact component={App} />
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

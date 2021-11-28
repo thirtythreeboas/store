@@ -10,7 +10,7 @@ import NavBarComponent from './components/navigationComp/Navbar';
 import Container from './components/mainContent/Container';
 import FooterContainer from './components/footerComp/FooterContainer';
 import Footer from './components/footerComp/Footer';
-import ProductPage from './components/mainContent/goods/ProductPage';
+import PhoneInDetail from './components/mainContent/goods/PhoneInDetail';
 
 const App = () => {
 
@@ -37,8 +37,6 @@ const App = () => {
     const width = window.innerWidth;
     setWidth(width);
   };
-
-  // const containerDisplay = width >= 768 ? document.querySelector('.main-container').style.display = 'flex' : false;
 
   const closeFooter = () => {
     if (width < 768) {
@@ -70,19 +68,19 @@ const App = () => {
     display: `${width > 767 ? 'none' : 'flex'}`
   }
 
+  // const str = (prop) => {
+  //   prop.replace(/\s/g, '').toUpperString();
+  // }
+
   return (
+    <BrowserRouter>
       <div className="page">
         <NavBarComponent
           handleFooter={closeFooter}
         />
         <Routes>
-          <Route path="/" element={
-            <Container
-              data={data}
-              windowWidth={width}/>
-          }>
-            <Route path="/:nameId" element={<ProductPage />} />
-          </Route>
+          <Route path="/" element={<Container/>}/>
+          <Route path="/:nameId" element={<PhoneInDetail />} />
         </Routes>
         <FooterContainer
           footer={footer}
@@ -92,6 +90,7 @@ const App = () => {
           closeFooter={closeFooter}
         />
       </div>
+    </BrowserRouter>
   );
 }
 

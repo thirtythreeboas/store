@@ -49,62 +49,180 @@ const data = {
       image: 'https://avatars.mds.yandex.net/get-mpic/1361544/img_id2422915895010770552.jpeg/9hq',
       price: '7 490',
       name: 'Honor 7A 2/16GB',
+      display: '5.7 inches, 83.8 cm2, 720 x 1440 pixels',
       description: {
-        display: '5.45" (1440×720) 60 Гц',
         ram: '2 GB',
-        internalStorage: '16 ГБ',
+        internalStorage: '16 GB',
         supportedMemoryCard: 'microSD',
-        primaryCamera: '13 МП Rear Camera',
+        primaryCamera: '13 MP Rear Camera',
         batteryCapacity: '3020 mAh',
-        processorType: 'Mediatek MT6739 Cortex A53',
+        processorType: 'Qualcomm MSM8937 Snapdragon 430 (28 nm)',
         simType: '2 (nano Sim)',
-        operatingSystem: 'Android 8.1',
-        remoteConnection: 'Wi-Fi Bluetooth 4.2',
-        internet: '4G LTE',
-        weight: '150 г'
+        operatingSystem: 'Android 8.0 (Oreo), EMUI 8',
+        remoteConnection: 'Wi-Fi, Bluetooth 4.2',
+        internet: '4G/LTE',
+        weight: '150 g'
       }
     },
     {
       key: 2,
       image: 'https://cdn1.ozone.ru/s3/multimedia-n/wc1200/6019810931.jpg',
       price: '10 490',
-      name: 'Huawei Y7 2019 4/64GB'
+      name: 'Huawei Y7 2019 4/64GB',
+      display: '6.26 inches, 720 x 1520 pixels',
+      description: {
+        ram: '4 GB',
+        internalStorage: '64 GB',
+        supportedMemoryCard: 'microSD',
+        primaryCamera: '13 MP',
+        batteryCapacity: '4000 mAh',
+        processorType: 'Qualcomm SDM450 Snapdragon 450 (14 nm)',
+        simType: '2 (nano Sim)',
+        operatingSystem: 'Android 8.1 (Oreo), EMUI 8.2',
+        remoteConnection: 'Wi-Fi, Bluetooth 4.2',
+        internet: '4G/LTE',
+        weight: '168 g'
+      }
     },
     {
       key: 3,
       image: 'https://cdn1.ozone.ru/s3/multimedia-f/wc1200/6012395823.jpg',
       price: '10 490',
-      name: 'Realme C3 3/64GB'
+      name: 'Realme C3 3/64GB',
+      display: '6.5 inches, 720 x 1600 pixels',
+      description: {
+        ram: '3 GB',
+        internalStorage: '64 GB',
+        supportedMemoryCard: 'microSD',
+        primaryCamera: '12 MP',
+        batteryCapacity: '5000 mAh',
+        processorType: 'Mediatek Helio G70 (12 nm)',
+        simType: '2 (nano Sim)',
+        operatingSystem: 'Android 10, Realme UI',
+        remoteConnection: 'Wi-Fi, Bluetooth 5.0',
+        internet: '4G/LTE',
+        weight: '195 g'
+      }
     },
     {
       key: 4,
       image: 'https://cdn1.ozone.ru/s3/multimedia-1/wc1200/6019317889.jpg',
       price: '8 480',
-      name: 'Xiaomi Redmi 9A 2/32GB'
+      name: 'Xiaomi Redmi 9A 2/32GB',
+      display: '6.53 inches, 720 x 1600 pixels',
+      description: {
+        ram: '2 GB',
+        internalStorage: '32 GB',
+        supportedMemoryCard: 'microSD',
+        primaryCamera: '13 MP',
+        batteryCapacity: '5000 mAh',
+        processorType: 'MediaTek MT6762G Helio G25 (12 nm)',
+        simType: '2 (nano Sim)',
+        operatingSystem: 'Android 10, MIUI 12',
+        remoteConnection: 'Wi-Fi, Bluetooth 5.0',
+        internet: '4G/LTE',
+        weight: '196 g'
+      }
     },
     {
       key: 5,
       image: 'https://cdn1.ozone.ru/s3/multimedia-8/wc1200/6033444620.jpg',
       price: '12 480',
-      name: 'Poco M3 4/64GB'
+      name: 'Xiaomi Poco M3 4/64GB',
+      display: '6.53 inches, 1080 x 2340 pixels',
+      description: {
+        ram: '4 GB',
+        internalStorage: '64 GB',
+        supportedMemoryCard: 'microSD',
+        primaryCamera: '48 MP',
+        batteryCapacity: '6000 mAh',
+        processorType: 'Qualcomm SM6115 Snapdragon 662 (11 nm)',
+        simType: '2 (nano Sim)',
+        operatingSystem: 'Android 10, MIUI 12',
+        remoteConnection: 'Wi-Fi, Bluetooth 5.0',
+        internet: '4G/LTE',
+        weight: '198 g'
+      }
     },
     {
       key: 6,
       image: 'https://cdn1.ozone.ru/s3/multimedia-y/wc1200/6020628034.jpg',
       price: '8 284',
-      name: 'Xiaomi Redmi 9C 2/32GB'
+      name: 'Xiaomi Redmi 9C 2/32GB',
+      display: '6.53 inches, 720 x 1600 pixels',
+      description: {
+        ram: '2 GB',
+        internalStorage: '32 GB',
+        supportedMemoryCard: 'microSD',
+        primaryCamera: '13 MP',
+        batteryCapacity: '5000 mAh',
+        processorType: 'MediaTek MT6765G Helio G35 (12 nm)',
+        simType: '2 (nano Sim)',
+        operatingSystem: 'Android 10, MIUI 12',
+        remoteConnection: 'Wi-Fi, Bluetooth 5.0',
+        internet: '4G/LTE',
+        weight: '196 g'
+      }
     },
     {
       key: 7,
       image: 'https://cdn1.ozone.ru/s3/multimedia-k/wc1200/6027038432.jpg',
       price: '12 119',
-      name: 'Vivo Y20 4/64GB'
+      name: 'Vivo Y20 4/64GB',
+      display: '6.51 inches, 720 x 1600 pixels',
+      description: {
+        ram: '4 GB',
+        internalStorage: '64 GB',
+        supportedMemoryCard: 'microSD',
+        primaryCamera: '13 MP',
+        batteryCapacity: '5000 mAh',
+        processorType: 'Qualcomm SM4250 Snapdragon 460 (11 nm)',
+        simType: '2 (nano Sim)',
+        operatingSystem: 'Android 10, Funtouch 10.5',
+        remoteConnection: 'Wi-Fi, Bluetooth 4.2',
+        internet: '4G/LTE',
+        weight: '192.3 g'
+      }
     },
     {
       key: 8,
       image: 'https://cdn1.ozone.ru/s3/multimedia-s/wc1200/6016959628.jpg',
       price: '15 842',
-      name: 'Huawei P30 Lite 4/128GB'
+      name: 'Huawei P30 Lite 4/128GB',
+      display: '6.15 inches, 1080 x 2312 pixels',
+      description: {
+        ram: '4 GB',
+        internalStorage: '128 GB',
+        supportedMemoryCard: 'microSD',
+        primaryCamera: '48 MP',
+        batteryCapacity: '3340 mAh',
+        processorType: 'Kirin 710 (12 nm)',
+        simType: '2 (nano Sim)',
+        operatingSystem: 'Android 9.0 (Pie)',
+        remoteConnection: 'Wi-Fi, Bluetooth 4.2',
+        internet: '4G/LTE',
+        weight: '159 g'
+      }
+    },
+    {
+      key: 9,
+      image: 'https://images.macrumors.com/article-new/2020/10/iphone12prodesignback.jpg',
+      price: '92 990',
+      name: 'Apple iPhone 12 Pro Max 512GB',
+      display: '6.7 inches, 1284 x 2778 pixels',
+      description: {
+        ram: '6 GB',
+        internalStorage: '512 GB',
+        supportedMemoryCard: 'No',
+        primaryCamera: '12 MP',
+        batteryCapacity: '3687 mAh',
+        processorType: 'Apple A14 Bionic (5 nm)',
+        simType: '1 (nano Sim)',
+        operatingSystem: 'iOS 14.1, upgradable to iOS 15.1',
+        remoteConnection: 'Wi-Fi, Bluetooth 5.0',
+        internet: '5G/LTE',
+        weight: '228 g'
+      }
     }
   ],
   books: [
@@ -324,6 +442,7 @@ export function getData() {
 
 export function getPhoneData(name) {
   return data.phones.find(
-    item => item.name === name
+    item => item.key === name
+    // item => item.name.replace(/\s/g, '').toLowerCase() === name
   );
 }

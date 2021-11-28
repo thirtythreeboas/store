@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import '../../css/stylesheet.scss'
 import Footer from './Footer';
 
@@ -9,6 +9,7 @@ const FooterContainer = ({
   footer,
   myRef
 }) => {
+
   return (
     <div
       style={footerMenu}

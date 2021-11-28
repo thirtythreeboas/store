@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ProductPage from '../goods/ProductPage';
 import { Link, Outlet } from 'react-router-dom';
 import '../../../css/stylesheet.scss';
 
@@ -55,7 +54,7 @@ const Content = ({data, windowWidth}) => {
                   data.phones.map((item, i) => (
                     <Link
                       style={{textDecoration: 'none'}}
-                      to={`/${item.name}`}
+                      to={`/${item.key}`}
                       key={item.key + item.name}
                     >
                       <Product

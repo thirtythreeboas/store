@@ -10,7 +10,7 @@ const ProductPage = () => {
   return (
     <div className="detailed-product-page">
       <div className="inner-block">
-      {params.nameId}
+        {params.nameId}
       </div>
     </div>
   )

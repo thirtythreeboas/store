@@ -5,7 +5,7 @@ import { getData } from './data/data';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBarComponent from './components/navigationComp/Navbar';
 import Container from './components/mainContent/Container';
 import FooterContainer from './components/footerComp/FooterContainer';
@@ -75,10 +75,15 @@ const App = () => {
         <NavBarComponent
           handleFooter={closeFooter}
         />
-        <Container
-        data={data}
-        windowWidth={width}
-        />
+        <Routes>
+          <Route path="/" element={
+            <Container
+              data={data}
+              windowWidth={width}/>
+          }>
+            <Route path="/:nameId" element={<ProductPage />} />
+          </Route>
+        </Routes>
         <FooterContainer
           footer={footer}
           footerMenu={footerMenu}

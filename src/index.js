@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Container from './components/mainContent/Container';
 import Content from "./components/mainContent/content/Сontent";
 import ProductPage from './components/mainContent/goods/ProductPage';
@@ -11,7 +11,9 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Route path="/" exact component={App} />
+    <Routes>
+      <Route path="/*" element={<App />} />
+    </Routes>
   </BrowserRouter>,
   document.getElementById('root')
 );

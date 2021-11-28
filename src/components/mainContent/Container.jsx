@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
 import '../../css/stylesheet.scss';
 import Slider from './slider/Slider';
 import Card from './Card';
@@ -27,8 +26,7 @@ const Container = ({data,  windowWidth}) => {
           <Content
             data={data}
             windowWidth={windowWidth}
-          >
-          </Content>
+          />
         </div>
       </div>
     </div>
@@ -36,12 +34,3 @@ const Container = ({data,  windowWidth}) => {
 }
 
 export default Container;
-
-
-// <Switch>
-// {
-//   data.phones.map(i => (
-//     <Route exact to=":nameId" component={ProductPage} />
-//   ))
-// }
-// </Switch>

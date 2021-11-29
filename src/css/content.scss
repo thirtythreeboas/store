@@ -42,14 +42,13 @@
   // }
 }
 
-.iphone-info-card {
+.iphone-ad {
   width: 400px;
   margin: 0 1em;
-  a {
+  div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none;
     color: #000;
     p {
       font-size: 1.11em;
@@ -83,16 +82,13 @@
   display: flex;
   justify-content: center;
   margin-bottom: 5px;
-  // a {
-  //   display: block;
-      img {
-        display: block;
-        width: 120px;
-        height: 120px;
-        background-repeat: no-repeat;
-        object-fit: contain;
-      }
-  // }
+  img {
+    display: block;
+    width: 120px;
+    height: 120px;
+    background-repeat: no-repeat;
+    object-fit: contain;
+  }
 }
 
 .info {
@@ -124,28 +120,45 @@
       color: blue;
     }
   }
+  // button {
+  //   width: 120px;
+  //   margin-top: 5px;
+  //   // margin-bottom: 30px;
+  //   font-weight: 600;
+  //   font-size: .9em;
+  //   display: block;
+  //   height: 45px;
+  //   cursor: pointer;
+  //   border: none;
+  //   border-radius: 5px;
+  //   color: #fff;
+  //   background-color: #3366ff;
+  //   &:hover {
+  //     background-color: #6a88e2;
+  //   }
+  // }
+}
 
-  button {
-    width: 120px;
-    margin-top: 5px;
-    // margin-bottom: 30px;
-    font-weight: 600;
-    font-size: .9em;
-    display: block;
-    height: 45px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    background-color: #3366ff;
-    &:hover {
-      background-color: #6a88e2;
-    }
+.to-cart {
+  width: 120px;
+  margin-top: 5px;
+  // margin-bottom: 30px;
+  font-weight: 600;
+  font-size: .9em;
+  display: block;
+  height: 45px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #3366ff;
+  &:hover {
+    background-color: #6a88e2;
   }
 }
 
 @media (max-width: 1050px) {
-  .iphone-info-card {
+  .iphone-ad {
     display: none;
   }
   .products {
@@ -179,9 +192,8 @@
       font-size: 1.1em;
       height: auto;
     }
-
-    button {
-      width: 140px;
-    }
+  }
+  .to-cart {
+    width: 140px;
   }
 }

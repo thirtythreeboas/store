@@ -49,6 +49,7 @@ const data = {
       image: 'https://avatars.mds.yandex.net/get-mpic/1361544/img_id2422915895010770552.jpeg/9hq',
       price: '7 490',
       name: 'Honor 7A 2/16GB',
+      inStock: 'In Stock',
       description: {
         display: '5.7 inches, 83.8 cm2, 720 x 1440 pixels',
         ram: '2 GB',
@@ -69,6 +70,7 @@ const data = {
       image: 'https://cdn1.ozone.ru/s3/multimedia-n/wc1200/6019810931.jpg',
       price: '10 490',
       name: 'Huawei Y7 2019 4/64GB',
+      inStock: 'In Stock',
       description: {
         display: '6.26 inches, 720 x 1520 pixels',
         ram: '4 GB',
@@ -89,6 +91,7 @@ const data = {
       image: 'https://cdn1.ozone.ru/s3/multimedia-f/wc1200/6012395823.jpg',
       price: '10 490',
       name: 'Realme C3 3/64GB',
+      inStock: 'In Stock',
       description: {
         display: '6.5 inches, 720 x 1600 pixels',
         ram: '3 GB',
@@ -109,6 +112,7 @@ const data = {
       image: 'https://cdn1.ozone.ru/s3/multimedia-1/wc1200/6019317889.jpg',
       price: '8 480',
       name: 'Xiaomi Redmi 9A 2/32GB',
+      inStock: 'In Stock',
       description: {
         display: '6.53 inches, 720 x 1600 pixels',
         ram: '2 GB',
@@ -129,6 +133,7 @@ const data = {
       image: 'https://cdn1.ozone.ru/s3/multimedia-8/wc1200/6033444620.jpg',
       price: '12 480',
       name: 'Xiaomi Poco M3 4/64GB',
+      inStock: 'In Stock',
       description: {
         display: '6.53 inches, 1080 x 2340 pixels',
         ram: '4 GB',
@@ -149,6 +154,7 @@ const data = {
       image: 'https://cdn1.ozone.ru/s3/multimedia-y/wc1200/6020628034.jpg',
       price: '8 284',
       name: 'Xiaomi Redmi 9C 2/32GB',
+      inStock: 'In Stock',
       description: {
         display: '6.53 inches, 720 x 1600 pixels',
         ram: '2 GB',
@@ -169,6 +175,7 @@ const data = {
       image: 'https://cdn1.ozone.ru/s3/multimedia-k/wc1200/6027038432.jpg',
       price: '12 119',
       name: 'Vivo Y20 4/64GB',
+      inStock: 'In Stock',
       description: {
         display: '6.51 inches, 720 x 1600 pixels',
         ram: '4 GB',
@@ -189,6 +196,7 @@ const data = {
       image: 'https://cdn1.ozone.ru/s3/multimedia-s/wc1200/6016959628.jpg',
       price: '15 842',
       name: 'Huawei P30 Lite 4/128GB',
+      inStock: 'In Stock',
       description: {
         display: '6.15 inches, 1080 x 2312 pixels',
         ram: '4 GB',
@@ -209,6 +217,7 @@ const data = {
       image: 'https://images.macrumors.com/article-new/2020/10/iphone12prodesignback.jpg',
       price: '92 990',
       name: 'Apple iPhone 12 Pro Max 512GB',
+      inStock: 'In Stock',
       description: {
         display: '6.7 inches, 1284 x 2778 pixels',
         ram: '6 GB',
@@ -440,9 +449,9 @@ export function getData() {
   return data;
 };
 
-export function getPhoneData(name) {
+export function getPhoneData(val) {
   return data.phones.find(
-    // item => item.key === name
-    item => item.name === name
+    // replace method removes forward slashes in name prop to match url
+    item => item.name.replace(/\//g, '') === val
   );
 }

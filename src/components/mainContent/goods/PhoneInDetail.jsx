@@ -6,8 +6,8 @@ import { getPhoneData } from '../../../data/data';
 export default function PhoneInDetail() {
 
   const params = useParams();
-  console.log(params.name.replace('%', ' '))
-  const data = getPhoneData(params.name.replace('%', ' '));
+  const data = getPhoneData(String(params.nameId));
+
 
   return (
     <div className="detailed-product-page">
@@ -78,14 +78,24 @@ export default function PhoneInDetail() {
 
         <div className="logic-block">
           <div className="button-div">
+            <p className="item-price">{data.price}</p>
+            <p className="item-in-stock">{data.inStock}</p>
             <button className="add-to-cart-button">
               <div className="add">Добавить в корзину</div>
-              <div className="product-price">{data.price}</div>
             </button>
           </div>
+
         </div>
 
       </div>
     </div>
   )
 };
+
+
+// <div className="button-div">
+//   <button className="add-to-cart-button">
+//     <div className="add">Добавить в корзину</div>
+//     <div className="product-price">{data.price}</div>
+//   </button>
+// </div>

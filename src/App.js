@@ -12,6 +12,7 @@ import FooterContainer from './components/footerComp/FooterContainer';
 import Footer from './components/footerComp/Footer';
 import PhoneInDetail from './components/mainContent/goods/PhoneInDetail';
 
+
 const App = () => {
 
   library.add( fab, faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV );
@@ -67,10 +68,6 @@ const App = () => {
   const footerHeader = {
     display: `${width > 767 ? 'none' : 'flex'}`
   }
-
-  // const str = (prop) => {
-  //   prop.replace(/\s/g, '').toUpperString();
-  // }
 
   return (
     <BrowserRouter>

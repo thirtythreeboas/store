@@ -7,7 +7,8 @@ const Product = ({items}) => {
       <div className="making-margin-right">
         <div className="product-card">
             <Link
-              to={`/${items.name}`}
+              // here we remove forward slashes in items.name to avoid some issues related to routing
+              to={`/${items.name.replace(/\//g, '')}`}
               style={{textDecoration: 'none'}}
               >
               <div className="image">

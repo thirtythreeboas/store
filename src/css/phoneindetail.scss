@@ -106,13 +106,14 @@
   }
 
   .inner-block {
-    width: 768px;
+    max-width: 1050px;
     flex-direction: row;
+    align-items: baseline;
     // flex-wrap: wrap;
   }
 
   .image-block {
-    width: 50%;
+    // width: 50%;
   }
 
   .sub-img-block {
@@ -121,19 +122,24 @@
     }
   }
   .description-block {
-    font-size: 0.8rem;
-    width: 50%;
+    // font-size: 0.8rem;
+    // width: 50%;
     .specifications {
       margin: 0;
       padding: 0;
     }
   }
   .logic-block {
-    position: relative;
-    top: 0;
-    
+    width: 60%;
     .button-div {
       position: static;
+      flex-direction: column;
+      background-color: #fff;
+      border: none;
+      .add-to-cart-button {
+        width: auto;
+        margin: 0;
+      }
     }
   }
 }

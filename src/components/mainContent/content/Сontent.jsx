@@ -7,7 +7,7 @@ const Product = ({items}) => {
       <div className="making-margin-right">
         <div className="product-card">
             <Link
-              to={`/${items.key}`}
+              to={`/${items.name}`}
               style={{textDecoration: 'none'}}
               >
               <div className="image">

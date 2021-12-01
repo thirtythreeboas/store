@@ -6,7 +6,8 @@ import { getPhoneData } from '../../../data/data';
 export default function PhoneInDetail() {
 
   const params = useParams();
-  const data = getPhoneData(parseInt(params.nameId, 10));
+  console.log(params.name.replace('%', ' '))
+  const data = getPhoneData(params.name.replace('%', ' '));
 
   return (
     <div className="detailed-product-page">

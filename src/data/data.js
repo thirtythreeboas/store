@@ -442,7 +442,7 @@ export function getData() {
 
 export function getPhoneData(name) {
   return data.phones.find(
-    item => item.key === name
-    // item => item.name.replace(/\s/g, '').toLowerCase() === name
+    // item => item.key === name
+    item => item.name === name
   );
 }

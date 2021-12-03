@@ -48,7 +48,7 @@ const Content = ({data, windowWidth}) => {
           <div className="iphone-ad">
             <Link
               style={{textDecoration: 'none'}}
-              to={`/${data.phones[8].key}`}
+              to={`/${data.phones[8].name.replace(/\//g, '')}`}
             >
               <div>
                 <img src="https://i.citrus.ua/imgcache/size_800/uploads/shop/7/5/75cf577bd735788ace8078f7ec4d568d.jpg" alt=""/>

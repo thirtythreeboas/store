@@ -77,7 +77,7 @@ const App = () => {
         />
         <Routes>
           <Route path="/" element={<Container/>}/>
-          <Route path="/:nameId" element={<PhoneInDetail />} />
+          <Route path="/:nameId" element={<PhoneInDetail width={width} />} />
         </Routes>
         <FooterContainer
           footer={footer}

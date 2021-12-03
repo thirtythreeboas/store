@@ -46,7 +46,14 @@ const data = {
   phones: [
     {
       key: 1,
-      image: 'https://avatars.mds.yandex.net/get-mpic/1361544/img_id2422915895010770552.jpeg/9hq',
+      // image: 'https://avatars.mds.yandex.net/get-mpic/1361544/img_id2422915895010770552.jpeg/9hq',
+      image: 'https://avatars.mds.yandex.net/get-mpic/5246132/img_id5055934228263144482.jpeg/13hq',
+      images: {
+        first: 'https://avatars.mds.yandex.net/get-mpic/5246132/img_id5055934228263144482.jpeg/13hq',
+        second: 'https://avatars.mds.yandex.net/get-mpic/4370207/img_id6218328203311287197.jpeg/13hq',
+        third: 'https://avatars.mds.yandex.net/get-mpic/4291905/img_id2671307606923569889.jpeg/13hq',
+        forth: 'https://avatars.mds.yandex.net/get-mpic/4606255/img_id7021684290459460151.jpeg/13hq'
+      },
       price: '7 490',
       name: 'Honor 7A 2/16GB',
       inStock: 'In Stock',
@@ -67,7 +74,13 @@ const data = {
     },
     {
       key: 2,
-      image: 'https://cdn1.ozone.ru/s3/multimedia-n/wc1200/6019810931.jpg',
+      image: 'https://avatars.mds.yandex.net/get-mpic/4785755/img_id7840847594304444858.jpeg/13hq',
+      images: {
+        first: 'https://avatars.mds.yandex.net/get-mpic/4785755/img_id7840847594304444858.jpeg/13hq',
+        second: 'https://avatars.mds.yandex.net/get-mpic/4489193/img_id235919582977060552.jpeg/13hq',
+        third: 'https://avatars.mds.yandex.net/get-mpic/4700988/img_id6502998691750910167.jpeg/13hq',
+        forth: 'https://avatars.mds.yandex.net/get-mpic/4615588/img_id7532790175348256257.jpeg/13hq'
+      },
       price: '10 490',
       name: 'Huawei Y7 2019 4/64GB',
       inStock: 'In Stock',
@@ -88,7 +101,13 @@ const data = {
     },
     {
       key: 3,
-      image: 'https://cdn1.ozone.ru/s3/multimedia-f/wc1200/6012395823.jpg',
+      image: 'https://avatars.mds.yandex.net/get-mpic/4493022/img_id5874325384365794757.png/13hq',
+      images: {
+        first: 'https://avatars.mds.yandex.net/get-mpic/4493022/img_id5874325384365794757.png/13hq',
+        second: 'https://avatars.mds.yandex.net/get-mpic/4076910/img_id1641836721899860894.jpeg/13hq',
+        third: 'https://avatars.mds.yandex.net/get-mpic/4397006/img_id576522302334740959.png/13hq',
+        forth: 'https://avatars.mds.yandex.net/get-mpic/4409630/img_id2510567404020018007.jpeg/13hq'
+      },
       price: '10 490',
       name: 'Realme C3 3/64GB',
       inStock: 'In Stock',
@@ -109,7 +128,13 @@ const data = {
     },
     {
       key: 4,
-      image: 'https://cdn1.ozone.ru/s3/multimedia-1/wc1200/6019317889.jpg',
+      image: 'https://avatars.mds.yandex.net/get-mpic/4397559/img_id869388942241193601.jpeg/orig',
+      images: {
+        first: 'https://avatars.mds.yandex.net/get-mpic/4397559/img_id869388942241193601.jpeg/orig',
+        second: 'https://avatars.mds.yandex.net/get-mpic/4120567/img_id7434448904958153352.jpeg/orig',
+        third: 'https://avatars.mds.yandex.net/get-mpic/4944925/img_id5802912692559965472.jpeg/orig',
+        forth: 'https://avatars.mds.yandex.net/get-mpic/4944925/img_id5802912692559965472.jpeg/orig'
+      },
       price: '8 480',
       name: 'Xiaomi Redmi 9A 2/32GB',
       inStock: 'In Stock',
@@ -130,7 +155,13 @@ const data = {
     },
     {
       key: 5,
-      image: 'https://cdn1.ozone.ru/s3/multimedia-8/wc1200/6033444620.jpg',
+      image: 'https://avatars.mds.yandex.net/get-mpic/4407413/img_id270084422741371706.png/13hq',
+      images: {
+        first: 'https://avatars.mds.yandex.net/get-mpic/4407413/img_id270084422741371706.png/13hq',
+        second: 'https://avatars.mds.yandex.net/get-mpic/4420180/img_id5832128456418388588.jpeg/13hq',
+        third: 'https://avatars.mds.yandex.net/get-mpic/4119563/img_id8234333242767334817.jpeg/13hq',
+        forth: 'https://avatars.mds.yandex.net/get-mpic/4493022/img_id6430725015181423757.jpeg/13hq'
+      },
       price: '12 480',
       name: 'Xiaomi Poco M3 4/64GB',
       inStock: 'In Stock',
@@ -151,7 +182,13 @@ const data = {
     },
     {
       key: 6,
-      image: 'https://cdn1.ozone.ru/s3/multimedia-y/wc1200/6020628034.jpg',
+      image: 'https://avatars.mds.yandex.net/get-mpic/5281967/img_id7870132339916138617.jpeg/orig',
+      images: {
+        first: 'https://avatars.mds.yandex.net/get-mpic/5281967/img_id7870132339916138617.jpeg/orig',
+        second: 'https://avatars.mds.yandex.net/get-mpic/4397502/img_id2500405534715930773.png/orig',
+        third: 'https://avatars.mds.yandex.net/get-mpic/1859594/img_id2307299940401585082.png/orig',
+        forth: 'https://avatars.mds.yandex.net/get-mpic/4080967/img_id273108397724627722.png/orig'
+      },
       price: '8 284',
       name: 'Xiaomi Redmi 9C 2/32GB',
       inStock: 'In Stock',
@@ -172,7 +209,13 @@ const data = {
     },
     {
       key: 7,
-      image: 'https://cdn1.ozone.ru/s3/multimedia-k/wc1200/6027038432.jpg',
+      image: 'https://avatars.mds.yandex.net/get-mpic/4076910/img_id7755812174927744139.jpeg/orig',
+      images: {
+        first: 'https://avatars.mds.yandex.net/get-mpic/4076910/img_id7755812174927744139.jpeg/orig',
+        second: 'https://avatars.mds.yandex.net/get-mpic/3609127/img_id6403454602126498588.jpeg/orig',
+        third: 'https://avatars.mds.yandex.net/get-mpic/4397502/img_id3643040488935184559.jpeg/orig',
+        forth: 'https://avatars.mds.yandex.net/get-mpic/4415357/img_id5810286551325434740.jpeg/orig'
+      },
       price: '12 119',
       name: 'Vivo Y20 4/64GB',
       inStock: 'In Stock',
@@ -193,7 +236,13 @@ const data = {
     },
     {
       key: 8,
-      image: 'https://cdn1.ozone.ru/s3/multimedia-s/wc1200/6016959628.jpg',
+      image: 'https://avatars.mds.yandex.net/get-mpic/5312584/img_id2535131744047928162.jpeg/orig',
+      images: {
+        first: 'https://avatars.mds.yandex.net/get-mpic/5312584/img_id2535131744047928162.jpeg/orig',
+        second: 'https://avatars.mds.yandex.net/get-mpic/5221807/img_id2437883094883809942.jpeg/orig',
+        third: 'https://avatars.mds.yandex.net/get-mpic/5387588/img_id656414712097947860.jpeg/orig',
+        forth: 'https://avatars.mds.yandex.net/get-mpic/4012096/img_id563900318856702947.jpeg/orig'
+      },
       price: '15 842',
       name: 'Huawei P30 Lite 4/128GB',
       inStock: 'In Stock',
@@ -214,7 +263,13 @@ const data = {
     },
     {
       key: 9,
-      image: 'https://images.macrumors.com/article-new/2020/10/iphone12prodesignback.jpg',
+      image: 'https://avatars.mds.yandex.net/get-mpic/5256693/img_id6696909390469808896.png/orig',
+      images: {
+        first: 'https://avatars.mds.yandex.net/get-mpic/5256693/img_id6696909390469808896.png/orig',
+        second: 'https://avatars.mds.yandex.net/get-mpic/5213758/img_id7608204717909578881.jpeg/orig',
+        third: 'https://avatars.mds.yandex.net/get-mpic/1614201/img_id3641926334335410083.jpeg/orig',
+        forth: 'https://avatars.mds.yandex.net/get-mpic/1704691/img_id9110368706403367547.jpeg/orig'
+      },
       price: '92 990',
       name: 'Apple iPhone 12 Pro Max 512GB',
       inStock: 'In Stock',

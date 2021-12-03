@@ -27,50 +27,50 @@ export default function PhoneInDetail() {
         </div>
 
         <div className="description-block">
-          <h2>Коротко о товаре</h2>
+          <h2>Product information</h2>
             <div className="specifications">
               <dl>
-                <dt>Экран</dt>
+                <dt>Screen Size</dt>
                 <dd>{data.description.display}</dd>
               </dl>
               <dl>
-                <dt>Оперативная память</dt>
+                <dt>RAM</dt>
                 <dd>{data.description.ram}</dd>
               </dl>
               <dl>
-                <dt>Память</dt>
+                <dt>Internal Storage</dt>
                 <dd>{data.description.internalStorage}</dd>
               </dl>
               <dl>
-                <dt>Камера</dt>
+                <dt>Main Camera</dt>
                 <dd>{data.description.primaryCamera}</dd>
               </dl>
               <dl>
-                <dt>Аккумулятор</dt>
+                <dt>Battery</dt>
                 <dd>{data.description.batteryCapacity}</dd>
               </dl>
               <dl>
-                <dt>Процессор</dt>
+                <dt>Chipset</dt>
                 <dd>{data.description.processorType}</dd>
               </dl>
               <dl>
-                <dt>SIM-карты</dt>
+                <dt>SIM</dt>
                 <dd>{data.description.simType}</dd>
               </dl>
               <dl>
-                <dt>Операционная система</dt>
+                <dt>Operating System</dt>
                 <dd>{data.description.operatingSystem}</dd>
               </dl>
               <dl>
-                <dt>Беспроводные интерфейсы</dt>
+                <dt>Remote Connection</dt>
                 <dd>{data.description.remoteConnection}</dd>
               </dl>
               <dl>
-                <dt>Интернет</dt>
+                <dt>Internet</dt>
                 <dd>{data.description.internet}</dd>
               </dl>
               <dl>
-                <dt>Вес</dt>
+                <dt>Weight</dt>
                 <dd>{data.description.weight}</dd>
               </dl>
           </div>
@@ -78,11 +78,10 @@ export default function PhoneInDetail() {
 
         <div className="logic-block">
           <div className="button-div">
-            <p className="item-price">{data.price}</p>
+            <p className="item-price">Price: {data.price}</p>
             <p className="item-in-stock">{data.inStock}</p>
-            <button className="add-to-cart-button">
-              <div className="add">Добавить в корзину</div>
-            </button>
+            <button className="add-to-cart-button">Add to Cart</button>
+            <button className="add-to-list">Add to list</button>
           </div>
 
         </div>

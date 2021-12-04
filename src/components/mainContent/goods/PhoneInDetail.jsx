@@ -58,64 +58,65 @@ export default function PhoneInDetail({ width }) {
           }
 
           <div className="sub-img-block">
-
             {width < 768 ? <h2>{data.name}</h2> : null}
             <div className="image-container">
               <img id="main-img" src={data.image} alt={data.name}/>
             </div>
-
           </div>
+
+          <div className="description-block">
+            <h2>Product information</h2>
+              <div className="specifications">
+                <dl>
+                  <dt><span>Screen Size</span></dt>
+                  <dd>{data.description.display}</dd>
+                </dl>
+                <dl>
+                  <dt><span>RAM</span></dt>
+                  <dd>{data.description.ram}</dd>
+                </dl>
+                <dl>
+                  <dt><span>Internal Storage</span></dt>
+                  <dd>{data.description.internalStorage}</dd>
+                </dl>
+                <dl>
+                  <dt><span>Main Camera</span></dt>
+                  <dd>{data.description.primaryCamera}</dd>
+                </dl>
+                <dl>
+                  <dt><span>Battery</span></dt>
+                  <dd>{data.description.batteryCapacity}</dd>
+                </dl>
+                <dl>
+                  <dt><span>Chipset</span></dt>
+                  <dd>{data.description.processorType}</dd>
+                </dl>
+                <dl>
+                  <dt><span>SIM</span></dt>
+                  <dd>{data.description.simType}</dd>
+                </dl>
+                <dl>
+                  <dt><span>Operating System</span></dt>
+                  <dd>{data.description.operatingSystem}</dd>
+                </dl>
+                <dl>
+                  <dt><span>Remote Connection</span></dt>
+                  <dd>{data.description.remoteConnection}</dd>
+                </dl>
+                <dl>
+                  <dt><span>Internet</span></dt>
+                  <dd>{data.description.internet}</dd>
+                </dl>
+                <dl>
+                  <dt><span>Weight</span></dt>
+                  <dd>{data.description.weight}</dd>
+                </dl>
+            </div>
+          </div>
+
         </div>
 
-        <div className="description-block">
-          <h2>Product information</h2>
-            <div className="specifications">
-              <dl>
-                <dt><span>Screen Size</span></dt>
-                <dd>{data.description.display}</dd>
-              </dl>
-              <dl>
-                <dt><span>RAM</span></dt>
-                <dd>{data.description.ram}</dd>
-              </dl>
-              <dl>
-                <dt><span>Internal Storage</span></dt>
-                <dd>{data.description.internalStorage}</dd>
-              </dl>
-              <dl>
-                <dt><span>Main Camera</span></dt>
-                <dd>{data.description.primaryCamera}</dd>
-              </dl>
-              <dl>
-                <dt><span>Battery</span></dt>
-                <dd>{data.description.batteryCapacity}</dd>
-              </dl>
-              <dl>
-                <dt><span>Chipset</span></dt>
-                <dd>{data.description.processorType}</dd>
-              </dl>
-              <dl>
-                <dt><span>SIM</span></dt>
-                <dd>{data.description.simType}</dd>
-              </dl>
-              <dl>
-                <dt><span>Operating System</span></dt>
-                <dd>{data.description.operatingSystem}</dd>
-              </dl>
-              <dl>
-                <dt><span>Remote Connection</span></dt>
-                <dd>{data.description.remoteConnection}</dd>
-              </dl>
-              <dl>
-                <dt><span>Internet</span></dt>
-                <dd>{data.description.internet}</dd>
-              </dl>
-              <dl>
-                <dt><span>Weight</span></dt>
-                <dd>{data.description.weight}</dd>
-              </dl>
-          </div>
-        </div>
+
 
         <div className="logic-block">
           {
@@ -127,11 +128,3 @@ export default function PhoneInDetail({ width }) {
     </div>
   )
 };
-
-
-// <div className="button-div">
-//   <button className="add-to-cart-button">
-//     <div className="add">Добавить в корзину</div>
-//     <div className="product-price">{data.price}</div>
-//   </button>
-// </div>

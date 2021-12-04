@@ -36,6 +36,7 @@ const App = () => {
 
   const updateDimensions = () => {
     const width = window.innerWidth;
+    console.log(width);
     setWidth(width);
   };
 

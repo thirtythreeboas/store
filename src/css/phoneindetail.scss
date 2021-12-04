@@ -36,14 +36,14 @@ header {
   }
 }
 
+.image-block {
+  width: 100%;
+}
+
 .sub-img-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.image-block {
-  width: 100%;
 }
 
 .image-container {
@@ -146,7 +146,6 @@ header {
 
 @media (min-width: 768px) {
   .detailed-product-page {
-    width: auto;
     max-width: 1050px;
     min-width: 360px;
   }
@@ -160,11 +159,12 @@ header {
     max-width: 1050px;
     flex-direction: row;
     align-items: flex-start;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
   }
 
   .image-block {
     display: flex;
+    flex-wrap: wrap;
     width: auto;
   }
 

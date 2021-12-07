@@ -46,7 +46,6 @@ const data = {
   phones: [
     {
       key: 1,
-      // image: 'https://avatars.mds.yandex.net/get-mpic/1361544/img_id2422915895010770552.jpeg/9hq',
       image: 'https://avatars.mds.yandex.net/get-mpic/5246132/img_id5055934228263144482.jpeg/13hq',
       images: {
         first: 'https://avatars.mds.yandex.net/get-mpic/5246132/img_id5055934228263144482.jpeg/13hq',
@@ -133,7 +132,7 @@ const data = {
         first: 'https://avatars.mds.yandex.net/get-mpic/4397559/img_id869388942241193601.jpeg/orig',
         second: 'https://avatars.mds.yandex.net/get-mpic/4120567/img_id7434448904958153352.jpeg/orig',
         third: 'https://avatars.mds.yandex.net/get-mpic/4944925/img_id5802912692559965472.jpeg/orig',
-        forth: 'https://avatars.mds.yandex.net/get-mpic/4944925/img_id5802912692559965472.jpeg/orig'
+        forth: 'https://avatars.mds.yandex.net/get-mpic/4262452/img_id4805558764380941569.jpeg/orig'
       },
       price: '8 480',
       name: 'Xiaomi Redmi 9A 2/32GB',
@@ -291,95 +290,95 @@ const data = {
   ],
   books: [
     {
-      amount: 0,
-      addToFav: false,
-      showDesc: false,
-      displaySearch: true,
       key: 1,
-      image: 'https://sun2.43222.userapi.com/ree3cok8nwqROMoT1-Hj3mdXxC4A_PEubPbTqQ/hv2JHgr9mkY.jpg',
-      name: 'Падение дома Ашеров',
-      author: 'Эдгар Аллан По',
-      weight: 193,
-      price: 203,
-      description: 'Эдгар Аллан По - человек ослепительного таланта. Его перу принадлежит более семидесяти новелл, обусловивших возникновение многих литературных школ. Основоположник детективного жанра и жанра научной фантастики, замечательный поэт, критик и журналист, Эдгар По вот уже более полутора столетий остается одним из самых читаемых авторов в мире.В настоящий том вошли наиболее известные произведения классика американской литературы.'
+      image: 'https://m.media-amazon.com/images/I/51Pwv1+69fL.jpg',
+      name: 'The Fall of the House of Usher',
+      author: 'Edgar Allan Poe',
+      coverType: 'Hardcover',
+      language: 'English',
+      publisher: 'Kessinger Publishing, LLC (September 10, 2010)',
+      printLength: '34 pages',
+      weight: '8.2 ounces',
+      price: 24.76,
+      description: 'This scarce antiquarian book is a facsimile reprint of the original. Due to its age, it may contain imperfections such as marks, notations, marginalia and flawed pages. Because we believe this work is culturally important, we have made it available as part of our commitment for protecting, preserving, and promoting the world\'s literature in affordable, high quality, modern editions that are true to the original work.'
     },
     {
-      amount: 0,
-      addToFav: false,
-      showDesc: false,
-      displaySearch: true,
       key: 2,
       image: 'https://sun9-32.userapi.com/c858024/v858024458/202137/8i1Yx1UzIeA.jpg',
-      name: 'Политика | Аристотель',
-      author: 'Аристотель',
-      weight: 495,
-      price: 532,
-      description: 'Настоящее издание включает в себя одну из вершин античной политической мысли - трактат Аристотеля "Политика", в котором обобщены и систематизированы знания, относящиеся к самым разным областям общественной жизни. Перевод текста, предисловие и завершающий книгу очерк, в котором подробно и с привлечением большого количества редких и ценных источников анализируется развитие античной политической мысли, принадлежат перу выдающегося русского историка, академика Сергея Александровича Жебелева, который провел эту работу для издания "Политики" 1911 года. Текст Аристотеля снабжен подробными комментариями, подготовленными известным русским историком и филологом-классиком Аристидом Ивановичем Доватуром.'
+      name: 'Politics',
+      author: 'Aristotle',
+      coverType: 'Hardcover',
+      language: 'English',
+      publisher: 'University of Chicago Press; Second edition (March 29, 2013)',
+      printLength: '318 pages',
+      weight: 376,
+      price: 14.99,
+      description: 'One of the fundamental works of Western political thought, Aristotle’s masterwork is the first systematic treatise on the science of politics. For almost three decades, Carnes Lord’s justly acclaimed translation has served as the standard English edition. Widely regarded as the most faithful to both the original Greek and Aristotle’s distinctive style, it is also written in clear, contemporary English. This new edition of the Politics retains and adds to Lord’s already extensive notes, clarifying the flow of Aristotle’s argument and identifying literary and historical references. A glossary defines key terms in Aristotle’s philosophical-political vocabulary. Lord has made revisions to problematic passages throughout the translation in order to enhance both its accuracy and its readability. He has also substantially revised his introduction for the new edition, presenting an account of Aristotle’s life in relation to political events of his time; the character and history of his writings and of the Politics in particular; his overall conception of political science; and his impact on subsequent political thought from antiquity to the present. Further enhancing this new edition is an up-to-date selected bibliography.'
     },
     {
-      amount: 0,
-      addToFav: false,
-      showDesc: false,
-      displaySearch: true,
       key: 3,
-      image: 'https://sun9-65.userapi.com/c858532/v858532072/1aed1f/F0Yo2rv6HIg.jpg',
-      name: 'Возвращение в Брайдсхед. Незабвенная',
-      author: 'Ивлин Во',
-      weight: 342,
-      price: 425,
-      description: '"Возвращение в Брайдсхед" (1944) - одна из величайших книг прошлого столетия. Она входит в список 100 лучших англоязычных романов ХХ века по версии издательства "Modern Library", дважды экранизирована и переведена на все ведущие языки мира. История непростых отношений художника Чарльза Райдера с представителями эксцентричной аристократической семьи Флайт. История дружбы и ее утраты, любви и предательства, веры и фанатизма. Но прежде всего - это история заката эпохи "золотых двадцатых" с ее беззаботной жизнью, роскошными поместьями и шумными вечеринками. "Незабвенная" (1948). Смерть лучшего друга приводит Денниса Барлоу в похоронную фирму "Шелестящий дол". Здесь скорбящих называют Ждущими Своего Часа, а покойников - Незабвенными. Здесь смерть принимает различные обличья, а преподносят ее как рождественский подарок. И именно здесь Деннис влюбляется в Эме Танатогенос, сотрудницу "Шелестящего дола". Но очень скоро их отношения, поначалу идеальные, начинают развиваться в весьма...'
+      image: 'https://images-na.ssl-images-amazon.com/images/I/91UOS0mzv9L.jpg',
+      name: 'The Lover One',
+      coverType: 'Hardcover',
+      language: 'English',
+      publisher: 'Little, Brown and Company; Reissue edition (December 11, 2012)',
+      printLength: '160 pages',
+      author: 'Evelyn Waugh',
+      weight: '12 ounces',
+      price: 29.99,
+      description: '"A work of art as rich and subtle and unnerving as anything its author has ever done" (New Yorker), The Loved One is Evelyn Waugh\'s cutting satire of 1940s California and the Anglo-American cultural divide. Following the death of a friend, the poet and pets\' mortician Dennis Barlow finds himself entering the artificial Hollywood paradise of the Whispering Glades Memorial Park. Within its golden gates, death, American-style, is wrapped up and sold like a package holiday--and Dennis gets drawn into a bizarre love triangle with Aimée Thanatogenos, a naïve Californian corpse beautician, and Mr. Joyboy, a master of the embalmer\'s art. Waugh\'s dark and savage satire depicts a world where reputation, love, and death cost a very great deal.'
     },
     {
-      amount: 0,
-      addToFav: false,
-      showDesc: false,
-      displaySearch: true,
       key: 4,
-      image: 'https://img3.labirint.ru/rc/8c43ac31b135e0f697561e19398144b2/220x340/books64/635073/cover.jpg?1564083827',
-      name: 'Логико-философский трактат',
-      author: 'Витгенштейн Людвиг',
-      weight: 250,
-      price: 369,
-      description: 'Людвиг Витгенштейн - британский философ австрийского происхождения, один из самых оригинальных мыслителей европейской философии ХХ века, создатель теории построения искусственного "идеального" языка, основанного на языке математической логики.Текст "Логико-философского трактата" едва ли можно назвать объемным, однако трудно переоценить его значимость для всей последующей европейской философии, и краткость в данном случае говорит лишь о том, насколько сжато, четко и точно Витгенштейн формулировал свою мысль. Семь коротких тезисов и чуть больше сотни страниц комментариев к ним… но в этот минимальный объем Витгенштейн сумел вместить перевод на философский язык всех главных идей логического анализа. "В начале было Слово", - гласит Библия, и если это так, то Витгенштейн был одним из самых преданных учеников Логоса.'
+      image: 'https://images-na.ssl-images-amazon.com/images/I/81-pZAlvFrL.jpg',
+      name: 'Tractatus Logico-Philosophicus',
+      author: 'Ludwig Wittgenstein',
+      coverType: 'Hardcover',
+      language: 'English',
+      publisher: 'Cosimo Classics (July 1, 2010)',
+      printLength: '116 pages',
+      weight: '10.1 ounces',
+      price: 36.99,
+      description: 'Austrian philosopher LUDWIG WITTGENSTEIN (1889-1951) was hugely influential on 20th-century philosophy, and here, he constructs a series of carefully and precisely numbered propositions on the relationship between language, logic, and reality, using a numbering system to show nested relationships between the propositions. Considered one of the major recent works of philosophy-a reputation enhanced, undoubtedly, by Bertrand Russell\'s glowing introduction-this edition is a reproduction of the translation by C.K. Ogden, first published in 1922, for which Wittgenstein himself assisted in the preparation of the English-language manuscript. Students of philosophy and those fascinated by the history of ideas will want a copy of this essential volume.'
     },
     {
-      amount: 0,
-      addToFav: false,
-      showDesc: false,
-      displaySearch: true,
       key: 5,
-      image: 'https://static.my-shop.ru/product/3/130/1295924.jpg',
-      name: 'Посмертные записки Пиквикского клуба',
-      author: 'Диккенс Чарльз',
-      weight: 410,
-      price: 171,
-      description: 'Почитаемый во всем мире Чарльз Диккенс всегда пользовался признанием и в России. Своим любимым писателем его называл Ф.М. Достоевский. Л.Н. Толстой ставил романы Диккенса в первый ряд мировой литературы, отмечая присущие им значительность содержания, мастерство формы, искренность и "нравственное отношение автора к предмету". Все эти качества в полной мере относятся и к роману "Посмертные записки Пиквикского клуба", который вышел в свет отдельным изданием в 1837 году и сразу же сделал автора знаменитым. Веселый, остроумный, полный великолепного английского юмора роман о клубе смешных, симпатичных джентльменов, путешествующих по стране, многие годы является одной из любимых книг читателей всего мира.'
+      image: 'https://images-na.ssl-images-amazon.com/images/I/918aG25s4OL.jpg',
+      name: 'The Pickwick Papers',
+      author: 'Charles Dickens',
+      coverType: 'Hardcover',
+      language: 'English',
+      publisher: 'Everyman\'s Library; Second Printing edition (March 2, 1999)',
+      printLength: '976 pages',
+      weight: '1.88 pounds',
+      price: '16.00',
+      description: 'In this classic social commentary from Dickens, Mr. Samuel Pickwick, retired business man and confirmed bachelor, is determined that after a quiet life of enterprise the time has come to go out into the world. Together with the other members of the Pickwick Club: Tracy Tupman, Augustus Snodgrass and Nathaniel Winkle, the portly innocent embarks on a series of hilariously comic adventures. But can Pickwick retain his good will towards his fellow humans once he discovers the evils of the world? Charles Dickens’s satirical masterpiece, The Pickwick Papers, catapulted the young writer into literary fame when it was first serialized in 1836–37. It recounts the rollicking adventures of the members of the Pickwick Club as they travel about England getting into all sorts of mischief. Laugh-out-loud funny and endlessly entertaining, the book also reveals Dickens’s burgeoning interest in the parliamentary system, lawyers, the Poor Laws, and the ills of debtors’ prisons. As G. K. Chesterton noted, “Before [Dickens] wrote a single real story, he had a kind of vision . . . a map full of fantastic towns, thundering coaches, clamorous market-places, uproarious inns, strange and swaggering figures. That vision was Pickwick.”'
     },
     {
-      amount: 0,
-      addToFav: false,
-      showDesc: false,
-      displaySearch: true,
       key: 6,
-      image: 'https://cdn1.ozone.ru/multimedia/wc1200/1013420559.jpg',
-      name: 'Жюстина, или Несчастья добродетели',
-      author: 'Маркиз де Сад',
-      weight: 235,
-      price: 300,
-      description: 'Маркиз де Сад (Донасьен Альфонс Франсуа де Сад) - одна из наиболее скандальных персон в истории мировой литературы и культуры в целом. Роман "Жюстина, или Несчастья добродетели" - первое произведение де Сада, опубликованное при его жизни, в 1791 году, без указания имени автора. "Жюстина" - один из самых знаменитых откровенных романов фривольного XVIII века. Эта книга заставляет невольно содрогнуться: добродетель обречена на страдания, а порок торжествует.'
+      image: 'https://images-na.ssl-images-amazon.com/images/I/51ZLZVOtALL.jpg',
+      name: 'Justine, or the Misfortunes of Virtue',
+      author: 'Marquis de Sade',
+      coverType: 'Hardcover',
+      language: 'English',
+      publisher: 'Oxford University Press; 1st edition (January 20, 2013)',
+      printLength: '320 pages',
+      weight: '7.5 ounces',
+      price: 14.41,
+      description: 'This is the first new translation in over forty years of Sade\'s novel Justine. It is also the first ever critical edition, based on the original 1791 version of the story, which is the most accessible and artistically successful of the three versions. The novel tells the story of the beautiful and devout Justine, whose steadfast faith and naive trust destine her from the outset for sexual exploitation and martyrdom. The unending catalog of disasters that befall her, during which she is subject to any number of perverse practices, illustrate Sade\'s belief in the primacy of Nature over civilization. Virtue is no match for vice, and as criminality and violence triumph, Justine is doomed to suffer. Indeed, the novel mounts a ferocious physical and intellectual assault on absolute notions of good and evil.'
     },
     {
-      amount: 0,
-      addToFav: false,
-      showDesc: false,
-      displaySearch: true,
       key: 7,
-      image: 'https://kniga.lv/wp-content/uploads/2020/04/itd000000000595799_cover1.jpg',
-      name: 'Доктор Живаго',
-      author: 'Борис Пастернак',
-      weight: 440,
-      price: 140,
-      description: 'Роман "Доктор Живаго" - одно из выдающихся произведений русской литературы, на протяжении долгих лет остававшееся закрытым для широкого круга читателей в нашей стране, знавших о нем только по скандальной и недобросовестной партийной критике. Незащищенность и бессмертие творческой личности, интеллигента и художника в переломные моменты жизни нашего народа - центральная тема итоговой книги лауреата Нобелевской премии Бориса Леонидовича Пастернака (1890-196О). Судьба романа, судьба его автора и ткань самого произведения неразрывны в восприятии сегодняшнего читателя.'
+      image: 'https://images-na.ssl-images-amazon.com/images/I/91Io6DMt2aL.jpg',
+      name: 'Doctor Zhivago',
+      author: 'Boris Pasternak',
+      coverType: 'Hardcover',
+      language: 'English',
+      publisher: 'Pantheon; First American Edition (October 19, 2010)',
+      printLength: '544 pages',
+      weight: '1.99 pounds',
+      price: 5.22,
+      description: 'Boris Pasternak’s widely acclaimed novel comes gloriously to life in a magnificent new translation by Richard Pevear and Larissa Volokhonsky, the award-winning translators of War and Peace and Anna Karenina, and to whom, The New York Review of Books declared, “the English-speaking world is indebted.” First published in Italy in 1957 amid international controversy—the novel was banned in the Soviet Union until 1988, and Pasternak declined the Nobel Prize a year later under intense pressure from Soviet authorities—Doctor Zhivago is the story of the life and loves of a poet-physician during the turmoil of the Russian Revolution. Taking his family from Moscow to what he hopes will be shelter in the Ural Mountains, Zhivago finds himself instead embroiled in the battle between the Whites and the Reds. Set against this backdrop of cruelty and strife is Zhivago’s love for the tender and beautiful Lara: pursued, found, and lost again, Lara is the very embodiment of the pain and chaos of those cataclysmic times.'
     }
   ],
   devices: [
@@ -508,5 +507,12 @@ export function getPhoneData(val) {
   return data.phones.find(
     // replace method removes forward slashes in name prop to match url
     item => item.name.replace(/\//g, '') === val
+  );
+}
+
+export function getBooksData(val) {
+  return data.books.find(
+    // replace method removes forward slashes in name prop to match url
+    item => item.name === val
   );
 }

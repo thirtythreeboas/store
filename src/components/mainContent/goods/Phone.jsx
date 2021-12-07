@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../../../css/stylesheet.scss';
 import { useParams } from 'react-router-dom';
 import { getPhoneData } from '../../../data/data';
 
-export default function PhoneInDetail({ width }) {
+export default function Phone({ width }) {
 
   const handleImageChange = (e) => {
     const src = e.target.src;
@@ -64,59 +64,57 @@ export default function PhoneInDetail({ width }) {
             </div>
           </div>
 
-          <div className="description-block">
-            <h2>Product information</h2>
-              <div className="specifications">
-                <dl>
-                  <dt><span>Screen Size</span></dt>
-                  <dd>{data.description.display}</dd>
-                </dl>
-                <dl>
-                  <dt><span>RAM</span></dt>
-                  <dd>{data.description.ram}</dd>
-                </dl>
-                <dl>
-                  <dt><span>Internal Storage</span></dt>
-                  <dd>{data.description.internalStorage}</dd>
-                </dl>
-                <dl>
-                  <dt><span>Main Camera</span></dt>
-                  <dd>{data.description.primaryCamera}</dd>
-                </dl>
-                <dl>
-                  <dt><span>Battery</span></dt>
-                  <dd>{data.description.batteryCapacity}</dd>
-                </dl>
-                <dl>
-                  <dt><span>Chipset</span></dt>
-                  <dd>{data.description.processorType}</dd>
-                </dl>
-                <dl>
-                  <dt><span>SIM</span></dt>
-                  <dd>{data.description.simType}</dd>
-                </dl>
-                <dl>
-                  <dt><span>Operating System</span></dt>
-                  <dd>{data.description.operatingSystem}</dd>
-                </dl>
-                <dl>
-                  <dt><span>Remote Connection</span></dt>
-                  <dd>{data.description.remoteConnection}</dd>
-                </dl>
-                <dl>
-                  <dt><span>Internet</span></dt>
-                  <dd>{data.description.internet}</dd>
-                </dl>
-                <dl>
-                  <dt><span>Weight</span></dt>
-                  <dd>{data.description.weight}</dd>
-                </dl>
-            </div>
-          </div>
-
         </div>
 
-
+        <div className="description-block">
+          <h2>Product information</h2>
+            <div className="specifications">
+              <dl>
+                <dt><span>Screen Size</span></dt>
+                <dd>{data.description.display}</dd>
+              </dl>
+              <dl>
+                <dt><span>RAM</span></dt>
+                <dd>{data.description.ram}</dd>
+              </dl>
+              <dl>
+                <dt><span>Internal Storage</span></dt>
+                <dd>{data.description.internalStorage}</dd>
+              </dl>
+              <dl>
+                <dt><span>Main Camera</span></dt>
+                <dd>{data.description.primaryCamera}</dd>
+              </dl>
+              <dl>
+                <dt><span>Battery</span></dt>
+                <dd>{data.description.batteryCapacity}</dd>
+              </dl>
+              <dl>
+                <dt><span>Chipset</span></dt>
+                <dd>{data.description.processorType}</dd>
+              </dl>
+              <dl>
+                <dt><span>SIM</span></dt>
+                <dd>{data.description.simType}</dd>
+              </dl>
+              <dl>
+                <dt><span>Operating System</span></dt>
+                <dd>{data.description.operatingSystem}</dd>
+              </dl>
+              <dl>
+                <dt><span>Remote Connection</span></dt>
+                <dd>{data.description.remoteConnection}</dd>
+              </dl>
+              <dl>
+                <dt><span>Internet</span></dt>
+                <dd>{data.description.internet}</dd>
+              </dl>
+              <dl>
+                <dt><span>Weight</span></dt>
+                <dd>{data.description.weight}</dd>
+              </dl>
+          </div>
+        </div>
 
         <div className="logic-block">
           {

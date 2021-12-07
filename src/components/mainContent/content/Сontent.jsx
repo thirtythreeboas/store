@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../../css/stylesheet.scss';
 
-const Product = ({items}) => {
+const Product = ({items, path}) => {
   return (
       <div className="making-margin-right">
         <div className="product-card">
             <Link
-              // here we remove forward slashes in items.name to avoid some issues related to routing
-              to={`/${items.name.replace(/\//g, '')}`}
+              // here we remove forward slashes in items.name to avoid some routing issues
+              to={`/${path}/${items.name.replace(/\//g, '')}`}
               style={{textDecoration: 'none'}}
               >
               <div className="image">
@@ -48,7 +48,7 @@ const Content = ({data, windowWidth}) => {
           <div className="iphone-ad">
             <Link
               style={{textDecoration: 'none'}}
-              to={`/${data.phones[8].name.replace(/\//g, '')}`}
+              to={`/phones/${data.phones[8].name.replace(/\//g, '')}`}
             >
               <div>
                 <img src="https://i.citrus.ua/imgcache/size_800/uploads/shop/7/5/75cf577bd735788ace8078f7ec4d568d.jpg" alt=""/>
@@ -65,6 +65,7 @@ const Content = ({data, windowWidth}) => {
                 <Product
                   key={item.key + item.name}
                   items={item}
+                  path="phones"
                 />
               ))
             }
@@ -83,8 +84,10 @@ const Content = ({data, windowWidth}) => {
           <div className="products">
             {
               booksList.map((item, i) => (
-                <Product items={item}
+                <Product
                   key={item.key + item.name}
+                  items={item}
+                  path="books"
                 />
               ))
             }

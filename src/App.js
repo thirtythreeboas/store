@@ -6,11 +6,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import NavBarComponent from './components/navigationComp/Navbar';
 import Container from './components/mainContent/Container';
 import FooterContainer from './components/footerComp/FooterContainer';
 import Footer from './components/footerComp/Footer';
-import PhoneInDetail from './components/mainContent/goods/PhoneInDetail';
+import Phone from './components/mainContent/goods/Phone';
+import Book from './components/mainContent/goods/Book';
 
 
 const App = () => {
@@ -36,7 +38,6 @@ const App = () => {
 
   const updateDimensions = () => {
     const width = window.innerWidth;
-    console.log(width);
     setWidth(width);
   };
 
@@ -73,12 +74,22 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="page">
+        <ScrollToTop />
         <NavBarComponent
           handleFooter={closeFooter}
         />
         <Routes>
           <Route path="/" element={<Container/>}/>
-          <Route path="/:nameId" element={<PhoneInDetail width={width} />} />
+          <Route path="/phones/:nameId" element={<Phone width={width} />} />
+          <Route path="/books/:nameId" element={<Book />} />
+          <Route
+            path="*"
+            element={
+              <main style={{ padding: '1rem' }}>
+                <p>There's nothing here!</p>
+              </main>
+            }
+          />
         </Routes>
         <FooterContainer
           footer={footer}

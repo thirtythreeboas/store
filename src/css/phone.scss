@@ -1,10 +1,11 @@
-.detailed-product-page {
-  justify-content: center; // may be deleted for mobile size
+.product-page {
+  // justify-content: center; // may be deleted for mobile size
   width: 100%;
+  max-width: 1050px;
   min-width: 360px;
 }
 
-header {
+.phone-header {
   position: relative;
   display: none;
   align-items: flex-start;
@@ -25,11 +26,11 @@ header {
   }
 }
 
-.inner-block {
+.product-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: inherit;
+  // width: inherit;
   h2 {
     text-align: center;
     font-weight: 400;
@@ -40,7 +41,7 @@ header {
   width: 100%;
 }
 
-.sub-img-block {
+.sub-image-block {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,7 +62,7 @@ header {
   }
 }
 
-.description-block {
+.detail-block {
   width: 100%;
   display: flex;
   align-items: center;
@@ -107,6 +108,10 @@ header {
   padding: 0 10px;
 }
 
+.logic-block {
+  z-index: 1;
+}
+
 .button-div {
   position: fixed;
   bottom: 50px;
@@ -145,21 +150,15 @@ header {
 
 
 @media (min-width: 768px) {
-  .detailed-product-page {
-    max-width: 1050px;
-    min-width: 360px;
-  }
-
-  header {
+  .phone-header {
     display: flex;
   }
 
-  .inner-block {
-    justify-content: space-around;
+  .product-block {
     max-width: 1050px;
     flex-direction: row;
+    justify-content: space-around;
     align-items: flex-start;
-    // flex-wrap: wrap;
   }
 
   .image-block {
@@ -193,7 +192,7 @@ header {
     }
   }
 
-  .description-block {
+  .detail-block {
     width: auto;
     h2 {
       margin: 0;
@@ -206,7 +205,6 @@ header {
     }
   }
   .logic-block {
-    // flex: 0 0 100%;
     overflow: hidden;
     border-radius: 8px;
     border: 1px #D5D9D9 solid;
@@ -216,7 +214,6 @@ header {
       position: static;
       flex-direction: column;
       background-color: #fff;
-      // border: none;
       padding: 15px;
       p {
         margin: 0;
@@ -240,7 +237,6 @@ header {
         border: none;
         border-radius: 15px;
         color: #000;
-        // color: #fff
         &:hover {
           background-color: rgb(216, 217, 54);
 

@@ -81,7 +81,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Container/>}/>
           <Route path="/phones/:nameId" element={<Phone width={width} />} />
-          <Route path="/books/:nameId" element={<Book />} />
+          <Route path="/books/:nameId" element={<Book width={width} />} />
           <Route
             path="*"
             element={

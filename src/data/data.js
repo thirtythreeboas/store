@@ -53,7 +53,7 @@ const data = {
         third: 'https://avatars.mds.yandex.net/get-mpic/4291905/img_id2671307606923569889.jpeg/13hq',
         forth: 'https://avatars.mds.yandex.net/get-mpic/4606255/img_id7021684290459460151.jpeg/13hq'
       },
-      price: '7 490',
+      price: '399.99',
       name: 'Honor 7A 2/16GB',
       inStock: 'In Stock',
       description: {
@@ -80,7 +80,7 @@ const data = {
         third: 'https://avatars.mds.yandex.net/get-mpic/4700988/img_id6502998691750910167.jpeg/13hq',
         forth: 'https://avatars.mds.yandex.net/get-mpic/4615588/img_id7532790175348256257.jpeg/13hq'
       },
-      price: '10 490',
+      price: '499.99',
       name: 'Huawei Y7 2019 4/64GB',
       inStock: 'In Stock',
       description: {
@@ -107,7 +107,7 @@ const data = {
         third: 'https://avatars.mds.yandex.net/get-mpic/4397006/img_id576522302334740959.png/13hq',
         forth: 'https://avatars.mds.yandex.net/get-mpic/4409630/img_id2510567404020018007.jpeg/13hq'
       },
-      price: '10 490',
+      price: '399.99',
       name: 'Realme C3 3/64GB',
       inStock: 'In Stock',
       description: {
@@ -134,7 +134,7 @@ const data = {
         third: 'https://avatars.mds.yandex.net/get-mpic/4944925/img_id5802912692559965472.jpeg/orig',
         forth: 'https://avatars.mds.yandex.net/get-mpic/4262452/img_id4805558764380941569.jpeg/orig'
       },
-      price: '8 480',
+      price: '399.99',
       name: 'Xiaomi Redmi 9A 2/32GB',
       inStock: 'In Stock',
       description: {
@@ -161,7 +161,7 @@ const data = {
         third: 'https://avatars.mds.yandex.net/get-mpic/4119563/img_id8234333242767334817.jpeg/13hq',
         forth: 'https://avatars.mds.yandex.net/get-mpic/4493022/img_id6430725015181423757.jpeg/13hq'
       },
-      price: '12 480',
+      price: '499.99',
       name: 'Xiaomi Poco M3 4/64GB',
       inStock: 'In Stock',
       description: {
@@ -179,7 +179,7 @@ const data = {
         weight: '198 g'
       }
     },
-    {
+      {
       key: 6,
       image: 'https://avatars.mds.yandex.net/get-mpic/5281967/img_id7870132339916138617.jpeg/orig',
       images: {
@@ -188,7 +188,7 @@ const data = {
         third: 'https://avatars.mds.yandex.net/get-mpic/1859594/img_id2307299940401585082.png/orig',
         forth: 'https://avatars.mds.yandex.net/get-mpic/4080967/img_id273108397724627722.png/orig'
       },
-      price: '8 284',
+      price: '399.99',
       name: 'Xiaomi Redmi 9C 2/32GB',
       inStock: 'In Stock',
       description: {
@@ -215,7 +215,7 @@ const data = {
         third: 'https://avatars.mds.yandex.net/get-mpic/4397502/img_id3643040488935184559.jpeg/orig',
         forth: 'https://avatars.mds.yandex.net/get-mpic/4415357/img_id5810286551325434740.jpeg/orig'
       },
-      price: '12 119',
+      price: '499.99',
       name: 'Vivo Y20 4/64GB',
       inStock: 'In Stock',
       description: {
@@ -242,7 +242,7 @@ const data = {
         third: 'https://avatars.mds.yandex.net/get-mpic/5387588/img_id656414712097947860.jpeg/orig',
         forth: 'https://avatars.mds.yandex.net/get-mpic/4012096/img_id563900318856702947.jpeg/orig'
       },
-      price: '15 842',
+      price: '599.99',
       name: 'Huawei P30 Lite 4/128GB',
       inStock: 'In Stock',
       description: {
@@ -269,7 +269,7 @@ const data = {
         third: 'https://avatars.mds.yandex.net/get-mpic/1614201/img_id3641926334335410083.jpeg/orig',
         forth: 'https://avatars.mds.yandex.net/get-mpic/1704691/img_id9110368706403367547.jpeg/orig'
       },
-      price: '92 990',
+      price: '1,323',
       name: 'Apple iPhone 12 Pro Max 512GB',
       inStock: 'In Stock',
       description: {
@@ -291,6 +291,7 @@ const data = {
   books: [
     {
       key: 1,
+      inStock: 'In Stock',
       image: 'https://m.media-amazon.com/images/I/51Pwv1+69fL.jpg',
       name: 'The Fall of the House of Usher',
       author: 'Edgar Allan Poe',
@@ -304,6 +305,7 @@ const data = {
     },
     {
       key: 2,
+      inStock: 'In Stock',
       image: 'https://sun9-32.userapi.com/c858024/v858024458/202137/8i1Yx1UzIeA.jpg',
       name: 'Politics',
       author: 'Aristotle',
@@ -317,6 +319,7 @@ const data = {
     },
     {
       key: 3,
+      inStock: 'In Stock',
       image: 'https://images-na.ssl-images-amazon.com/images/I/91UOS0mzv9L.jpg',
       name: 'The Lover One',
       coverType: 'Hardcover',
@@ -330,6 +333,7 @@ const data = {
     },
     {
       key: 4,
+      inStock: 'In Stock',
       image: 'https://images-na.ssl-images-amazon.com/images/I/81-pZAlvFrL.jpg',
       name: 'Tractatus Logico-Philosophicus',
       author: 'Ludwig Wittgenstein',
@@ -343,6 +347,7 @@ const data = {
     },
     {
       key: 5,
+      inStock: 'In Stock',
       image: 'https://images-na.ssl-images-amazon.com/images/I/918aG25s4OL.jpg',
       name: 'The Pickwick Papers',
       author: 'Charles Dickens',
@@ -356,6 +361,7 @@ const data = {
     },
     {
       key: 6,
+      inStock: 'In Stock',
       image: 'https://images-na.ssl-images-amazon.com/images/I/51ZLZVOtALL.jpg',
       name: 'Justine, or the Misfortunes of Virtue',
       author: 'Marquis de Sade',
@@ -369,6 +375,7 @@ const data = {
     },
     {
       key: 7,
+      inStock: 'In Stock',
       image: 'https://images-na.ssl-images-amazon.com/images/I/91Io6DMt2aL.jpg',
       name: 'Doctor Zhivago',
       author: 'Boris Pasternak',

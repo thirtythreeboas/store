@@ -96,7 +96,7 @@
   max-width: 180px;
   p:first-child {
     &::after {
-      content: ' ₽'
+      content: " \0024";
     }
   }
   p {

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../css/stylesheet.scss';
+import '../../../css/phone.scss';
 import { useParams } from 'react-router-dom';
 import { getPhoneData } from '../../../data/data';
 
@@ -43,13 +43,13 @@ export default function Phone({ width }) {
 
 
   return (
-    <div className="detailed-product-page">
+    <div className="product-page">
 
-      <header>
+      <header className="phone-header">
         <h1>{data.name}</h1>
       </header>
 
-      <div className="inner-block">
+      <div className="product-block">
 
         <div className="image-block">
 
@@ -57,7 +57,7 @@ export default function Phone({ width }) {
             width > 767 ? images : false
           }
 
-          <div className="sub-img-block">
+          <div className="sub-image-block">
             {width < 768 ? <h2>{data.name}</h2> : null}
             <div className="image-container">
               <img id="main-img" src={data.image} alt={data.name}/>
@@ -66,7 +66,7 @@ export default function Phone({ width }) {
 
         </div>
 
-        <div className="description-block">
+        <div className="detail-block">
           <h2>Product information</h2>
             <div className="specifications">
               <dl>

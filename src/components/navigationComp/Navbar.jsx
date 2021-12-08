@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Category from './Category';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../../css/stylesheet.scss';
+import Category from './Category';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const NavBarComponent = (props) => {
@@ -10,16 +11,16 @@ const NavBarComponent = (props) => {
   const [categoryArray, setCategoryArray] = useState([]);
   const [categories, setCategories] = useState({
     menu: [
-      'Книги',
-      'Спорт',
-      'Электроника',
-      'Обувь и одежда',
-      'Игры',
-      'Товары для дома',
-      'Бытовая техника',
-      'Детские товары',
-      'Музыка',
-      'Туризм'
+      'Books',
+      'Sports and Outdoors',
+      'Electrinics',
+      'Clothing',
+      'Video Games',
+      'Home and Kitchen',
+      'Appliances',
+      'Baby Care',
+      'Music',
+      'Tourism'
     ]
   })
   const [showMenu, setShowMenu] = useState(false);
@@ -171,6 +172,15 @@ const NavBarComponent = (props) => {
     display: `${showMenu === false && width < 768 ? 'none': 'flex'}`
   }
 
+  const linkCss = {
+    display: 'flex',
+    color: '#fff',
+    textDecoration: 'none',
+    fontWeight: 300,
+    margin: 0,
+    // padding: '.2em'
+  }
+
   const listMenuCss = {
     display: `${width > 767 ? 'none' : 'flex'}`,
   }
@@ -180,28 +190,26 @@ const NavBarComponent = (props) => {
       <nav className="nav-container">
         <div className="sub-nav-container">
           <div className="sections">
-
-            <div className="logo">
-                <a href="">
-                  <span><FontAwesomeIcon icon="cloud-showers-heavy" /></span>
-                  <span>rain</span>Store
-                </a>
-            </div>
-
+            <Link style={linkCss} to="/">
+              <div className="logo">
+                <span><FontAwesomeIcon icon="cloud-showers-heavy" /></span>
+                <span>rain</span>Store
+              </div>
+            </Link>
             <div className="nav-elements">
               <ul className="nav-list">
 
                 <li className="list">
                   <a className="nav-link" href="#">
                     <span><FontAwesomeIcon icon="home" /></span>
-                    <span>Войти</span>
+                    <span>Sign in</span>
                   </a>
                 </li>
 
                 <li className="list">
                   <a className="nav-link" href="#">
                     <span><FontAwesomeIcon icon="user-plus" /></span>
-                    <span>Зарегистрироваться</span>
+                    <span>Sign up</span>
                   </a>
                 </li>
 
@@ -215,7 +223,7 @@ const NavBarComponent = (props) => {
                       icon="book-open"
                     />
                     </span>
-                    <span>Меню</span>
+                    <span>Menu</span>
                   </a>
                 </li>
 
@@ -225,14 +233,14 @@ const NavBarComponent = (props) => {
                 >
                   <a className="nav-link">
                     <span><FontAwesomeIcon icon="question-circle" /></span>
-                    <span>Помощь</span>
+                    <span>Support</span>
                   </a>
                 </li>
 
                 <li className="list">
                   <a className="nav-link" href="#">
                     <span><FontAwesomeIcon icon="shopping-cart" /></span>
-                    <span>Корзина</span>
+                    <span>Cart</span>
                   </a>
                 </li>
 
@@ -240,9 +248,9 @@ const NavBarComponent = (props) => {
             </div>
 
             <div className="search-box">
-              <form className="">
-                <button className="">
-                  Поиск
+              <form>
+                <button>
+                  Search
                 </button>
                 <input type="text" name="search"/>
               </form>
@@ -254,7 +262,7 @@ const NavBarComponent = (props) => {
 
         <div style={css} id="categories">
           <div className="header-categories">
-            <h3>Товары</h3>
+            <h3>Goods</h3>
             <span className="close" onClick={() => displayMenu()}>&times;</span>
           </div>
           <div id="cat-menu-container">

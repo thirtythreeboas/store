@@ -10,9 +10,9 @@ import ScrollToTop from './components/ScrollToTop';
 import NavBarComponent from './components/navigationComp/Navbar';
 import Container from './components/mainContent/Container';
 import FooterContainer from './components/footerComp/FooterContainer';
-import Footer from './components/footerComp/Footer';
 import Phone from './components/mainContent/goods/Phone';
 import Book from './components/mainContent/goods/Book';
+import Mouse from './components/mainContent/goods/Mouse';
 
 
 const App = () => {
@@ -61,7 +61,7 @@ const App = () => {
   }
 
 
-  const { cardAd, footer, phones, books, devices } = state;
+  const { footer } = state;
 
   const footerMenu = {
     display: `${width > 767 ? 'flex' : displayFooterMenu === false ? 'none' : 'flex'}`
@@ -82,6 +82,7 @@ const App = () => {
           <Route path="/" element={<Container/>}/>
           <Route path="/phones/:nameId" element={<Phone width={width} />} />
           <Route path="/books/:nameId" element={<Book width={width} />} />
+          <Route path="/devices/:nameId" element={<Mouse width={width} />} />
           <Route
             path="*"
             element={

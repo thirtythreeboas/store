@@ -16,10 +16,13 @@ export default function Phone({ width }) {
 
   const images = (
     <div className="phone-images">
-      <div onClick={(e) => handleImageChange(e)}><img src={data.images.first} alt={data.name}/></div>
-      <div onClick={(e) => handleImageChange(e)}><img src={data.images.second} alt={data.name}/></div>
-      <div onClick={(e) => handleImageChange(e)}><img src={data.images.third} alt={data.name}/></div>
-      <div onClick={(e) => handleImageChange(e)}><img src={data.images.forth} alt={data.name}/></div>
+      {
+        Object.values(data.images).map(elem =>
+          <div onClick={(e) => handleImageChange(e)}>
+            <img src={elem} alt={data.name}/>
+          </div>
+        )
+      }
     </div>
   );
 

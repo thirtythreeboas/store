@@ -2,21 +2,22 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../../css/stylesheet.scss';
 
-const Product = ({items, path}) => {
+const Product = ( { item, path } ) => {
+
   return (
       <div className="making-margin-right">
         <div className="product-card">
             <Link
               // here we remove forward slashes in items.name to avoid some routing issues
-              to={`/${path}/${items.name.replace(/\//g, '')}`}
+              to={`/${path}/${item.name.replace(/\//g, '')}`}
               style={{textDecoration: 'none'}}
-              >
+            >
               <div className="image">
-                <img src={items.image} alt={items.name}/>
+                <img src={item.image} alt={item.name}/>
               </div>
               <div className="info">
-                <p>{items.price}</p>
-                <span title={items.name}>{items.name}</span>
+                <p>{item.price}</p>
+                <span title={item.name}>{item.name}</span>
               </div>
             </Link>
             <button className="to-cart">В корзину</button>
@@ -53,7 +54,7 @@ const Content = ({data, windowWidth}) => {
               <div>
                 <img src="https://i.citrus.ua/imgcache/size_800/uploads/shop/7/5/75cf577bd735788ace8078f7ec4d568d.jpg" alt=""/>
                 <p>
-                  A14 Bionic, самый быстрый процессор iPhone. Дисплей OLED от края до края. Передняя панель Ceramic Shield, которая в четыре раза снижает риск повреждений дисплея при падении. И Ночной режим на всех камерах. Всё это есть в iPhone 12. В двух размерах.
+                  A superpowerful chip. 5G speed. An advanced dual‑camera system. A Ceramic Shield front that's tougher than any smartphone glass. And a bright, beautiful OLED display. iPhone 12 has it all — in two great sizes.
                 </p>
               </div>
             </Link>
@@ -64,7 +65,7 @@ const Content = ({data, windowWidth}) => {
               phonesList.map((item, i) => (
                 <Product
                   key={item.key + item.name}
-                  items={item}
+                  item={item}
                   path="phones"
                 />
               ))
@@ -86,7 +87,7 @@ const Content = ({data, windowWidth}) => {
               booksList.map((item, i) => (
                 <Product
                   key={item.key + item.name}
-                  items={item}
+                  item={item}
                   path="books"
                 />
               ))
@@ -105,8 +106,10 @@ const Content = ({data, windowWidth}) => {
           <div className="products">
             {
               deviceList.map((item, i) => (
-                <Product items={item}
+                <Product
                   key={item.key + item.name}
+                  item={item}
+                  path="devices"
                 />
               ))
             }

@@ -12,7 +12,7 @@ import Container from './components/mainContent/Container';
 import FooterContainer from './components/footerComp/FooterContainer';
 import Phone from './components/mainContent/goods/Phone';
 import Book from './components/mainContent/goods/Book';
-import Mouse from './components/mainContent/goods/Mouse';
+import Device from './components/mainContent/goods/Device';
 
 
 const App = () => {
@@ -60,9 +60,6 @@ const App = () => {
     }, 2000);
   }
 
-
-  const { footer } = state;
-
   const footerMenu = {
     display: `${width > 767 ? 'flex' : displayFooterMenu === false ? 'none' : 'flex'}`
   }
@@ -82,7 +79,7 @@ const App = () => {
           <Route path="/" element={<Container/>}/>
           <Route path="/phones/:nameId" element={<Phone width={width} />} />
           <Route path="/books/:nameId" element={<Book width={width} />} />
-          <Route path="/devices/:nameId" element={<Mouse width={width} />} />
+          <Route path="/devices/:nameId" element={<Device width={width} />} />
           <Route
             path="*"
             element={
@@ -93,7 +90,6 @@ const App = () => {
           />
         </Routes>
         <FooterContainer
-          footer={footer}
           footerMenu={footerMenu}
           footerHeader={footerHeader}
           myRef={scrollDown}

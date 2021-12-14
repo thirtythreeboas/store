@@ -1,9 +1,9 @@
 import React from 'react';
 import '../../../css/stylesheet.scss';
 import { useParams } from 'react-router-dom';
-import { getPhoneData } from '../../../data/data';
+import { getDevicesData } from '../../../data/data';
 
-export default function Phone({ width }) {
+export default function Device({ width }) {
 
   const handleImageChange = (e) => {
     const src = e.target.src;
@@ -12,8 +12,8 @@ export default function Phone({ width }) {
   };
 
   const params = useParams();
-  const data = getPhoneData(String(params.nameId));
-  const phones = Object.entries(data.detail);
+  const data = getDevicesData(String(params.nameId));
+  const devices = Object.entries(data.detail);
 
   const images = (
     <div className="product-images">
@@ -74,7 +74,7 @@ export default function Phone({ width }) {
           <h2>Product information</h2>
             <div className="specifications">
               {
-                phones.map(([key, value]) => (
+                devices.map(([key, value]) => (
                   <dl>
                     <dt><span>{key}</span></dt>
                     <dd>{value.toString()}</dd>

@@ -1,14 +1,51 @@
 import React, {useState, useEffect } from 'react';
 import '../../css/stylesheet.scss'
-import Footer from './Footer';
 
-const FooterContainer = ({
-  footerMenu,
-  footerHeader,
-  closeFooter,
-  footer,
-  myRef
-}) => {
+const footer = [
+  {
+    header: 'About Us',
+    sectionOne: 'Contact Us',
+    sectionTwo: 'Brand',
+    sectionThree: 'Amazon Business Card',
+    sectionFour: 'Job'
+  },
+  {
+    header: 'Services',
+    sectionOne: 'Shop with Points',
+    sectionTwo: 'Sell products on Amazon',
+    sectionThree: 'Become an Affiliate',
+    sectionFour: 'Advertise Your Products'
+  },
+  {
+    header: 'Networks',
+    sectionOne: 'Vk',
+    sectionTwo: 'Telegram',
+    sectionThree: 'Instagram',
+    sectionFour: 'Twitter'
+  },
+  {
+    header: 'Help',
+    sectionOne: 'Shop with Points',
+    sectionTwo: 'Delivery',
+    sectionThree: 'Amazon Business Card',
+    sectionFour: 'Security'
+  }
+];
+
+const Footer = ({footerList, header}) => {
+
+  return (
+      <ul className="footer">
+        {
+          Object.values(footerList).map((section, i) => (
+            <li key={i}><a href="">{section}</a></li>
+          ))
+        }
+      </ul>
+  )
+}
+
+const FooterContainer = ({ footerMenu, footerHeader, closeFooter, myRef }) => {
 
   return (
     <div
@@ -26,7 +63,7 @@ const FooterContainer = ({
           <Footer
             key={i}
             header={list.header}
-            footerData={list}
+            footerList={list}
           />
         ))
       }

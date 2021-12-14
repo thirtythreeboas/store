@@ -7,8 +7,8 @@ export default function Book({ width }) {
 
   const params = useParams();
   const data = getBooksData(String(params.nameId));
+  const books = Object.entries(data.detail);
 
-  // CSS and HTML of code below copy pasted from PHONE.JSX and PHONE.SCSS
   const lowScreenButton = (
     <div className="logic-block">
       <div className="button-div">
@@ -19,7 +19,7 @@ export default function Book({ width }) {
       </div>
     </div>
   );
-  // CSS and HTML of code below copy pasted from PHONE.JSX and PHONE.SCSS
+
   const largeScreenButton = (
     <div className="logic-block">
       <div className="button-div">
@@ -43,47 +43,35 @@ export default function Book({ width }) {
   );
 
   return (
-    <div className="book-main-container">
+    <div className="product-page">
 
-      <header className="main-header">
+      <header className="product-header">
         <h1>{data.name}</h1>
       </header>
 
-      <div className="book-details">
+      <div className="product-block">
 
 
-        <div className="img-content">
-          <div className="subimg">
+        <div className="image-block">
+          <div className="sub-image-block">
             {width < 768 ? <h2>{data.name}</h2> : null}
-            <div className="book-img">
+            <div className="image-container">
               <img src={data.image} alt={data.name} />
             </div>
           </div>
         </div>
 
-        <div className="book-description">
+        <div className="detail-block">
           <h2>Product information</h2>
-          <div className="lala">
-            <dl>
-              <dt><span>Author</span></dt>
-              <dd>{data.author}</dd>
-            </dl>
-            <dl>
-              <dt><span>Cover</span></dt>
-              <dd>{data.coverType}</dd>
-            </dl>
-            <dl>
-              <dt><span>Language</span></dt>
-              <dd>{data.language}</dd>
-            </dl>
-            <dl>
-              <dt><span>Print length</span></dt>
-              <dd>{data.printLength}</dd>
-            </dl>
-            <dl>
-              <dt><span>Weigth</span></dt>
-              <dd>{data.weight}</dd>
-            </dl>
+          <div className="specifications">
+            {
+              books.map(([key, value]) => (
+                <dl>
+                  <dt><span>{key}</span></dt>
+                  <dd>{value.toString()}</dd>
+                </dl>
+              ))
+            }
           </div>
         </div>
 

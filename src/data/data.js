@@ -454,6 +454,7 @@ const data = {
     {
       name: 'Acer Nitro VG271 Pbmiipx 27 Inches Full HD (1920 x 1080)',
       price: '299.00',
+      inStock: 'In Stock',
       category: 'monitor',
       key: 4,
       image: 'https://m.media-amazon.com/images/I/713k1ZQagdL._AC_SL1500_.jpg',
@@ -477,6 +478,7 @@ const data = {
     {
       name: 'BenQ MOBIUZ EX2510 24.5 Inch 144Hz IPS Gaming Monitor',
       price: '249.99',
+      inStock: 'In Stock',
       category: 'monitor',
       key: 5,
       image: 'https://m.media-amazon.com/images/I/61O5ydbBsDL._AC_SL1001_.jpg',
@@ -500,6 +502,7 @@ const data = {
     {
       name: 'Sceptre Curved 24" 75Hz Professional LED Monitor 1080p',
       price: '299.99',
+      inStock: 'In Stock',
       category: 'monitor',
       key: 6,
       image: 'https://m.media-amazon.com/images/I/81SoE0g+uqL._AC_SL1500_.jpg',
@@ -523,6 +526,7 @@ const data = {
     {
       name: 'Samsung Galaxy Tab S6 Lite 10.4"',
       price: '349.99',
+      inStock: 'In Stock',
       category: 'tablet',
       key: 7,
       image: 'https://m.media-amazon.com/images/I/61EobGaoeaL._AC_SL1500_.jpg',
@@ -549,6 +553,7 @@ const data = {
     {
       name: 'Huawei MateBook Signature Edition 2 in 1 PC Tablet',
       price: '478.93',
+      inStock: 'In Stock',
       category: 'tablet',
       key: 8,
       image: 'https://m.media-amazon.com/images/I/71RUxLw+B6L._AC_SL1500_.jpg',
@@ -575,6 +580,7 @@ const data = {
     {
       name: 'Xiaomi New 2021 Redmi Buds 3 Pro',
       price: '73.98',
+      inStock: 'In Stock',
       category: 'headphone',
       key: 9,
       image: 'https://m.media-amazon.com/images/I/61FnPJxVLTL._AC_SL1500_.jpg',
@@ -598,6 +604,7 @@ const data = {
     {
       name: 'KOTION EACH G2000 Gaming Headset',
       price: '29.00',
+      inStock: 'In Stock',
       category: 'headphone',
       key: 10,
       image: 'https://m.media-amazon.com/images/I/61wZne4H37L._AC_SL1170_.jpg',
@@ -621,6 +628,7 @@ const data = {
     {
       name: 'ROCCAT Vulcan TKL Linear PC Gaming Keyboard',
       price: '129.99',
+      inStock: 'In Stock',
       category: 'keyboard',
       key: 11,
       image: 'https://m.media-amazon.com/images/I/81Fh0I4IzjL._AC_SL1500_.jpg',
@@ -645,6 +653,7 @@ const data = {
     {
       name: '2021 HP Pavilion 15.6 Touch-Screen Laptop 4 Core Intel i5-1035G1',
       price: '899.99',
+      inStock: 'In Stock',
       category: 'laptop',
       key: 12,
       image: 'https://m.media-amazon.com/images/I/71G10j4Q5CL._AC_SL1500_.jpg',

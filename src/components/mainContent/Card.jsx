@@ -1,22 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../css/stylesheet.scss';
 
 const Card = ({section}) => {
 
 
   return (
-    <div className='card-content'>
-      <div className="card">
-        <a href="">
-          <img src={section.image} alt=""/>
-        </a>
-        <p>
-          {
-            section.description
-          }
-        </p>
+    <Link to="/phones">
+      <div className='card-content'>
+        <div className="card">
+          <div className="image-card-container">
+            <img src={section.image} alt=""/>
+          </div>
+          <p>
+            {
+              section.description
+            }
+          </p>
+        </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

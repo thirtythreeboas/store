@@ -1,25 +1,25 @@
 const data = {
-  cardAd: [
+  card: [
     {
       key: 5,
       name: 'phones',
       image: 'https://i2.wp.com/itc.ua/wp-content/uploads/2019/03/SmartPhones-2017.jpg',
       description: 'Pick out your mobile phone with Rain Store today. Choose from the latest Apple iPhones, Samsung, and LG phones.',
-      link: null
+      path: 'phones'
     },
     {
       key: 6,
       name: 'devices',
       image: 'https://avatars.mds.yandex.net/get-zen_doc/3842094/pub_5f3cdb90673058256b9df883_5f434e55a465d87826576bed/scale_1200',
       description: 'Shop a wide selection of laptops, tablets, desktop computers, and accessories on Rain Store from top brands including Apple, HP, Dell, and more.',
-      link: null
+      path: 'devices'
     },
     {
       key: 7,
       name: 'books',
       image: 'https://static01.nyt.com/images/2019/12/17/books/review/17fatbooks/17fatbooks-mobileMasterAt3x.jpg',
       description: 'Over 13 million titles available from the largest seller of used books. Cheap prices on high quality gently used books. Free shipping over $10.',
-      link: null
+      path: 'books'
     }
   ],
   phones: [
@@ -539,7 +539,6 @@ const data = {
       detail: {
         'Brand': 'Samsung Electronics',
         'Series': 'Samsung Galaxy Tab S6 Lite WiFi',
-        'Operating System': '',
         'Operating System': 'Android',
         'Screen Resolution': '1920 x 1200 pixels',
         'Processor': '2.3 GHz',
@@ -702,4 +701,8 @@ export function getDevicesData(val) {
   return data.devices.find(
     item => item.name === val
   );
+}
+
+export function getSpecificCategory(val) {
+  return data[`${val}`];
 }

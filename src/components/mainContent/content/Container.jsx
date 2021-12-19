@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import '../../css/stylesheet.scss';
-import { getData } from '../../data/data';
-import Slider from './slider/Slider';
-import Card from './Card';
-import Content from './content/Сontent';
+import '../../../css/stylesheet.scss';
+import { getData } from '../../../data/data';
+import Slider from '../slider/Slider';
+import Goods from './Goods';
+import Content from './Сontent';
 
 const Container = () => {
 
@@ -30,9 +30,10 @@ const Container = () => {
         <Slider/>
         <div className="goods">
           <div className="showCards">
-            {data.cardAd.map((section, i) => (
-                <Card
-                  key={section.key}
+            {data.card.map((section, i) => (
+                <Goods
+                  path={section.path}
+                  key={section.key + section.path}
                   section={section}
                 />
             ))}

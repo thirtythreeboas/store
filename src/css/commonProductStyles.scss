@@ -91,45 +91,49 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  dl {
-    color: #5a6c7d;
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    font-size: 0.8em;
-    width: 100%;
-    dt {
-      display: block;
-      position: relative;
-      &:before {
-        border-bottom: 1px dotted rgba(0,26,52,.16);
-        bottom: .2em;
-        content: "";
-        display: block;
-        left: 0;
-        position: absolute;
-        width: 100%;
-      }
-    }
-    dt, dd {
-      width: 50%;
-      margin: 0;
-      padding: 0
-    }
-    dd {
-      padding-left: 0.2em;
-    }
-    span {
-      position: relative;
-      background-color: #fff;
-    }
-  }
 }
 
 .specifications {
   margin-bottom: 110px;
   padding: 0 10px;
+}
+
+.dl-styles {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100%;
+  color: #5a6c7d;
+  font-size: 0.8em;
+  span {
+    position: relative;
+    background-color: #fff;
+  }
+}
+
+.dt-styles {
+  display: block;
+  position: relative;
+  &:before {
+    border-bottom: 1px dotted rgba(0,26,52,.16);
+    bottom: .2em;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.dd-styles {
+  padding-left: 0.2em;
+}
+
+.dt-styles, .dd-styles {
+  width: 50%;
+  margin: 0;
+  // padding: 0
 }
 
 .book-specs {
@@ -144,29 +148,30 @@
   align-items: flex-start;
   margin-bottom: 110px;
   padding: 0.8em;
-  .desc-header {
-    position: relative;
-    display: flex;
-    width: 100%;
-    margin-bottom: 20px;
-    h2 {
-      margin: 10px 0px;
-      text-align: center;
-      font-weight: 400;
-    }
-    &:after {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      content: ' ';
-      border-bottom: 0.1rem solid #d6dbe0;
-      width: inherit;
-    }
-  }
   p {
     text-align: justify;
     font-size: 14px;
     margin: 0;
+  }
+}
+
+.desc-header {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  h2 {
+    margin: 10px 0px;
+    text-align: center;
+    font-weight: 400;
+  }
+  &:after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: ' ';
+    border-bottom: 0.1rem solid #d6dbe0;
+    width: inherit;
   }
 }
 
@@ -198,14 +203,16 @@
   border-radius: 3px;
   background-color: #005bff;
   color: #fff;
-  .add {
-    font-weight: 600;
-    font-size: 1em;
-  }
-  .product-price {
-    margin-top: 2px;
-    font-weight: 100;
-  }
+}
+
+.add {
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.product-price {
+  margin-top: 2px;
+  font-weight: 100;
 }
 
 
@@ -233,11 +240,12 @@
       width: 100%;
       text-align: left;
     }
-    .specifications {
-      margin: 0;
-      padding: 0;
-      // width: 100%;
-    }
+  }
+
+  .specifications {
+    margin: 0;
+    padding: 0;
+    // width: 100%;
   }
 
   .book-desc-block {
@@ -249,39 +257,42 @@
     border-radius: 8px;
     border: 1px #D5D9D9 solid;
     width: 200px;
-    .button-div {
-      border-top: 0;
-      position: static;
-      flex-direction: column;
-      background-color: #fff;
-      padding: 15px;
-      p {
-        margin: 0;
-        margin-bottom: 15px;
-      }
-      .add-to-cart-button {
-        width: auto;
-        margin: 0;
-        padding: 7px 0;
-        border-radius: 15px;
-        &:hover {
-          background-color: #003ca8;
-        }
-      }
-      .add-to-list {
-        background-color: #ffd814;
-        cursor: pointer;
-        margin: 0;
-        margin-top: 15px;
-        padding: 7px 0;
-        border: none;
-        border-radius: 15px;
-        color: #000;
-        &:hover {
-          background-color: rgb(216, 217, 54);
+  }
 
-        }
-      }
+  .button-div {
+    border-top: 0;
+    position: static;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 15px;
+    p {
+      margin: 0;
+      margin-bottom: 15px;
+    }
+  }
+
+  .add-to-cart-button {
+    width: auto;
+    margin: 0;
+    padding: 7px 0;
+    border-radius: 15px;
+    &:hover {
+      background-color: #003ca8;
+    }
+  }
+
+  .add-to-list {
+    background-color: #ffd814;
+    cursor: pointer;
+    margin: 0;
+    margin-top: 15px;
+    padding: 7px 0;
+    border: none;
+    border-radius: 15px;
+    color: #000;
+    &:hover {
+      background-color: rgb(216, 217, 54);
+
     }
   }
 }

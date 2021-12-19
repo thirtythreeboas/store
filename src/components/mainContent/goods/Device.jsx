@@ -19,7 +19,7 @@ export default function Device({ width }) {
     <div className="product-images">
       {
         Object.values(data.images).map(elem =>
-          <div onClick={(e) => handleImageChange(e)}>
+          <div key={elem} onClick={(e) => handleImageChange(e)}>
             <img src={elem} alt={data.name}/>
           </div>
         )
@@ -75,9 +75,9 @@ export default function Device({ width }) {
             <div className="specifications">
               {
                 devices.map(([key, value]) => (
-                  <dl>
-                    <dt><span>{key}</span></dt>
-                    <dd>{value.toString()}</dd>
+                  <dl className="dl-styles" key={value.toString()}>
+                    <dt className="dt-styles"><span>{key}</span></dt>
+                    <dd className="dd-styles">{value.toString()}</dd>
                   </dl>
                 ))
               }

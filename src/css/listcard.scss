@@ -1,0 +1,58 @@
+.list-card {
+  width: 100%;
+  max-width: 1050px;
+  length: 250px;
+  padding: 12px;
+  border-bottom: 1px solid #d2d9df;
+}
+
+.list-card-cont {
+  display: flex;
+  justify-content: space-between;
+  width: inherit;
+}
+
+.card-info {
+  display: flex;
+}
+
+.card-img {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  img {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+  }
+}
+
+
+.card-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+  h5 {
+    margin: 0;
+    font-weight: 500;
+  }
+  p {
+
+  }
+}
+
+.card-specs {
+  width: 100%;
+  padding: 0;
+}
+
+.get-to-cart {
+  width: 200px;
+  div {
+    display: flex;
+    flex-direction: column;
+    
+    padding: 0;
+  }
+}

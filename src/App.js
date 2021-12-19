@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './css/stylesheet.scss'
 import './App.scss';
-import { getData } from './data/data';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import NavBarComponent from './components/navigationComp/Navbar';
-import Container from './components/mainContent/Container';
+import Container from './components/mainContent/content/Container';
 import FooterContainer from './components/footerComp/FooterContainer';
 import Phone from './components/mainContent/goods/Phone';
 import Book from './components/mainContent/goods/Book';
 import Device from './components/mainContent/goods/Device';
+import ProductList from './components/mainContent/content/ProductList';
 
 
 const App = () => {
@@ -20,9 +20,7 @@ const App = () => {
   library.add( fab, faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV );
 
   const scrollDown = useRef();
-  const data = getData();
 
-  const [state, setState] = useState(data);
   const [width, setWidth] = useState(0);
   const [displayFooterMenu, setDisplayFooterMenu] = useState(false);
 
@@ -80,6 +78,7 @@ const App = () => {
           <Route path="/phones/:nameId" element={<Phone width={width} />} />
           <Route path="/books/:nameId" element={<Book width={width} />} />
           <Route path="/devices/:nameId" element={<Device width={width} />} />
+          <Route path="/:pathName" element={<ProductList />} />
           <Route
             path="*"
             element={

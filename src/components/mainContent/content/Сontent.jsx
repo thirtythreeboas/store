@@ -1,30 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../../css/stylesheet.scss';
-
-const Product = ( { item, path } ) => {
-
-  return (
-      <div className="making-margin-right">
-        <div className="product-card">
-            <Link
-              // here we remove forward slashes in items.name to avoid some routing issues
-              to={`/${path}/${item.name.replace(/\//g, '')}`}
-              style={{textDecoration: 'none'}}
-            >
-              <div className="image">
-                <img src={item.image} alt={item.name}/>
-              </div>
-              <div className="info">
-                <p>{item.price}</p>
-                <span title={item.name}>{item.name}</span>
-              </div>
-            </Link>
-            <button className="to-cart">В корзину</button>
-        </div>
-      </div>
-  )
-};
+import Card from './Card';
 
 const Content = ({data, windowWidth}) => {
 
@@ -41,7 +18,7 @@ const Content = ({data, windowWidth}) => {
       <div className="phone-section">
 
         <div className="section-header">
-          <h2>Телефоны</h2>
+          <h2>Phones</h2>
         </div>
 
         <div className="goods">
@@ -63,7 +40,7 @@ const Content = ({data, windowWidth}) => {
           <div className="products">
             {
               phonesList.map((item, i) => (
-                <Product
+                <Card
                   key={item.key + item.name}
                   item={item}
                   path="phones"
@@ -79,13 +56,13 @@ const Content = ({data, windowWidth}) => {
       <div className="book-section">
 
         <div className="section-header">
-          <h2>Книги</h2>
+          <h2>Books</h2>
         </div>
         <div className="goods">
           <div className="products">
             {
               booksList.map((item, i) => (
-                <Product
+                <Card
                   key={item.key + item.name}
                   item={item}
                   path="books"
@@ -100,13 +77,13 @@ const Content = ({data, windowWidth}) => {
       <div className="device-section">
 
         <div className="section-header">
-          <h2>Компьютерные девайсы</h2>
+          <h2>Devices</h2>
         </div>
         <div className="goods">
           <div className="products">
             {
               deviceList.map((item, i) => (
-                <Product
+                <Card
                   key={item.key + item.name}
                   item={item}
                   path="devices"

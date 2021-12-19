@@ -1,3 +1,17 @@
+.product-list-container {
+  display: flex;
+  width: 100%;
+  max-width: 1050px;
+  padding-top: 20px;
+}
+
+.list-of-goods {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: inherit;
+}
+
 .list-card {
   width: 100%;
   max-width: 1050px;
@@ -52,11 +66,14 @@
 }
 
 .get-to-cart {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   width: 200px;
-  .button-div {
-    padding: 10px 0;
-    height: 100%;
-    justify-content: space-between;
+  padding: 10px 0;
+  p {
+    margin: 0;
+    margin-bottom: 15px;
   }
 }
 
@@ -64,4 +81,9 @@
   display: flex;
   flex-direction: column;
   padding: 0;
+}
+
+
+@media (min-width: 768px) {
+
 }

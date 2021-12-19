@@ -38,15 +38,13 @@ const ListCard = ({ item, path }) => {
         </div>
 
         <div className="get-to-cart">
-          <div className="button-div">
-            <div className="price-block">
-              <p className="item-price">Price: {item.price}</p>
-              <p className="item-in-stock">{item.inStock}</p>
-            </div>
-            <div className="cart-block">
-              <button className="add-to-cart-button">Add to Cart</button>
-              <button className="add-to-list">Add to list</button>
-            </div>
+          <div className="price-block">
+            <p className="item-price">Price: {item.price}</p>
+            <p className="item-in-stock">{item.inStock}</p>
+          </div>
+          <div className="cart-block">
+            <button className="add-to-cart-button">Add to Cart</button>
+            <button className="add-to-list">Add to list</button>
           </div>
         </div>
 

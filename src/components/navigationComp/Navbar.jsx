@@ -13,7 +13,7 @@ const NavBarComponent = (props) => {
     menu: [
       'Books',
       'Sports and Outdoors',
-      'Electrinics',
+      'Electronics',
       'Clothing',
       'Video Games',
       'Home and Kitchen',

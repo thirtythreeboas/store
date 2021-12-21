@@ -6,14 +6,7 @@ import Dots from './Dots';
 import '../../../css/stylesheet.scss';
 
 const Slider = () => {
-
-  // const images = [
-  //   'https://c.files.bbci.co.uk/0D21/production/_113616330_red.png',
-  //   'https://www.phoneworld.com.pk/wp-content/uploads/2020/01/top-selling-products-blog-banner.jpg',
-  //   'https://astrolifescience.com/wp-content/uploads/2021/04/Businesses-growth-post.png',
-  //   'https://www.incimages.com/uploaded_files/image/1920x1080/IN0316INA07-web_80579.jpg'
-  // ];
-
+  
   const images = [
     {
       name: 'ROCCAT Vulcan TKL Linear PC Gaming Keyboard',

@@ -20,7 +20,7 @@ export default function Card ({ item, path }) {
                 <span title={item.name}>{item.name}</span>
               </div>
             </Link>
-            <button className="to-cart">В корзину</button>
+            <button className="to-cart">Add to Card</button>
         </div>
       </div>
   )

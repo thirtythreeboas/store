@@ -15,10 +15,9 @@
       margin-bottom: 30px;
       padding-bottom: 5px;
       font-weight: 400;
-      color: #c92340;
+      color: #35353f;
       border-bottom: 2px solid #e6d8d8;
       width: 98%;
-
     }
   }
   img {
@@ -30,16 +29,6 @@
     display: flex;
     flex-direction: row;
   }
-}
-
-.book-section {
-  // .products {
-  //   width: 100vw;
-  //   display: flex;
-  //   flex-wrap: nowrap;
-  //   overflow-x: auto;
-  //   justify-content: flex-start;
-  // }
 }
 
 .iphone-ad {
@@ -63,7 +52,7 @@
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  // padding-bottom: 1em;
+  padding-left: 1em;
 }
 
 .making-margin-right {
@@ -75,7 +64,8 @@
 .product-card {
   width: 120px;
   max-width: 180px;
-  margin: 0 1em;
+  // margin: 0 1em;
+  margin-right: 1em;
   margin-bottom: 20px;
 }
 
@@ -121,29 +111,11 @@
       color: blue;
     }
   }
-  // button {
-  //   width: 120px;
-  //   margin-top: 5px;
-  //   // margin-bottom: 30px;
-  //   font-weight: 600;
-  //   font-size: .9em;
-  //   display: block;
-  //   height: 45px;
-  //   cursor: pointer;
-  //   border: none;
-  //   border-radius: 5px;
-  //   color: #fff;
-  //   background-color: #3366ff;
-  //   &:hover {
-  //     background-color: #6a88e2;
-  //   }
-  // }
 }
 
 .to-cart {
   width: 120px;
   margin-top: 5px;
-  // margin-bottom: 30px;
   font-weight: 600;
   font-size: .9em;
   display: block;
@@ -152,9 +124,9 @@
   border: none;
   border-radius: 5px;
   color: #fff;
-  background-color: #3366ff;
+  background-color: #417CE8;
   &:hover {
-    background-color: #6a88e2;
+    background-color: #005bff;
   }
 }
 
@@ -172,14 +144,9 @@
 }
 
 @media (min-width: 650px) {
-  // .making-margin-right {
-  //   width: auto;
-  // }
-  .making-margin-right {
-    // width: 400px;
-  }
   .product-card {
     width: 140px;
+    padding-left: 0;
   }
   .image {
     img {

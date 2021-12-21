@@ -3,7 +3,7 @@ import './css/stylesheet.scss'
 import './App.scss';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import NavBarComponent from './components/navigationComp/Navbar';
@@ -17,7 +17,7 @@ import ProductList from './components/mainContent/content/ProductList';
 
 const App = () => {
 
-  library.add( fab, faHome, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV );
+  library.add( fab, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart );
 
   const scrollDown = useRef();
 
@@ -87,6 +87,7 @@ const App = () => {
               </main>
             }
           />
+          <Route path="/footer" component={<FooterContainer />} />
         </Routes>
         <FooterContainer
           footerMenu={footerMenu}

@@ -30,9 +30,10 @@ export default function Phone({ width }) {
   const lowScreenButton = (
     <div className="button-div">
       <button className="add-to-cart-button">
-        <div className="add">Добавить в корзину</div>
+        <div className="add">Add to Cart</div>
         <div className="product-price">{data.price}</div>
       </button>
+      <button className="add-to-list">Add to List</button>
     </div>
   );
 
@@ -67,6 +68,10 @@ export default function Phone({ width }) {
               <img id="main-img" src={data.image} alt={data.name}/>
             </div>
           </div>
+
+          {
+            width < 767 ? images : false
+          }
 
         </div>
 

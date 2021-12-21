@@ -55,7 +55,7 @@ const FooterContainer = ({ footerMenu, footerHeader, closeFooter, myRef }) => {
       id="highlightFooter"
     >
       <div style={footerHeader} className="footer-header">
-        <h3>По вопросам</h3>
+        <h3>Support</h3>
         <span className="close" onClick={() => closeFooter()}>&times;</span>
       </div>
       {

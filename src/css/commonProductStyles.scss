@@ -10,6 +10,7 @@
   align-items: flex-start;
   width: 100%;
   margin-bottom: 20px;
+  overflow: hidden;
   h1 {
     font-size: 24px;
     padding: 0;
@@ -36,7 +37,8 @@
 
 .product-images {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   margin-top: 10px;
   div {
     display: flex;
@@ -68,7 +70,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 30px;
+  margin: 0;
 }
 
 .image-container {
@@ -196,13 +198,35 @@
   flex-direction: column;
   align-items: center;
   width: 95%;
+  font-weight: 600;
   cursor: pointer;
   margin: 0 5px;
   padding: 3px;
   border: none;
   border-radius: 3px;
-  background-color: #005bff;
+  background-color: #417CE8;
   color: #fff;
+  &:hover {
+    background-color: #005bff;
+  }
+}
+
+.add-to-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  background-color: #F6DE66;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-right: 5px;
+  font-weight: 600;
+  border: none;
+  color: #000;
+  &:hover {
+    background-color: #ffd814;
+
+  }
 }
 
 .add {
@@ -212,7 +236,9 @@
 
 .product-price {
   margin-top: 2px;
-  font-weight: 100;
+  &::after {
+    content: " \0024";
+  }
 }
 
 
@@ -228,9 +254,18 @@
     align-items: flex-start;
   }
 
+  .product-images {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
   .image-block {
     display: flex;
     width: auto;
+  }
+
+  .sub-image-block {
+    margin-left: 30px;
   }
 
   .detail-block {
@@ -245,7 +280,6 @@
   .specifications {
     margin: 0;
     padding: 0;
-    // width: 100%;
   }
 
   .book-desc-block {
@@ -276,23 +310,13 @@
     margin: 0;
     padding: 7px 0;
     border-radius: 15px;
-    &:hover {
-      background-color: #003ca8;
-    }
   }
 
   .add-to-list {
-    background-color: #ffd814;
-    cursor: pointer;
+    width: 100%;
     margin: 0;
     margin-top: 15px;
     padding: 7px 0;
-    border: none;
     border-radius: 15px;
-    color: #000;
-    &:hover {
-      background-color: rgb(216, 217, 54);
-
-    }
   }
 }

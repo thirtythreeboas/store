@@ -33,6 +33,7 @@ export default function Device({ width }) {
         <div className="add">Добавить в корзину</div>
         <div className="product-price">{data.price}</div>
       </button>
+      <button className="add-to-list">Add to List</button>
     </div>
   );
 
@@ -67,6 +68,10 @@ export default function Device({ width }) {
               <img id="main-img" src={data.image} alt={data.name}/>
             </div>
           </div>
+
+          {
+            width < 767 ? images : false
+          }
 
         </div>
 

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/stylesheet.scss';
-import Category from './Category';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const NavBarComponent = (props) => {
@@ -201,7 +200,7 @@ const NavBarComponent = (props) => {
 
                 <li className="list">
                   <a className="nav-link" href="#">
-                    <span><FontAwesomeIcon icon="home" /></span>
+                    <span><FontAwesomeIcon icon="sign-in-alt" /></span>
                     <span>Sign in</span>
                   </a>
                 </li>
@@ -239,6 +238,13 @@ const NavBarComponent = (props) => {
 
                 <li className="list">
                   <a className="nav-link" href="#">
+                    <span><FontAwesomeIcon icon="heart" /></span>
+                    <span>List</span>
+                  </a>
+                </li>
+
+                <li className="list">
+                  <a className="nav-link" href="#">
                     <span><FontAwesomeIcon icon="shopping-cart" /></span>
                     <span>Cart</span>
                   </a>
@@ -267,12 +273,16 @@ const NavBarComponent = (props) => {
           </div>
           <div id="cat-menu-container">
             <ul id="category-menu">
-              {menu.map((item, i) => (
-                <Category
-                key={i}
-                name={item}
-                />
-              ))}
+              {
+                menu.map((item, i) => (
+                  <li
+                    key={i + item}
+                    className="category-item"
+                  >
+                    <a href="">{item}</a>
+                  </li>
+                ))
+              }
             </ul>
             <button id="collapse-menu" onClick={() => openHiddenMenu()}>
               <span><FontAwesomeIcon icon="ellipsis-v"/></span>

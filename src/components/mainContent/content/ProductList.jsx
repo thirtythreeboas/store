@@ -43,8 +43,8 @@ const ListCard = ({ item, path }) => {
             <p className="item-in-stock">{item.inStock}</p>
           </div>
           <div className="cart-block">
-            <button className="add-to-cart-button">Add to Cart</button>
-            <button className="add-to-list">Add to list</button>
+            <button className="cart-btn">Add to Cart</button>
+            <button className="favs">Add to list</button>
           </div>
         </div>
 

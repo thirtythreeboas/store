@@ -1,15 +1,15 @@
 .footer-container {
-  background-color: #fff;
-  padding: 0 2rem;
-  display: none;
-  align-items: center;
-  justify-content: flex-start;
   position: absolute;
   top: 0px;
   left: 0px;
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0 2rem;
+  background-color: #fff;
   flex-direction: column;
   border-radius: 0;
-  width: 100%;
   height: auto;
   min-width: 360px;
   min-height: 100%;
@@ -21,7 +21,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-   width: 220px;
+    width: 220px;
     h3 {
       font-weight: 500;
     }

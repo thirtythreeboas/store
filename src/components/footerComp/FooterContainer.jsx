@@ -1,7 +1,8 @@
 import React from 'react';
+import FooterLowScreenSize from './FooterLowScreenSize';
 import '../../css/stylesheet.scss'
 
-const footer = [
+export const footer = [
   {
     header: 'About Us',
     sectionOne: 'Contact Us',
@@ -32,42 +33,15 @@ const footer = [
   }
 ];
 
-const Footer = ({footerList, header}) => {
-
-  return (
-      <ul className="footer">
-        {
-          Object.values(footerList).map((section, i) => (
-            <li key={i}><a href="">{section}</a></li>
-          ))
-        }
-      </ul>
-  )
-}
-
 const FooterContainer = ({ footerMenu, footerHeader, closeFooter, myRef }) => {
 
   return (
-    <div
-      style={footerMenu}
-      ref={myRef}
-      className="container footer-container"
-      id="highlightFooter"
-    >
-      <div style={footerHeader} className="footer-header">
-        <h3>Support</h3>
-        <span className="close" onClick={() => closeFooter()}>&times;</span>
-      </div>
-      {
-        footer.map((list, i) => (
-          <Footer
-            key={i}
-            header={list.header}
-            footerList={list}
-          />
-        ))
-      }
-    </div>
+    <FooterLowScreenSize
+      footerMenu={footerMenu}
+      footerHeader={footerHeader}
+      closeFooter={closeFooter}
+      myRef={myRef}
+     />
   );
 }
 

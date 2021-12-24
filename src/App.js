@@ -13,6 +13,7 @@ import Phone from './components/mainContent/goods/Phone';
 import Book from './components/mainContent/goods/Book';
 import Device from './components/mainContent/goods/Device';
 import ProductList from './components/mainContent/content/ProductList';
+// import FooterLowScreenSize from './components/footerComp/FooterLowScreenSize';
 
 
 const App = () => {
@@ -87,7 +88,6 @@ const App = () => {
               </main>
             }
           />
-          <Route path="/footer" component={<FooterContainer />} />
         </Routes>
         <FooterContainer
           footerMenu={footerMenu}

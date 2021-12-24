@@ -2,7 +2,11 @@ import React from 'react';
 import '../../css/stylesheet.scss';
 import { footer } from './FooterContainer';
 
-export default function FooterLowScreenSize({ footerMenu, footerHeader, closeFooter, myRef }) {
+export default function FooterLowScreenSize({ footerMenu, closeFooter, myRef }) {
+
+  const footerHeader = {
+    display: `${width > 767 ? 'none' : 'flex'}`
+  }
 
   return (
     <div

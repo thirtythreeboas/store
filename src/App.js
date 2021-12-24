@@ -44,6 +44,7 @@ const App = () => {
     if (width < 768) {
       setDisplayFooterMenu(displayFooterMenu => !displayFooterMenu);
       let prop = document.querySelector('.main-container');
+      if (prop === undefined) return;
       prop.style.display = displayFooterMenu === false ? 'none' : 'flex';
     }
     if (width > 767)
@@ -61,10 +62,6 @@ const App = () => {
 
   const footerMenu = {
     display: `${width > 767 ? 'flex' : displayFooterMenu === false ? 'none' : 'flex'}`
-  }
-
-  const footerHeader = {
-    display: `${width > 767 ? 'none' : 'flex'}`
   }
 
   return (
@@ -91,7 +88,6 @@ const App = () => {
         </Routes>
         <FooterContainer
           footerMenu={footerMenu}
-          footerHeader={footerHeader}
           myRef={scrollDown}
           closeFooter={closeFooter}
         />

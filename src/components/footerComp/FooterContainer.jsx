@@ -33,12 +33,11 @@ export const footer = [
   }
 ];
 
-const FooterContainer = ({ footerMenu, footerHeader, closeFooter, myRef }) => {
+const FooterContainer = ({ footerMenu, closeFooter, myRef }) => {
 
   return (
     <FooterLowScreenSize
       footerMenu={footerMenu}
-      footerHeader={footerHeader}
       closeFooter={closeFooter}
       myRef={myRef}
      />

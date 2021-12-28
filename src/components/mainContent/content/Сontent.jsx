@@ -39,7 +39,7 @@ const Content = ({data, windowWidth}) => {
 
           <div className="products">
             {
-              phonesList.map((item, i) => (
+              phonesList.map(item => (
                 <Card
                   key={item.key + item.name}
                   item={item}
@@ -61,7 +61,7 @@ const Content = ({data, windowWidth}) => {
         <div className="goods">
           <div className="products">
             {
-              booksList.map((item, i) => (
+              booksList.map(item => (
                 <Card
                   key={item.key + item.name}
                   item={item}
@@ -82,9 +82,9 @@ const Content = ({data, windowWidth}) => {
         <div className="goods">
           <div className="products">
             {
-              deviceList.map((item, i) => (
+              deviceList.map(item => (
                 <Card
-                  key={item.key + item.name}
+                  key={item.key}
                   item={item}
                   path="devices"
                 />

@@ -8,12 +8,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import NavBarComponent from './components/navigationComp/Navbar';
 import Container from './components/mainContent/content/Container';
-import FooterContainer from './components/footerComp/FooterContainer';
+import Footer from './components/footerComp/Footer';
+import FooterSupport from './components/footerComp/FooterSupport';
 import Phone from './components/mainContent/goods/Phone';
 import Book from './components/mainContent/goods/Book';
 import Device from './components/mainContent/goods/Device';
 import ProductList from './components/mainContent/content/ProductList';
-// import FooterLowScreenSize from './components/footerComp/FooterLowScreenSize';
 
 
 const App = () => {
@@ -40,11 +40,12 @@ const App = () => {
     setWidth(width);
   };
 
+  /// FOOTER
+
   const closeFooter = () => {
     if (width < 768) {
       setDisplayFooterMenu(displayFooterMenu => !displayFooterMenu);
-      let prop = document.querySelector('.main-container');
-      if (prop === undefined) return;
+      let prop = document.querySelector('.stack');
       prop.style.display = displayFooterMenu === false ? 'none' : 'flex';
     }
     if (width > 767)
@@ -69,27 +70,32 @@ const App = () => {
       <div className="page">
         <ScrollToTop />
         <NavBarComponent
-          handleFooter={closeFooter}
-        />
-        <Routes>
-          <Route path="/" element={<Container/>}/>
-          <Route path="/phones/:nameId" element={<Phone width={width} />} />
-          <Route path="/books/:nameId" element={<Book width={width} />} />
-          <Route path="/devices/:nameId" element={<Device width={width} />} />
-          <Route path="/:pathName" element={<ProductList />} />
-          <Route
-            path="*"
-            element={
-              <main style={{ padding: '1rem' }}>
-                <p>There's nothing here!</p>
-              </main>
-            }
-          />
-        </Routes>
-        <FooterContainer
-          footerMenu={footerMenu}
-          myRef={scrollDown}
           closeFooter={closeFooter}
+          width={width}
+        />
+        <div className="stack">
+          <Routes>
+            <Route path="/" element={<Container/>}/>
+            <Route path="/phones/:nameId" element={<Phone width={width} />} />
+            <Route path="/books/:nameId" element={<Book width={width} />} />
+            <Route path="/devices/:nameId" element={<Device width={width} />} />
+            <Route path="/:pathName" element={<ProductList />} />
+            <Route path="/support" element={<FooterSupport />} />
+            <Route
+              path="*"
+              element={
+                <main style={{ padding: '1rem' }}>
+                  <p>There's nothing here!</p>
+                </main>
+              }
+            />
+          </Routes>
+        </div>
+        <Footer
+          width={width}
+          closeFooter={closeFooter}
+          footerRef={scrollDown}
+          footerMenu={footerMenu}
         />
       </div>
     </BrowserRouter>

@@ -30,10 +30,10 @@ const Container = () => {
         <Slider/>
         <div className="goods">
           <div className="showCards">
-            {data.card.map((section, i) => (
+            {data.goods.map((section, i) => (
                 <Goods
+                  key={section.key + section.name}
                   path={section.path}
-                  key={section.key + section.path}
                   section={section}
                 />
             ))}

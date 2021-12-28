@@ -1,5 +1,5 @@
 const data = {
-  card: [
+  goods: [
     {
       key: 5,
       name: 'phones',
@@ -678,7 +678,57 @@ const data = {
       }
     }
   ],
-}
+  footer: [
+    {
+      path: '/support',
+      id: 'aboutUs',
+      header: 'About Us',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      sections: {
+        sectionOne: 'Contact Us',
+        sectionTwo: 'Brand',
+        sectionThree: 'Links',
+        sectionFour: 'Job'
+      },
+    },
+    {
+      path: '/support',
+      id: 'services',
+      header: 'Services',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      sections: {
+        sectionOne: 'Shop with Points',
+        sectionTwo: 'Sell products on RainStore',
+        sectionThree: 'Become an Affiliate',
+        sectionFour: 'Advertise Your Products'
+      },
+    },
+    {
+      path: '/support',
+      id: 'help',
+      header: 'Help',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      sections: {
+        sectionOne: 'Shop with Points',
+        sectionTwo: 'Delivery',
+        sectionThree: 'Our Business Card',
+        sectionFour: 'Security'
+      },
+    },
+    {
+      path: '/support',
+      id: 'network',
+      header: 'Networks',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      sections: {
+        sectionOne: 'VK',
+        sectionTwo: 'Telegram',
+        sectionThree: 'Instagram',
+        sectionFour: 'Twitter'
+      },
+    }
+  ]
+};
 
 export function getData() {
   return data;
@@ -705,4 +755,8 @@ export function getDevicesData(val) {
 
 export function getSpecificCategory(val) {
   return data[`${val}`];
+}
+
+export function getFooterData() {
+  return data.footer;
 }

@@ -64,7 +64,7 @@ export default function Book({ width }) {
 
         <div className="detail-block">
           <h2>Product information</h2>
-          <div className="specifications">
+          <div className="book-specs">
             {
               books.map(([key, value]) => (
                 <dl className="dl-styles" key={value.toString()}>

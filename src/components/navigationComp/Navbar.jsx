@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../css/stylesheet.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const NavBarComponent = (props) => {
+const NavBarComponent = ({ closeFooter }) => {
   const [deletedCategories, setDeletedCategories] = useState([]);
   const [width, setWidth] = useState(0);
   const [sum, setSum] = useState(0);
@@ -15,9 +15,9 @@ const NavBarComponent = (props) => {
       'Electronics',
       'Clothing',
       'Video Games',
-      'Home and Kitchen',
+      'Phones',
       'Appliances',
-      'Baby Care',
+      'Devices',
       'Music',
       'Tourism'
     ]
@@ -50,7 +50,7 @@ const NavBarComponent = (props) => {
   }, [categoryArray, width]);
 
   useEffect(() => {
-    const defaultShowMenu = width >= 768 ? setShowMenu(false) : undefined;
+    const defaultShowMenu = width >= 768 ? setShowMenu(false) : null;
     if (categoryArray.length === 0 || sum === 0 || showMenu === true) return;
 
     const handleDelete = () => {
@@ -156,17 +156,12 @@ const NavBarComponent = (props) => {
     css.style.display = displayProp;
   }
 
-
   const displayMenu = () => {
-    if (width > 767)
-    document.querySelector('.footer-container').style.display = `${showMenu === false ? 'none' : 'flex'}`;
-
-    document.querySelector('.main-container').style.display = `${showMenu === false ? 'none' : 'flex'}`;
+    document.querySelector('.stack').style.display = `${showMenu === false ? 'none' : 'flex'}`;
     setShowMenu(!showMenu);
   }
 
-
-  const css = {
+  const categoryCss = {
     transition: 'transform 0.3s ease-out',
     display: `${showMenu === false && width < 768 ? 'none': 'flex'}`
   }
@@ -176,8 +171,7 @@ const NavBarComponent = (props) => {
     color: '#fff',
     textDecoration: 'none',
     fontWeight: 300,
-    margin: 0,
-    // padding: '.2em'
+    margin: 0
   }
 
   const listMenuCss = {
@@ -228,7 +222,7 @@ const NavBarComponent = (props) => {
 
                 <li
                   className="list"
-                  onClick={() => props.handleFooter()}
+                  onClick={() => closeFooter()}
                 >
                   <a className="nav-link">
                     <span><FontAwesomeIcon icon="question-circle" /></span>
@@ -266,7 +260,7 @@ const NavBarComponent = (props) => {
 
         </div>
 
-        <div style={css} id="categories">
+        <div style={categoryCss} id="categories">
           <div className="header-categories">
             <h3>Goods</h3>
             <span className="close" onClick={() => displayMenu()}>&times;</span>

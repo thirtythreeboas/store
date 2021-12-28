@@ -7,7 +7,7 @@
 @import "./commonProductStyles.scss";
 @import "./productList.scss";
 @import "./listcard.scss";
-
+@import "./footerSupport";
 
 .page {
   display: flex;
@@ -29,4 +29,9 @@
   flex-direction: row;
   max-width: 1050px;
   height: 100%;
+}
+
+.stack {
+  width: 100%;
+  max-width: 1050px;
 }

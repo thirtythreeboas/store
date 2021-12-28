@@ -1,0 +1,26 @@
+.support-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1050px;
+  min-width: 360px;
+  padding-bottom: 60px;
+}
+
+.support-container {
+  padding: 0 10px 25px 10px;
+  border-bottom: 2px solid #d2d9df;
+  &:nth-child(4) {
+    border-bottom: none;
+  }
+}
+
+.support-section {
+  h4 {
+    margin: 25px 0 5px 0;;
+  }
+  p {
+    margin: 0;
+    text-align: justify;
+  }
+}

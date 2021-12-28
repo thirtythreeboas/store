@@ -18,8 +18,8 @@ export default function Device({ width }) {
   const images = (
     <div className="product-images">
       {
-        Object.values(data.images).map(elem =>
-          <div key={elem} onClick={(e) => handleImageChange(e)}>
+        Object.values(data.images).map((elem, i) =>
+          <div key={i} onClick={(e) => handleImageChange(e)}>
             <img src={elem} alt={data.name}/>
           </div>
         )
@@ -79,8 +79,8 @@ export default function Device({ width }) {
           <h2>Product information</h2>
             <div className="specifications">
               {
-                devices.map(([key, value]) => (
-                  <dl className="dl-styles" key={value.toString()}>
+                devices.map(([key, value], i) => (
+                  <dl className="dl-styles" key={i}>
                     <dt className="dt-styles"><span>{key}</span></dt>
                     <dd className="dd-styles">{value.toString()}</dd>
                   </dl>

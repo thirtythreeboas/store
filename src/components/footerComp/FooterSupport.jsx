@@ -3,22 +3,22 @@ import { getFooterData } from '../../data/data';
 
 const footer = getFooterData();
 
-const FooterSupport = () => {
+const FooterSupport = ({ sectionScroll }) => {
     return (
       <div className="support-main">
         {
           footer.map((footerElem, i) => (
-            <div key={i} id={footerElem.id} className="support-container">
+            <div key={footerElem.id} id={footerElem.id} className="support-container">
               <h4>{footerElem.header}</h4>
               {
                 Object.values(footerElem.sections).map((item, i) => (
-                  <div className="support-section">
-                    <h4
-                      key={i + item}
-                      id={item.replace(/\s+/g, '-').toLowerCase()}
-                    >
-                      {item}
-                    </h4>
+                  <div 
+                    ref={sectionScroll}
+                    key={item + i}
+                    className="support-section"
+                    id={item.replace(/\s+/g, '-').toLowerCase()}
+                  >
+                    <h4>{item}</h4>
                     <p>{footerElem.description}</p>
                   </div>
                 ))
@@ -31,39 +31,3 @@ const FooterSupport = () => {
 }
 
 export default FooterSupport;
-
-
-
-// footer.map((item, i) => (
-//   <div key={i} id={item.id} className="support-container">
-//     <h2>{item.header}</h2>
-//     <div className="support-section">
-//       <h4
-//         id={item.sections.sectionOne.replace(/\s+/g, '-').toLowerCase()}
-//       >
-//         {item.sections.sectionOne}</h4>
-//       <p>{item.description}</p>
-//     </div>
-//     <div className="support-section">
-//       <h4
-//         id={item.sections.sectionTwo.replace(/\s+/g, '-').toLowerCase()}
-//       >
-//         {item.sections.sectionTwo}</h4>
-//       <p>{item.description}</p>
-//     </div>
-//     <div className="support-section">
-//       <h4
-//         id={item.sections.sectionThree.replace(/\s+/g, '-').toLowerCase()}
-//       >
-//         {item.sections.sectionThree}</h4>
-//       <p>{item.description}</p>
-//     </div>
-//     <div className="support-section">
-//       <h4
-//         id={item.sections.sectionFour.replace(/\s+/g, '-').toLowerCase()}
-//       >
-//         {item.sections.sectionFour}</h4>
-//       <p>{item.description}</p>
-//     </div>
-//   </div>
-// ))

@@ -5,7 +5,7 @@ import { getFooterData } from '../../data/data';
 
 const footer = getFooterData();
 
-const Footer = ({ width, footerMenu, closeFooter, footerRef }) => {
+const Footer = ({ width, footerMenu, closeFooter, footerRef, getId }) => {
 
   const footerHeader = {
     display: `${width > 767 ? 'none' : 'flex'}`
@@ -25,15 +25,20 @@ const Footer = ({ width, footerMenu, closeFooter, footerRef }) => {
       <div className="footer">
         {
           footer.map((item, i) => (
-            <div key={i} className="footer-item">
+            <div key={i + i} className="footer-item">
               <h4>{item.header}</h4>
               {
                 Object.values(item.sections).map((elem, i) => (
                   <span
                     key={i + elem}
-                    id={elem.replace(/\s+/g, '-').toLowerCase()}
                   >
-                    <Link to="/support">{elem}</Link>
+                    <Link
+                      to="/support"
+                      id={elem.replace(/\s+/g, '-').toLowerCase()}
+                      onClick={e => getId(e)}
+                    >
+                      {elem}
+                    </Link>
                   </span>
                 ))
               }

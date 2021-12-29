@@ -19,7 +19,7 @@ export default function Phone({ width }) {
     <div className="product-images">
       {
         Object.values(data.images).map(elem =>
-          <div key={elem} onClick={(e) => handleImageChange(e)}>
+          <div key={elem} onClick={e => handleImageChange(e)}>
             <img src={elem} alt={data.name}/>
           </div>
         )

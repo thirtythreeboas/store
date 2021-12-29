@@ -4,6 +4,7 @@ import './App.scss';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { getFooterData } from './data/data';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import NavBarComponent from './components/navigationComp/Navbar';
@@ -18,9 +19,13 @@ import ProductList from './components/mainContent/content/ProductList';
 
 const App = () => {
 
-  library.add( fab, faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart );
+  library.add( fab, faUserPlus, faQuestionCircle, faShoppingCart,
+  faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart );
 
-  const scrollDown = useRef();
+  const footerData = getFooterData();
+
+  const scrollToFooter = useRef();
+  const scrollToFooterItem = useRef();
 
   const [width, setWidth] = useState(0);
   const [displayFooterMenu, setDisplayFooterMenu] = useState(false);
@@ -53,12 +58,37 @@ const App = () => {
   }
 
   const handleDisplayFooter = () => {
-    scrollDown.current.scrollIntoView({block: "center", behavior: "smooth"});
+    scrollToFooter.current.scrollIntoView({block: 'center', behavior: 'smooth'});
     let footer = document.getElementById('highlightFooter');
     footer.classList.add('footer-highlight');
     setTimeout(() => {
       footer.classList.remove('footer-highlight');
     }, 2000);
+  }
+
+  const openFooterLink = id => {
+    scrollToFooterItem.current.scrollTo({block: 'center', behavior: 'smooth'});
+    let elem = document.getElementById(id);
+    elem.classList.add('highlight-section');
+    setTimeout(() => {
+      elem.classList.remove('highlight-section');
+    }, 2000);
+  }
+
+  const getId = e => {
+    let id = e.target.id;
+    let weird = '';
+    let idToscrollTo = footerData.map(item => (
+      Object.values(item.sections).filter(i => (
+        i.replace(/\s+/g, '-').toLowerCase() === id ? weird = id : false))
+    ));
+    openFooterLink(weird);
+    // for (let i = 0; i < footerData.length; i++) {
+    //   for (let p = 0; p < footerData.length; p++) {
+    //     if (Object.values(footerData[i].sections)[p].replace(/\s+/g, '-').toLowerCase() === id) weird = id;
+    //   }
+    // }
+    // console.log(weird);
   }
 
   const footerMenu = {
@@ -80,7 +110,7 @@ const App = () => {
             <Route path="/books/:nameId" element={<Book width={width} />} />
             <Route path="/devices/:nameId" element={<Device width={width} />} />
             <Route path="/:pathName" element={<ProductList />} />
-            <Route path="/support" element={<FooterSupport />} />
+            <Route path="/support" element={<FooterSupport sectionScroll={scrollToFooterItem} />} />
             <Route
               path="*"
               element={
@@ -94,8 +124,9 @@ const App = () => {
         <Footer
           width={width}
           closeFooter={closeFooter}
-          footerRef={scrollDown}
+          footerRef={scrollToFooter}
           footerMenu={footerMenu}
+          getId={getId}
         />
       </div>
     </BrowserRouter>

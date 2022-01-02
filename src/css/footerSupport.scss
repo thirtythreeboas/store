@@ -16,6 +16,9 @@
 }
 
 .support-section {
+  border-radius: 5px;
+  padding: 5px;
+  transition: background-color 1000ms linear;
   h4 {
     margin: 25px 0 5px 0;;
   }

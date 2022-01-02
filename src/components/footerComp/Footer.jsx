@@ -5,7 +5,7 @@ import { getFooterData } from '../../data/data';
 
 const footer = getFooterData();
 
-const Footer = ({ width, footerMenu, closeFooter, footerRef, getId }) => {
+const Footer = ({ width, footerMenu, closeFooter, getId }) => {
 
   const footerHeader = {
     display: `${width > 767 ? 'none' : 'flex'}`
@@ -14,7 +14,6 @@ const Footer = ({ width, footerMenu, closeFooter, footerRef, getId }) => {
   return (
     <div
       style={footerMenu}
-      ref={footerRef}
       className="container footer-container"
       id="highlightFooter"
     >

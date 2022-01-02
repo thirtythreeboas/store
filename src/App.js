@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './css/stylesheet.scss'
 import './App.scss';
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -23,9 +23,6 @@ const App = () => {
   faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart );
 
   const footerData = getFooterData();
-
-  const scrollToFooter = useRef();
-  const scrollToFooterItem = useRef();
 
   const [width, setWidth] = useState(0);
   const [displayFooterMenu, setDisplayFooterMenu] = useState(false);
@@ -59,36 +56,20 @@ const App = () => {
   }
 
   const handleFooterScroll = () => {
-    scrollToFooter.current.scrollIntoView({block: 'center', behavior: 'smooth'});
     let footer = document.getElementById('highlightFooter');
+    footer.scrollIntoView({block: 'center', behavior: 'smooth'});
     footer.classList.add('footer-highlight');
     setTimeout(() => {
       footer.classList.remove('footer-highlight');
     }, 2000);
   }
 
-  // const openFooterLink = (idValue) => {
-  //   scrollToFooterItem.current.scrollTo({block: 'center', behavior: 'smooth'});
-  //   let elem = document.getElementById(id);
-  //   elem.classList.add('highlight-section');
-  //   setTimeout(() => {
-  //     elem.classList.remove('highlight-section');
-  //   }, 2000);
-  // }
-
   const getId = e => {
     let id = e.target.id;
-    let weird = '';
-    let idToscrollTo = footerData.map(item => (
+    footerData.map(item => (
       Object.values(item.sections).filter(i => (
-        i.replace(/\s+/g, '-').toLowerCase() === id ? () => setIdValue(id) : false))
+        i.replace(/\s+/g, '-').toLowerCase() === id ? setIdValue(id) : false))
     ));
-    // openFooterLink(weird);
-    // for (let i = 0; i < footerData.length; i++) {
-    //   for (let p = 0; p < footerData.length; p++) {
-    //     if (Object.values(footerData[i].sections)[p].replace(/\s+/g, '-').toLowerCase() === id) weird = id;
-    //   }
-    // }
   }
 
   const footerMenu = {
@@ -110,7 +91,7 @@ const App = () => {
             <Route path="/books/:nameId" element={<Book width={width} />} />
             <Route path="/devices/:nameId" element={<Device width={width} />} />
             <Route path="/:pathName" element={<ProductList />} />
-            <Route path="/support" element={<FooterSupport sectionScroll={scrollToFooterItem} idValue={idValue} />} />
+            <Route path="/support" element={<FooterSupport idValue={idValue} setIdValue={setIdValue} />} />
             <Route
               path="*"
               element={
@@ -124,7 +105,6 @@ const App = () => {
         <Footer
           width={width}
           closeFooter={closeFooter}
-          footerRef={scrollToFooter}
           footerMenu={footerMenu}
           getId={getId}
         />

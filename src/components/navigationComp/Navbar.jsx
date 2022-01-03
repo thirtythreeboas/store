@@ -263,7 +263,7 @@ const NavBarComponent = ({ closeFooter }) => {
         <div style={categoryCss} id="categories">
           <div className="header-categories">
             <h3>Goods</h3>
-            <span className="close" onClick={() => displayMenu()}>&times;</span>
+            <span className="close-navbar" onClick={() => displayMenu()}>&times;</span>
           </div>
           <div id="cat-menu-container">
             <ul id="category-menu">

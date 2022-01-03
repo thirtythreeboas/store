@@ -3,12 +3,11 @@ import { getFooterData } from '../../data/data';
 
 const footer = getFooterData();
 
-const FooterSupport = ({ idValue, setIdValue }) => {
+const FooterSupport = ({ idValue, changeIdValue }) => {
 
   useEffect(() => {
     if (idValue === '') return;
     openFooterLink(`sup` + `${idValue}`);
-    setIdValue('');
   }, [idValue]);
 
   const openFooterLink = id => {
@@ -18,6 +17,7 @@ const FooterSupport = ({ idValue, setIdValue }) => {
     setTimeout(() => {
       elem.classList.remove('highlight-section');
     }, 2000);
+    changeIdValue();
   }
 
 
@@ -33,12 +33,26 @@ const FooterSupport = ({ idValue, setIdValue }) => {
             {
               Object.values(footerElem.sections).map((item, i) => (
                 <div
-                  key={item + i}
+                  key={item.name + i}
                   className="support-section"
-                  id={`sup` + `${item.replace(/\s+/g, '-').toLowerCase()}`}
+                  id={`sup` + `${item.name.replace(/\s+/g, '-').toLowerCase()}`}
                 >
-                  <h4>{item}</h4>
-                  <p>{footerElem.description}</p>
+                  {
+                    footerElem.header === 'Networks' ? null :
+                    <div>
+                      <h4>{item.name}</h4>
+                      <p>{item.detail}</p>
+                    </div>
+                  }
+                  {
+                    item.icon !== undefined ?
+                    <a href={item.link}>
+                      <span>
+                        <img src={item.icon} alt={item.name}/>
+                      </span>
+                      {item.name}
+                    </a> : null
+                  }
                 </div>
               ))
             }

@@ -163,15 +163,18 @@
       font-weight: 500;
       padding-left: .4em;
     }
-    .close {
+    .close-navbar {
       display: flex;
       justify-content: center;
+      align-items: center;
       border-radius: 50%;
+      border: 2px solid #fff;
       max-width: 150px;
       width: 1.5em;
       height: 1.5em;
       cursor: pointer;
-      background: #5a5a6f;
+      // background: #5a5a6f;
+      background-color: #9292a2;
       line-height: 1.5em;
       margin-right: .5em;
     }
@@ -240,7 +243,7 @@
     flex-direction: column;
     width: auto;
     position: absolute;
-    top: 45px;
+    top: 44px;
     right: 0;
     z-index: 2;
     list-style: none;

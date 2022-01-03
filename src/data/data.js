@@ -683,25 +683,47 @@ const data = {
       path: '/support',
       id: 'aboutUs',
       header: 'About Us',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       sections: {
-        sectionOne: 'Contact Us',
-        sectionTwo: 'Brand',
-        sectionThree: 'Links',
-        sectionFour: 'Job'
-      },
+        sectionOne: {
+          name: 'Contact Us',
+          detail: 'We can be reached via email at aboba@sobaka.com. We do our best to reply within 24 business hours. Additionally, you may phone our team directly Monday-Friday from 8am to 3pm EST at 1-000-000-0101.'
+        },
+        sectionTwo: {
+          name: 'RainStore Impact',
+          detail: 'The work we do is inspired by our customers, communities and the planet. We strive to get small businesses up and running online in service of building economically vibrant and thriving communities. Across our global business, we also integrate environmental best practices in our everyday work.'
+        },
+        sectionThree: {
+          name: 'RainStore Rules and Policies',
+          detail: 'We’re committed to providing a secure and fair marketplace for our buyers and sellers. To support this commitment, we’ve put in place rules and policies that govern our expectations of buyers and sellers, the actions we’ll take to keep you safe, and how we’ll protect you if something goes wrong.'
+        },
+        sectionFour: {
+          name: 'eCommerce',
+          detail: 'Walmart has been changing the face of retail since our first store opened in 1962. We’ve continued to pursue ways to bring technology into retail to offer customers a seamless shopping experience. You can find a ton of items in a Walmart store, but as customers increasingly shop across digital and physical storefronts, we’ve made it easier for you to find what you need right at your fingertips.'
+        }
+      }
     },
     {
       path: '/support',
       id: 'services',
       header: 'Services',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       sections: {
-        sectionOne: 'Shop with Points',
-        sectionTwo: 'Sell products on RainStore',
-        sectionThree: 'Become an Affiliate',
-        sectionFour: 'Advertise Your Products'
-      },
+        sectionOne:  {
+          name: 'Shop with Points',
+          detail: 'Use your favorite rewards points to shop at RainStore. Instead of redeeming your hard earned points on a limited number of items, use them to purchase what you want by choosing from RainStore’s vast selection.'
+        },
+        sectionTwo: {
+          name: 'Sell products on RainStore',
+          detail: 'Whether you’ve already got an established ecommerce business, a great idea for a new product, or you just have a passion for selling, here’s how to take that next step with RainStore.'
+        },
+        sectionThree: {
+          name: 'Become an Affiliate',
+          detail: 'Welcome to one of the largest affiliate marketing programs in the world. The RainStore Associates Program helps content creators, publishers and bloggers monetize their traffic. With millions of products and programs available on RainStore, associates use easy link-building tools to direct their audience to their recommendations, and earn from qualifying purchases and programs.'
+        },
+        sectionFour: {
+          name: 'Advertise Your Products',
+          detail: 'Reach audiences where they shop, read, listen, watch, and play through ad experiences both on and off RainStore. Tap into signals to shape your advertising campaigns and measure results.'
+        }
+      }
     },
     {
       path: '/support',
@@ -709,11 +731,23 @@ const data = {
       header: 'Help',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       sections: {
-        sectionOne: 'Your Account',
-        sectionTwo: 'Delivery',
-        sectionThree: 'Our Business Card',
-        sectionFour: 'Security'
-      },
+        sectionOne: {
+          name: 'Canceled Orders',
+          detail: 'Canceling your order is the last thing we want to do but some situations come up where cancellation is the best option to save you time and money. If your order is canceled, you won’t be charged. Find more information about auth holds.'
+        },
+        sectionTwo: {
+          name: 'Refunds',
+          detail: 'RainStore returns submitted in-store or by mail are refunded to your original method of payment. Outbound shipping charges are not always refunded upon return, this can include regular and freight shipping, and any shipping surcharges.'
+        },
+        sectionThree: {
+          name: 'Our Business Card',
+          detail: 'Choose 3% Back or 60 Day Terms on U.S. purchases at RainStore Business, AWS, RainStore and Whole Foods Market. If you choose to earn rewards, you’ll earn 3% Back on the first $120,000 in purchases each calendar year, 1% Back thereafter.'
+        },
+        sectionFour: {
+          name: 'Privacy & Security',
+          detail: 'RainStore values the trust that our customers, associates, representatives and service providers place in us when they give us personal information. We believe that privacy is more than an issue of compliance and endeavor to manage personal information in accordance with our core value of respect for the individual.'
+        }
+      }
     },
     {
       path: '/support',
@@ -721,11 +755,27 @@ const data = {
       header: 'Networks',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       sections: {
-        sectionOne: 'VK',
-        sectionTwo: 'Telegram',
-        sectionThree: 'Instagram',
-        sectionFour: 'Twitter'
-      },
+        sectionOne: {
+          name: 'Facebook',
+          link: 'https://www.facebook.com/',
+          icon: 'https://brandlogos.net/wp-content/uploads/2021/04/facebook-icon.svg'
+        },
+        sectionTwo: {
+          name: 'Twitter',
+          link: 'https://twitter.com/',
+          icon: 'https://upload.wikimedia.org/wikipedia/sco/9/9f/Twitter_bird_logo_2012.svg'
+        },
+        sectionThree: {
+          name: 'Instagram',
+          link: 'https://www.instagram.com/',
+          icon: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Instagram.svg'
+        },
+        sectionFour: {
+          name: 'YouTube',
+          link: 'https://www.youtube.com/',
+          icon: 'https://cdn-icons-png.flaticon.com/512/1384/1384060.png'
+        }
+      }
     }
   ]
 };

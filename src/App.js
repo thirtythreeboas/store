@@ -45,6 +45,7 @@ const App = () => {
 
   /// FOOTER
 
+
   const closeFooter = () => {
     if (width < 768) {
       setDisplayFooterMenu(displayFooterMenu => !displayFooterMenu);
@@ -64,13 +65,24 @@ const App = () => {
     }, 2000);
   }
 
+  const handleFooterBooleanValueChange = () => {
+    setDisplayFooterMenu(false);
+    let prop = document.querySelector('.stack');
+    prop.style.display = 'flex';
+  }
+
   const getId = e => {
     let id = e.target.id;
     footerData.map(item => (
       Object.values(item.sections).filter(i => (
-        i.replace(/\s+/g, '-').toLowerCase() === id ? setIdValue(id) : false))
+        i.name.replace(/\s+/g, '-').toLowerCase() === id ? setIdValue(id) : null))
     ));
   }
+
+  const changeIdValue = () => {
+    setIdValue('');
+  }
+
 
   const footerMenu = {
     display: `${width > 767 ? 'flex' : displayFooterMenu === false ? 'none' : 'flex'}`
@@ -91,7 +103,7 @@ const App = () => {
             <Route path="/books/:nameId" element={<Book width={width} />} />
             <Route path="/devices/:nameId" element={<Device width={width} />} />
             <Route path="/:pathName" element={<ProductList />} />
-            <Route path="/support" element={<FooterSupport idValue={idValue} setIdValue={setIdValue} />} />
+            <Route path="/support" element={<FooterSupport idValue={idValue} changeIdValue={changeIdValue} />} />
             <Route
               path="*"
               element={
@@ -104,6 +116,7 @@ const App = () => {
         </div>
         <Footer
           width={width}
+          boolChange={handleFooterBooleanValueChange}
           closeFooter={closeFooter}
           footerMenu={footerMenu}
           getId={getId}

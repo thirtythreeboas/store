@@ -34,10 +34,11 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  border: 2px solid red;
+  border: 2px solid #000;
   width: 1.5em;
   height: 1.5em;
   cursor: pointer;
+  background-color: #fff;
   color: #000;
   line-height: 1.5em;
 }
@@ -57,7 +58,7 @@
   width: 220px;
   font-size: 14px;
   padding: 0;
-  span {
+  .footer-item-span {
     margin: 8px 0;
   }
   a {
@@ -74,6 +75,27 @@
   a {
     color: black;
   }
+}
+
+#network {
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #4d5f71;
+      margin: 3px 0;
+      span {
+        width: 30px;
+        height: 30px;
+        margin: 0;
+        margin-right: 10px;
+        img {
+          width: 30px;
+          height: 30px;
+          object-fit: contain;
+        }
+      }
+    }
 }
 
 @media (min-width: 768px) {
@@ -97,4 +119,24 @@
   .footer-item {
     width: auto;
   }
+  // #network {
+  //     a {
+  //       display: flex;
+  //       align-items: center;
+  //       text-decoration: none;
+  //       color: #4d5f71;
+  //       margin: 3px 0;
+  //       span {
+  //         width: 30px;
+  //         height: 30px;
+  //         margin: 0;
+  //         margin-right: 10px;
+  //         img {
+  //           width: 30px;
+  //           height: 30px;
+  //           object-fit: contain;
+  //         }
+  //       }
+  //     }
+  // }
 }

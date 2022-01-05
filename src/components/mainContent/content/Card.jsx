@@ -2,7 +2,7 @@ import React from 'react';
 import '../../../css/stylesheet.scss';
 import { Link } from 'react-router-dom';
 
-export default function Card ({ item, path }) {
+export default function Card ({ item, path, addToCartButton }) {
 
   return (
       <div className="making-margin-right">
@@ -20,7 +20,7 @@ export default function Card ({ item, path }) {
                 <span title={item.name}>{item.name}</span>
               </div>
             </Link>
-            <button className="to-cart">Add to Card</button>
+            <button className="to-cart" name="add" onClick={e => addToCartButton(e, item)}>Add to Card</button>
         </div>
       </div>
   )

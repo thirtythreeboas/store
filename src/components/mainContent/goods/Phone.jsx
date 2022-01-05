@@ -3,7 +3,7 @@ import '../../../css/stylesheet.scss';
 import { useParams } from 'react-router-dom';
 import { getPhoneData } from '../../../data/data';
 
-export default function Phone({ width }) {
+export default function Phone({ width, addToCartButton, addToList }) {
 
   const handleImageChange = (e) => {
     const src = e.target.src;
@@ -29,11 +29,11 @@ export default function Phone({ width }) {
 
   const lowScreenButton = (
     <div className="button-div">
-      <button className="add-to-cart-button">
+      <button className="add-to-cart-button" onClick={() => addToCartButton()}>
         <div className="add">Add to Cart</div>
         <div className="product-price">{data.price}</div>
       </button>
-      <button className="add-to-list">Add to List</button>
+      <button className="add-to-list" onClick={() => addToList()}>Add to List</button>
     </div>
   );
 
@@ -41,8 +41,8 @@ export default function Phone({ width }) {
     <div className="button-div">
       <p className="item-price">Price: {data.price}</p>
       <p className="item-in-stock">{data.inStock}</p>
-      <button className="add-to-cart-button">Add to Cart</button>
-      <button className="add-to-list">Add to list</button>
+      <button className="add-to-cart-button" onClick={() => addToCartButton()}>Add to Cart</button>
+      <button className="add-to-list" onClick={() => addToList()}>Add to list</button>
     </div>
   );
 

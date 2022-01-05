@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import '../../../css/stylesheet.scss';
 import Card from './Card';
 
-const Content = ({data, windowWidth}) => {
+const Content = ({ data, windowWidth, addToCartButton }) => {
 
   const [sliceArray, setSliceArray] = useState(6);
   const [slicePhones, setSlicePhones] = useState(8);
 
-  const booksList = data.books.slice(0, sliceArray);
-  const deviceList = data.devices.slice(0, sliceArray);
-  const phonesList = data.phones.slice(0, slicePhones);
+  const booksList = data.goods.books.slice(0, sliceArray);
+  const deviceList = data.goods.devices.slice(0, sliceArray);
+  const phonesList = data.goods.phones.slice(0, slicePhones);
 
   return (
     <div className="goods-container">
@@ -26,7 +26,7 @@ const Content = ({data, windowWidth}) => {
           <div className="iphone-ad">
             <Link
               style={{textDecoration: 'none'}}
-              to={`/phones/${data.phones[8].name.replace(/\//g, '')}`}
+              to={`/phones/${data.goods.phones[8].name.replace(/\//g, '')}`}
             >
               <div>
                 <img src="https://i.citrus.ua/imgcache/size_800/uploads/shop/7/5/75cf577bd735788ace8078f7ec4d568d.jpg" alt=""/>
@@ -44,6 +44,7 @@ const Content = ({data, windowWidth}) => {
                   key={item.key + item.name}
                   item={item}
                   path="phones"
+                  addToCartButton={addToCartButton}
                 />
               ))
             }
@@ -66,6 +67,7 @@ const Content = ({data, windowWidth}) => {
                   key={item.key + item.name}
                   item={item}
                   path="books"
+                  addToCartButton={addToCartButton}
                 />
               ))
             }
@@ -87,6 +89,7 @@ const Content = ({data, windowWidth}) => {
                   key={item.key}
                   item={item}
                   path="devices"
+                  addToCartButton={addToCartButton}
                 />
               ))
             }

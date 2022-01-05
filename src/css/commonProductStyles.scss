@@ -100,10 +100,6 @@
   padding: 0 10px;
 }
 
-.book-specs {
-  padding: 0 10px;
-}
-
 .dl-styles {
   position: relative;
   display: flex;
@@ -139,13 +135,6 @@
 .dt-styles, .dd-styles {
   width: 50%;
   margin: 0;
-  // padding: 0
-}
-
-.book-specs {
-  padding: 0 80px;
-  max-width: 400px;
-  width: inherit;
 }
 
 .book-desc-block {
@@ -273,6 +262,7 @@
   }
 
   .detail-block {
+    align-items: flex-start;
     width: auto;
     h2 {
       margin: 0;

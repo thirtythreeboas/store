@@ -5,9 +5,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { getFooterData } from './data/data';
+import { getData } from './data/data';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import NavBarComponent from './components/navigationComp/Navbar';
+import Cart from './components/cart/Cart';
 import Container from './components/mainContent/content/Container';
 import Footer from './components/footerComp/Footer';
 import FooterSupport from './components/footerComp/FooterSupport';
@@ -27,6 +29,7 @@ const App = () => {
   const [width, setWidth] = useState(0);
   const [displayFooterMenu, setDisplayFooterMenu] = useState(false);
   const [idValue, setIdValue] = useState('');
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     updateDimensions();
@@ -42,9 +45,6 @@ const App = () => {
     const width = window.innerWidth;
     setWidth(width);
   };
-
-  /// FOOTER
-
 
   const closeFooter = () => {
     if (width < 768) {
@@ -83,6 +83,22 @@ const App = () => {
     setIdValue('');
   }
 
+  const addToCartButton = (e, item) => {
+    const data = getData();
+
+    const func = (obj, elem) => {
+      for (const elem in obj) {
+        // console.log(obj[elem].find(i => i === item ? console.log(i) : null))
+        console.log(obj[elem].find(i => console.log(i)))
+        // console.log(obj[elem])
+      }
+    }
+    func(data.goods, item);
+  }
+
+  const addToList = () => {
+    console.log('Adding to List');
+  }
 
   const footerMenu = {
     display: `${width > 767 ? 'flex' : displayFooterMenu === false ? 'none' : 'flex'}`
@@ -98,12 +114,31 @@ const App = () => {
         />
         <div className="stack">
           <Routes>
-            <Route path="/" element={<Container/>}/>
-            <Route path="/phones/:nameId" element={<Phone width={width} />} />
-            <Route path="/books/:nameId" element={<Book width={width} />} />
-            <Route path="/devices/:nameId" element={<Device width={width} />} />
-            <Route path="/:pathName" element={<ProductList />} />
-            <Route path="/support" element={<FooterSupport idValue={idValue} changeIdValue={changeIdValue} />} />
+            <Route path="/" element={<Container addToCartButton={addToCartButton} />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/phones/:nameId" element={<Phone
+              width={width}
+              addToCartButton={addToCartButton}
+              addToList={addToList} />}
+            />
+            <Route path="/books/:nameId" element={<Book
+              width={width}
+              addToCartButton={addToCartButton}
+              addToList={addToList} />}
+            />
+            <Route path="/devices/:nameId" element={<Device
+              width={width}
+              addToCartButton={addToCartButton}
+              addToList={addToList} />}
+            />
+            <Route path="/:pathName" element={<ProductList
+              addToCartButton={addToCartButton}
+              addToList={addToList} />}
+            />
+            <Route path="/support" element={<FooterSupport
+              idValue={idValue}
+              changeIdValue={changeIdValue} />}
+            />
             <Route
               path="*"
               element={

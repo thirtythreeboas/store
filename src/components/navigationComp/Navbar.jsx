@@ -231,17 +231,17 @@ const NavBarComponent = ({ closeFooter }) => {
                 </li>
 
                 <li className="list">
-                  <a className="nav-link" href="#">
+                  <Link to="/wishlist" className="nav-link" href="#">
                     <span><FontAwesomeIcon icon="heart" /></span>
                     <span>List</span>
-                  </a>
+                  </Link>
                 </li>
 
                 <li className="list">
-                  <a className="nav-link" href="#">
+                  <Link to="/cart" className="nav-link" href="#">
                     <span><FontAwesomeIcon icon="shopping-cart" /></span>
                     <span>Cart</span>
-                  </a>
+                  </Link>
                 </li>
 
               </ul>

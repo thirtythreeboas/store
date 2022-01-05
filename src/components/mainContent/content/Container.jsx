@@ -5,7 +5,7 @@ import Slider from '../slider/Slider';
 import Goods from './Goods';
 import Content from './Сontent';
 
-const Container = () => {
+const Container = ({ addToCartButton }) => {
 
   const [width, setWidth] = useState(0);
 
@@ -30,7 +30,7 @@ const Container = () => {
         <Slider/>
         <div className="goods">
           <div className="showCards">
-            {data.goods.map((section, i) => (
+            {data.listsOfgoods.map((section, i) => (
                 <Goods
                   key={section.key + section.name}
                   path={section.path}
@@ -41,6 +41,7 @@ const Container = () => {
           <Content
             data={data}
             windowWidth={width}
+            addToCartButton={addToCartButton}
           />
         </div>
       </div>

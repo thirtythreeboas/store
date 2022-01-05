@@ -19,6 +19,9 @@
   // length: 250px;
   padding: 12px;
   border-bottom: 1px solid #d2d9df;
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .list-card-cont {

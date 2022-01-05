@@ -3,7 +3,7 @@ import '../../../css/stylesheet.scss';
 import { useParams } from 'react-router-dom';
 import { getBooksData } from '../../../data/data';
 
-export default function Book({ width }) {
+export default function Book({ width, addToCartButton, addToList }) {
 
   const params = useParams();
   const data = getBooksData(String(params.nameId));
@@ -12,11 +12,11 @@ export default function Book({ width }) {
   const lowScreenButton = (
     <div className="logic-block">
       <div className="button-div">
-        <button className="add-to-cart-button">
-          <div className="add">Добавить в корзину</div>
+        <button className="add-to-cart-button" onClick={() => addToCartButton()}>
+          <div className="add">Add to Cart</div>
           <div className="product-price">{data.price}</div>
         </button>
-        <button className="add-to-list">Add to List</button>
+        <button className="add-to-list" onClick={() => addToList()}>Add to List</button>
       </div>
     </div>
   );
@@ -26,8 +26,8 @@ export default function Book({ width }) {
       <div className="button-div">
         <p className="item-price">Price: {data.price}</p>
         <p className="item-in-stock">{data.inStock}</p>
-        <button className="add-to-cart-button">Add to Cart</button>
-        <button className="add-to-list">Add to list</button>
+        <button className="add-to-cart-button" onClick={() => addToCartButton()}>Add to Cart</button>
+        <button className="add-to-list" onClick={() => addToList()}>Add to list</button>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import Slider from '../slider/Slider';
 import Goods from './Goods';
 import Content from './Сontent';
 
-const Container = ({ addToCartButton }) => {
+const Container = ({ addToCartButton, cart }) => {
 
   const [width, setWidth] = useState(0);
 
@@ -39,6 +39,7 @@ const Container = ({ addToCartButton }) => {
             ))}
           </div>
           <Content
+            cart={cart}  
             data={data}
             windowWidth={width}
             addToCartButton={addToCartButton}

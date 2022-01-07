@@ -42,7 +42,7 @@ const ListCard = ({ item, path, addToCartButton, addToList }) => {
             <p className="item-in-stock">{item.inStock}</p>
           </div>
           <div className="cart-block">
-            <button className="cart-btn" onClick={() => addToCartButton()}>Add to Cart</button>
+            <button className="cart-btn" onClick={e => addToCartButton(e, item)}>Add to Cart</button>
             <button className="favs" onClick={() => addToList()}>Add to list</button>
           </div>
         </div>

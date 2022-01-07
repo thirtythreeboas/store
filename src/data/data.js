@@ -27,6 +27,7 @@ const data = {
       {
         name: 'Honor 7A 2/16GB',
         price: '399.99',
+        category: 'phones',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -57,6 +58,7 @@ const data = {
       {
         name: 'Huawei Y7 2019 4/64GB',
         price: '499.99',
+        category: 'phones',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -87,6 +89,7 @@ const data = {
       {
         name: 'Realme C3 3/64GB',
         price: '399.99',
+        category: 'phones',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -117,6 +120,7 @@ const data = {
       {
         name: 'Xiaomi Redmi 9A 2/32GB',
         price: '399.99',
+        category: 'phones',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -147,6 +151,7 @@ const data = {
       {
         name: 'Xiaomi Poco M3 4/64GB',
         price: '499.99',
+        category: 'phones',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -177,6 +182,7 @@ const data = {
       {
         name: 'Xiaomi Redmi 9C 2/32GB',
         price: '399.99',
+        category: 'phones',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -207,6 +213,7 @@ const data = {
       {
         name: 'Vivo Y20 4/64GB',
         price: '499.99',
+        category: 'phones',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -237,6 +244,7 @@ const data = {
       {
         name: 'Huawei P30 Lite 4/128GB',
         price: '599.99',
+        category: 'phones',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -267,6 +275,7 @@ const data = {
       {
         name: 'Apple iPhone 12 Pro Max 512GB',
         price: '1,323',
+        category: 'phones',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -299,6 +308,7 @@ const data = {
       {
         name: 'The Fall of the House of Usher',
         price: 24.76,
+        category: 'books',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -318,6 +328,7 @@ const data = {
       {
         name: 'Politics',
         price: 14.99,
+        category: 'books',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -337,6 +348,7 @@ const data = {
       {
         name: 'The Lover One',
         price: 29.99,
+        category: 'books',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -356,6 +368,7 @@ const data = {
       {
         name: 'Tractatus Logico-Philosophicus',
         price: 36.99,
+        category: 'books',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -375,6 +388,7 @@ const data = {
       {
         name: 'The Pickwick Papers',
         price: '16.00',
+        category: 'books',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -394,6 +408,7 @@ const data = {
       {
         name: 'Justine, or the Misfortunes of Virtue',
         price: 14.41,
+        category: 'books',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -413,6 +428,7 @@ const data = {
       {
         name: 'Doctor Zhivago',
         price: 5.22,
+        category: 'books',
         inCart: false,
         inWishList: false,
         amount: 0,
@@ -434,12 +450,12 @@ const data = {
       {
         name: 'SteelSeries Sensei Ten Gaming Mouse',
         price: '69.99',
+        category: 'devices',
         inCart: false,
         inWishList: false,
         amount: 0,
         inStock: 'In Stock',
         key: 1,
-        category: 'mouse',
         image: 'https://avatars.mds.yandex.net/get-mpic/4785755/img_id526613460347728971.jpeg/orig',
         images: {
           first: 'https://avatars.mds.yandex.net/get-mpic/4785755/img_id526613460347728971.jpeg/orig',
@@ -460,12 +476,12 @@ const data = {
       {
         name: 'Razer DeathAdder Essential Gaming Mouse',
         price: '499.00',
+        category: 'devices',
         inCart: false,
         inWishList: false,
         amount: 0,
         inStock: 'In Stock',
         key: 2,
-        category: 'mouse',
         image: 'https://avatars.mds.yandex.net/get-mpic/4937511/img_id9212416177376599465.png/orig',
         images: {
           first: 'https://avatars.mds.yandex.net/get-mpic/4937511/img_id9212416177376599465.png/orig',
@@ -486,12 +502,12 @@ const data = {
       {
         name: 'Defender Cyber MB-560L Gaming Mouse',
         price: '19.99',
+        category: 'devices',
         inCart: false,
         inWishList: false,
         amount: 0,
         inStock: 'In Stock',
         key: 3,
-        category: 'mouse',
         image: 'https://avatars.mds.yandex.net/get-mpic/4334746/img_id1158350333054399525.png/orig',
         images: {
           first: 'https://avatars.mds.yandex.net/get-mpic/4334746/img_id1158350333054399525.png/orig',
@@ -512,11 +528,11 @@ const data = {
       {
         name: 'Acer Nitro VG271 Pbmiipx 27 Inches Full HD (1920 x 1080)',
         price: '299.00',
+        category: 'devices',
         inCart: false,
         inWishList: false,
         amount: 0,
         inStock: 'In Stock',
-        category: 'monitor',
         key: 4,
         image: 'https://m.media-amazon.com/images/I/713k1ZQagdL._AC_SL1500_.jpg',
         images: {
@@ -539,11 +555,11 @@ const data = {
       {
         name: 'BenQ MOBIUZ EX2510 24.5 Inch 144Hz IPS Gaming Monitor',
         price: '249.99',
+        category: 'devices',
         inCart: false,
         inWishList: false,
         amount: 0,
         inStock: 'In Stock',
-        category: 'monitor',
         key: 5,
         image: 'https://m.media-amazon.com/images/I/61O5ydbBsDL._AC_SL1001_.jpg',
         images: {
@@ -566,11 +582,11 @@ const data = {
       {
         name: 'Sceptre Curved 24" 75Hz Professional LED Monitor 1080p',
         price: '299.99',
+        category: 'devices',
         inCart: false,
         inWishList: false,
         amount: 0,
         inStock: 'In Stock',
-        category: 'monitor',
         key: 6,
         image: 'https://m.media-amazon.com/images/I/81SoE0g+uqL._AC_SL1500_.jpg',
         images: {
@@ -593,11 +609,11 @@ const data = {
       {
         name: 'Samsung Galaxy Tab S6 Lite 10.4"',
         price: '349.99',
+        category: 'devices',
         inCart: false,
         inWishList: false,
         amount: 0,
         inStock: 'In Stock',
-        category: 'tablet',
         key: 7,
         image: 'https://m.media-amazon.com/images/I/61EobGaoeaL._AC_SL1500_.jpg',
         images: {
@@ -622,11 +638,11 @@ const data = {
       {
         name: 'Huawei MateBook Signature Edition 2 in 1 PC Tablet',
         price: '478.93',
+        category: 'devices',
         inCart: false,
         inWishList: false,
         amount: 0,
         inStock: 'In Stock',
-        category: 'tablet',
         key: 8,
         image: 'https://m.media-amazon.com/images/I/71RUxLw+B6L._AC_SL1500_.jpg',
         images: {
@@ -652,11 +668,11 @@ const data = {
       {
         name: 'Xiaomi New 2021 Redmi Buds 3 Pro',
         price: '73.98',
+        category: 'devices',
         inCart: false,
         inWishList: false,
         amount: 0,
         inStock: 'In Stock',
-        category: 'headphone',
         key: 9,
         image: 'https://m.media-amazon.com/images/I/61FnPJxVLTL._AC_SL1500_.jpg',
         images: {
@@ -679,11 +695,11 @@ const data = {
       {
         name: 'KOTION EACH G2000 Gaming Headset',
         price: '29.00',
+        category: 'devices',
         inCart: false,
         inWishList: false,
         amount: 0,
         inStock: 'In Stock',
-        category: 'headphone',
         key: 10,
         image: 'https://m.media-amazon.com/images/I/61wZne4H37L._AC_SL1170_.jpg',
         images: {
@@ -706,11 +722,11 @@ const data = {
       {
         name: 'ROCCAT Vulcan TKL Linear PC Gaming Keyboard',
         price: '129.99',
+        category: 'devices',
         inCart: false,
         inWishList: false,
         amount: 0,
         inStock: 'In Stock',
-        category: 'keyboard',
         key: 11,
         image: 'https://m.media-amazon.com/images/I/81Fh0I4IzjL._AC_SL1500_.jpg',
         images: {
@@ -734,11 +750,11 @@ const data = {
       {
         name: '2021 HP Pavilion 15.6 Touch-Screen Laptop 4 Core Intel i5-1035G1',
         price: '899.99',
+        category: 'devices',
         inCart: false,
         inWishList: false,
         amount: 0,
         inStock: 'In Stock',
-        category: 'laptop',
         key: 12,
         image: 'https://m.media-amazon.com/images/I/71G10j4Q5CL._AC_SL1500_.jpg',
         images: {

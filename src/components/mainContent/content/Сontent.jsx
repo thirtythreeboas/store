@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../../css/stylesheet.scss';
 import Card from './Card';
 
-const Content = ({ data, windowWidth, addToCartButton }) => {
+const Content = ({ data, windowWidth, addToCartButton, cart }) => {
 
-  const [sliceArray, setSliceArray] = useState(6);
-  const [slicePhones, setSlicePhones] = useState(8);
-
-  const booksList = data.goods.books.slice(0, sliceArray);
-  const deviceList = data.goods.devices.slice(0, sliceArray);
-  const phonesList = data.goods.phones.slice(0, slicePhones);
+  const booksList = data.goods.books.slice(0, 6);
+  const deviceList = data.goods.devices.slice(0, 6);
+  const phonesList = data.goods.phones.slice(0, 8);
 
   return (
     <div className="goods-container">
@@ -42,6 +39,7 @@ const Content = ({ data, windowWidth, addToCartButton }) => {
               phonesList.map(item => (
                 <Card
                   key={item.key + item.name}
+                  cart={cart}
                   item={item}
                   path="phones"
                   addToCartButton={addToCartButton}
@@ -65,6 +63,7 @@ const Content = ({ data, windowWidth, addToCartButton }) => {
               booksList.map(item => (
                 <Card
                   key={item.key + item.name}
+                  cart={cart}
                   item={item}
                   path="books"
                   addToCartButton={addToCartButton}
@@ -87,6 +86,7 @@ const Content = ({ data, windowWidth, addToCartButton }) => {
               deviceList.map(item => (
                 <Card
                   key={item.key}
+                  cart={cart}
                   item={item}
                   path="devices"
                   addToCartButton={addToCartButton}

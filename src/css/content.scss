@@ -113,7 +113,7 @@
   }
 }
 
-.to-cart {
+.to-cart, .in-cart {
   width: 120px;
   margin-top: 5px;
   font-weight: 600;
@@ -127,6 +127,13 @@
   background-color: #417CE8;
   &:hover {
     background-color: #005bff;
+  }
+}
+
+.in-cart {
+  background-color: #41E85C;
+  &:hover {
+    background-color: #00FF29;
   }
 }
 
@@ -161,7 +168,7 @@
       height: auto;
     }
   }
-  .to-cart {
+  .to-cart, .in-cart {
     width: 140px;
   }
 }

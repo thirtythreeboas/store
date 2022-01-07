@@ -12,7 +12,7 @@ export default function Book({ width, addToCartButton, addToList }) {
   const lowScreenButton = (
     <div className="logic-block">
       <div className="button-div">
-        <button className="add-to-cart-button" onClick={() => addToCartButton()}>
+        <button className="add-to-cart-button" onClick={e => addToCartButton(e, data)}>
           <div className="add">Add to Cart</div>
           <div className="product-price">{data.price}</div>
         </button>
@@ -26,7 +26,7 @@ export default function Book({ width, addToCartButton, addToList }) {
       <div className="button-div">
         <p className="item-price">Price: {data.price}</p>
         <p className="item-in-stock">{data.inStock}</p>
-        <button className="add-to-cart-button" onClick={() => addToCartButton()}>Add to Cart</button>
+        <button className="add-to-cart-button" onClick={e => addToCartButton(e, data)}>Add to Cart</button>
         <button className="add-to-list" onClick={() => addToList()}>Add to list</button>
       </div>
     </div>

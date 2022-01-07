@@ -9,7 +9,7 @@ import { getData } from './data/data';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import NavBarComponent from './components/navigationComp/Navbar';
-import Cart from './components/cart/Cart';
+import Cart from './components/cart/cart';
 import Container from './components/mainContent/content/Container';
 import Footer from './components/footerComp/Footer';
 import FooterSupport from './components/footerComp/FooterSupport';
@@ -25,6 +25,8 @@ const App = () => {
   faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart );
 
   const footerData = getFooterData();
+  const data = getData();
+  const goods = data.goods;
 
   const [width, setWidth] = useState(0);
   const [displayFooterMenu, setDisplayFooterMenu] = useState(false);
@@ -84,16 +86,24 @@ const App = () => {
   }
 
   const addToCartButton = (e, item) => {
-    const data = getData();
-
-    const func = (obj, elem) => {
-      for (const elem in obj) {
-        // console.log(obj[elem].find(i => i === item ? console.log(i) : null))
-        console.log(obj[elem].find(i => console.log(i)))
-        // console.log(obj[elem])
-      }
+    let isInCart;
+    let match;
+    // let arr = cart;
+    if (cart.length !== 0) isInCart = cart.find(elem => elem.name === item.name);
+    // if (isInCart === item) return;
+    for (const i in goods) {
+      match = goods[i].find(elem => elem.name === item.name);
+      if (match !== undefined && match.name === item.name) break;
     }
-    func(data.goods, item);
+    match.amount += 1;
+    match.inCart = true;
+    // arr.push(match);
+    setCart([...cart, match]);
+    // changingCartItemValue()
+  }
+
+  const changingCartItemValue = () => {
+    console.log(cart);
   }
 
   const addToList = () => {
@@ -114,8 +124,8 @@ const App = () => {
         />
         <div className="stack">
           <Routes>
-            <Route path="/" element={<Container addToCartButton={addToCartButton} />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/" element={<Container cart={cart} addToCartButton={addToCartButton} />} />
+            <Route path="/cart" element={<Cart cart={cart} width={width} />} />
             <Route path="/phones/:nameId" element={<Phone
               width={width}
               addToCartButton={addToCartButton}

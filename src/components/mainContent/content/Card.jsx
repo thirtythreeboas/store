@@ -4,16 +4,6 @@ import { Link } from 'react-router-dom';
 
 export default function Card ({ item, path, addToCartButton, cart }) {
 
-  let foundItem = cart;
-  let lelo;
-  let incl;
-  if (cart.length !== 0) {
-    let value = cart.find(i => i === item ? lelo = i : null);
-    let assignment = lelo !== undefined ?
-    foundItem = lelo :
-    incl = cart.includes(item);
-  }
-
   return (
       <div className="making-margin-right">
         <div className="product-card">
@@ -31,39 +21,17 @@ export default function Card ({ item, path, addToCartButton, cart }) {
               </div>
             </Link>
             {
-              foundItem.length === 0 || incl === false ?
+              cart.indexOf(item) === -1 ?
               <button
                 className="to-cart"
-                onClick={e => addToCartButton(e, item)}
+                onClick={() => addToCartButton(item)}
               >
-              Add to Card
+                Add to Card
               </button>
               :
-              <button
-                className="in-cart"
-                onClick={e => addToCartButton(e, item)}
-              >
-              In Cart
-              </button>
+              <button className="in-cart">In Cart</button>
             }
         </div>
       </div>
   )
 };
-
-// {
-//   foundItem.inCart !== undefined && foundItem.inCart === false ?
-//   <button
-//     className="to-cart"
-//     onClick={e => addToCartButton(e, item)}
-//   >
-//   Add to Card
-//   </button>
-//   :
-//   <button
-//     className="in-cart"
-//     onClick={e => addToCartButton(e, item)}
-//   >
-//   In Cart
-//   </button>
-// }

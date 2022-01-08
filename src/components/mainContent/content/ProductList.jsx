@@ -4,7 +4,7 @@ import ListCard from './ListCard'
 import { useParams } from 'react-router-dom';
 import { getSpecificCategory } from '../../../data/data';
 
-const ProductList = ({ addToCartButton, addToList }) => {
+const ProductList = ({ addToCartButton, addToList, cart, wishList }) => {
 
   const params = useParams();
   const data = getSpecificCategory(String(params.pathName));
@@ -17,6 +17,8 @@ const ProductList = ({ addToCartButton, addToList }) => {
             <ListCard
               key={item.key + item.name}
               item={item}
+              cart={cart}
+              wishList={wishList}
               path={params.pathName}
               addToCartButton={addToCartButton}
               addToList={addToList}

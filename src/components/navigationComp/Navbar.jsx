@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import '../../css/stylesheet.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const NavBarComponent = ({ closeFooter }) => {
+const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
+
   const [deletedCategories, setDeletedCategories] = useState([]);
-  const [width, setWidth] = useState(0);
+  // const [width, setWidth] = useState(0);
   const [sum, setSum] = useState(0);
   const [categoryArray, setCategoryArray] = useState([]);
   const [categories, setCategories] = useState({
@@ -24,16 +25,16 @@ const NavBarComponent = ({ closeFooter }) => {
   })
   const [showMenu, setShowMenu] = useState(false);
 
-  useEffect(() => {
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
-
-  const updateDimensions = () => {
-    const width = window.innerWidth;
-    setWidth(width);
-  };
+  // useEffect(() => {
+  //   updateDimensions();
+  //   window.addEventListener('resize', updateDimensions);
+  //   return () => window.removeEventListener('resize', updateDimensions);
+  // }, []);
+  //
+  // const updateDimensions = () => {
+  //   const width = window.innerWidth;
+  //   setWidth(width);
+  // };
 
   useEffect(() => {
     const obj = document.getElementsByClassName('category-item');
@@ -178,6 +179,16 @@ const NavBarComponent = ({ closeFooter }) => {
     display: `${width > 767 ? 'none' : 'flex'}`,
   }
 
+  const cartItems = () => {
+    const reduceAmount = (a, b) => a + b.amount;
+    const totalQty = cart.reduce(reduceAmount, 0);
+    return cart.length !== 0 ? <span className="display-cart-items">{totalQty}</span> : null;
+  }
+
+  const listItems = () => {
+    return wishList.length !== 0 ? <span className="display-cart-items">{wishList.length}</span> : null;
+  }
+
   return (
     <>
       <nav className="nav-container">
@@ -232,14 +243,14 @@ const NavBarComponent = ({ closeFooter }) => {
 
                 <li className="list">
                   <Link to="/wishlist" className="nav-link" href="#">
-                    <span><FontAwesomeIcon icon="heart" /></span>
+                    <span><FontAwesomeIcon icon="heart" />{listItems()}</span>
                     <span>List</span>
                   </Link>
                 </li>
 
                 <li className="list">
                   <Link to="/cart" className="nav-link" href="#">
-                    <span><FontAwesomeIcon icon="shopping-cart" /></span>
+                    <span><FontAwesomeIcon icon="shopping-cart" />{cartItems()}</span>
                     <span>Cart</span>
                   </Link>
                 </li>

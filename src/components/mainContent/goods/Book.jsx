@@ -1,36 +1,14 @@
 import React from 'react';
 import '../../../css/stylesheet.scss';
+import Button from './button';
 import { useParams } from 'react-router-dom';
 import { getBooksData } from '../../../data/data';
 
-export default function Book({ width, addToCartButton, addToList }) {
+export default function Book({ width, addToCartButton, addToList, cart, wishList }) {
 
   const params = useParams();
   const data = getBooksData(String(params.nameId));
   const books = Object.entries(data.detail);
-
-  const lowScreenButton = (
-    <div className="logic-block">
-      <div className="button-div">
-        <button className="add-to-cart-button" onClick={e => addToCartButton(e, data)}>
-          <div className="add">Add to Cart</div>
-          <div className="product-price">{data.price}</div>
-        </button>
-        <button className="add-to-list" onClick={() => addToList()}>Add to List</button>
-      </div>
-    </div>
-  );
-
-  const largeScreenButton = (
-    <div className="logic-block">
-      <div className="button-div">
-        <p className="item-price">Price: {data.price}</p>
-        <p className="item-in-stock">{data.inStock}</p>
-        <button className="add-to-cart-button" onClick={e => addToCartButton(e, data)}>Add to Cart</button>
-        <button className="add-to-list" onClick={() => addToList()}>Add to list</button>
-      </div>
-    </div>
-  );
 
   const bookDescription = (
     <div className="book-desc-block">
@@ -76,19 +54,22 @@ export default function Book({ width, addToCartButton, addToList }) {
           </div>
         </div>
 
-        {
-          width > 767 ? largeScreenButton : lowScreenButton
-        }
+        <div className="logic-block">
+          <Button
+            cart={cart}
+            wishList={wishList}
+            data={data}
+            width={width}
+            addToCartButton={addToCartButton}
+            addToList={addToList}
+          />
+        </div>
 
-        {
-          width < 768 ? bookDescription : null
-        }
+        {width < 768 ? bookDescription : null}
 
       </div>
 
-      {
-        width > 768 ? bookDescription : null
-      }
+      {width > 768 ? bookDescription : null}
 
     </div>
   );

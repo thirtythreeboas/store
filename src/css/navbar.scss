@@ -82,13 +82,32 @@
 }
 
 .nav-link span:first-child {
+  position: relative;
   font-size: 1.2em;
   margin: 0;
+  .display-cart-items {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: -3px;
+    right: 0;
+    left: 15px;
+    background-color: #F00;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    width: 17px;
+    line-height: 17px;
+  }
 }
 
 .nav-link span:nth-child(2) {
   display: none;
 }
+
 
 .search-box {
   width: 100%;

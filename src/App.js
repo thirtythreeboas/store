@@ -5,7 +5,6 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { getFooterData } from './data/data';
-import { getData } from './data/data';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import NavBarComponent from './components/navigationComp/Navbar';
@@ -25,13 +24,12 @@ const App = () => {
   faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart );
 
   const footerData = getFooterData();
-  const data = getData();
-  const goods = data.goods;
 
   const [width, setWidth] = useState(0);
   const [displayFooterMenu, setDisplayFooterMenu] = useState(false);
   const [idValue, setIdValue] = useState('');
   const [cart, setCart] = useState([]);
+  const [wishList, setWishList] = useState([]);
 
   useEffect(() => {
     updateDimensions();
@@ -47,6 +45,10 @@ const App = () => {
     const width = window.innerWidth;
     setWidth(width);
   };
+
+  useEffect(() => {
+    console.log(wishList);
+  }, [wishList])
 
   const closeFooter = () => {
     if (width < 768) {
@@ -85,29 +87,37 @@ const App = () => {
     setIdValue('');
   }
 
-  const addToCartButton = (e, item) => {
-    let isInCart;
-    let match;
-    // let arr = cart;
-    if (cart.length !== 0) isInCart = cart.find(elem => elem.name === item.name);
-    // if (isInCart === item) return;
-    for (const i in goods) {
-      match = goods[i].find(elem => elem.name === item.name);
-      if (match !== undefined && match.name === item.name) break;
+  const addToCartButton = item => {
+    let arr = cart;
+    let elem = item;
+    let isInCart = cart.find(elem => elem.name === item.name);
+    if (arr.includes(isInCart)) {
+      arr = arr.map(elem => {
+        if (elem.name !== item.name) return elem;
+        return {...elem, amount: elem.amount + 1};
+      })
+    } else {
+      elem.amount += 1;
+      elem.inCart = true;
+      arr.unshift(elem);
     }
-    match.amount += 1;
-    match.inCart = true;
-    // arr.push(match);
-    setCart([...cart, match]);
-    // changingCartItemValue()
+    setCart([...arr]);
   }
 
-  const changingCartItemValue = () => {
-    console.log(cart);
+  const removeFromCart = item => {
+    let arr = cart;
+    let index = arr.indexOf(item);
+    arr.splice([index], 1);
+    setCart([...arr]);
   }
 
-  const addToList = () => {
-    console.log('Adding to List');
+  const addToList = item => {
+    let arr = wishList;
+    let elem = item;
+    let isInList = wishList.find(elem => elem.name === item.name);
+    if (arr.includes(isInList)) return;
+    arr.unshift(elem);
+    setWishList([...arr])
   }
 
   const footerMenu = {
@@ -121,27 +131,47 @@ const App = () => {
         <NavBarComponent
           closeFooter={closeFooter}
           width={width}
+          cart={cart}
+          wishList={wishList}
         />
         <div className="stack">
           <Routes>
-            <Route path="/" element={<Container cart={cart} addToCartButton={addToCartButton} />} />
-            <Route path="/cart" element={<Cart cart={cart} width={width} />} />
+            <Route path="/" element={<Container
+              cart={cart}
+              wishList={wishList}
+              addToCartButton={addToCartButton} />}
+            />
+            <Route path="/cart" element={<Cart
+              width={width}
+              cart={cart}
+              wishList={wishList}
+              addToList={addToList}
+              removeFromCart={removeFromCart} />}
+            />
             <Route path="/phones/:nameId" element={<Phone
               width={width}
+              cart={cart}
+              wishList={wishList}
               addToCartButton={addToCartButton}
               addToList={addToList} />}
             />
             <Route path="/books/:nameId" element={<Book
               width={width}
+              cart={cart}
+              wishList={wishList}
               addToCartButton={addToCartButton}
               addToList={addToList} />}
             />
             <Route path="/devices/:nameId" element={<Device
               width={width}
+              cart={cart}
+              wishList={wishList}
               addToCartButton={addToCartButton}
               addToList={addToList} />}
             />
             <Route path="/:pathName" element={<ProductList
+              cart={cart}
+              wishList={wishList}
               addToCartButton={addToCartButton}
               addToList={addToList} />}
             />

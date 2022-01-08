@@ -1,9 +1,10 @@
 import React from 'react';
 import '../../../css/stylesheet.scss';
+import Button from './button';
 import { useParams } from 'react-router-dom';
 import { getDevicesData } from '../../../data/data';
 
-export default function Device({ width, addToCartButton, addToList }) {
+export default function Device({ width, addToCartButton, addToList, cart, wishList }) {
 
   const handleImageChange = (e) => {
     const src = e.target.src;
@@ -26,26 +27,6 @@ export default function Device({ width, addToCartButton, addToList }) {
       }
     </div>
   );
-
-  const lowScreenButton = (
-    <div className="button-div">
-      <button className="add-to-cart-button" onClick={e => addToCartButton(e, data)}>
-        <div className="add">Add to Cart</div>
-        <div className="product-price">{data.price}</div>
-      </button>
-      <button className="add-to-list" onClick={() => addToList()}>Add to List</button>
-    </div>
-  );
-
-  const largeScreenButton = (
-    <div className="button-div">
-      <p className="item-price">Price: {data.price}</p>
-      <p className="item-in-stock">{data.inStock}</p>
-      <button className="add-to-cart-button" onClick={e => addToCartButton(e, data)}>Add to Cart</button>
-      <button className="add-to-list" onClick={() => addToList()}>Add to list</button>
-    </div>
-  );
-
 
   return (
     <div className="product-page">
@@ -90,9 +71,14 @@ export default function Device({ width, addToCartButton, addToList }) {
         </div>
 
         <div className="logic-block">
-          {
-            width > 767 ? largeScreenButton : lowScreenButton
-          }
+          <Button
+            cart={cart}
+            wishList={wishList}
+            data={data}
+            width={width}
+            addToCartButton={addToCartButton}
+            addToList={addToList}
+          />
         </div>
 
       </div>

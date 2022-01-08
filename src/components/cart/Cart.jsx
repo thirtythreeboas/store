@@ -1,11 +1,8 @@
 import React from 'react';
 import '../../css/stylesheet.scss';
-import CartItem from './cartItem';
 import CartContainer from './cartContainer';
 
-const Cart = ({ cart, width }) => {
-
-  // const totalSum = cart.reduce()
+const Cart = ({ cart, width, removeFromCart, addToList }) => {
 
   return (
     <div className="cart-container">
@@ -17,6 +14,8 @@ const Cart = ({ cart, width }) => {
           </div>
         :
         <CartContainer
+          addToList={addToList}
+          removeFromCart={removeFromCart}
           cart={cart}
           width={width}
         />

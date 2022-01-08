@@ -3,7 +3,7 @@ import React from 'react';
 import '../../../css/stylesheet.scss';
 import { Link } from 'react-router-dom';
 
-const ListCard = ({ item, path, addToCartButton, addToList }) => {
+const ListCard = ({ cart, item, path, addToCartButton, addToList, wishList }) => {
 
   const listToRender = Object.entries(item.detail).slice(0, 5);
   const css = {
@@ -42,8 +42,18 @@ const ListCard = ({ item, path, addToCartButton, addToList }) => {
             <p className="item-in-stock">{item.inStock}</p>
           </div>
           <div className="cart-block">
-            <button className="cart-btn" onClick={e => addToCartButton(e, item)}>Add to Cart</button>
-            <button className="favs" onClick={() => addToList()}>Add to list</button>
+            <button
+              className="cart-btn"
+              onClick={() => addToCartButton(item)}
+            >
+              Add to Cart
+            </button>
+            <button
+              className="favs"
+              onClick={() => addToList(item)}
+            >
+              Add to list
+            </button>
           </div>
         </div>
 

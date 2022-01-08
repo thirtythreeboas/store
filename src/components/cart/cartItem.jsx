@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import '../../css/stylesheet.scss';
 
-const CartItem = ({ item, width }) => {
+const CartItem = ({ item, width, addToList, removeFromCart }) => {
 
   return (
     <div className="cart-item">
@@ -19,8 +19,18 @@ const CartItem = ({ item, width }) => {
         </div>
       </div>
       <div className="cart-buttons">
-        <button className="cart-list">Add to List</button>
-        <button className="cart-remove">Remove</button>
+        <button
+          className="cart-list"
+          onClick={() => addToList(item)}
+        >
+          Add to List
+        </button>
+        <button
+          className="cart-remove"
+          onClick={() => removeFromCart(item)}
+        >
+          Remove
+        </button>
       </div>
     </div>
   );

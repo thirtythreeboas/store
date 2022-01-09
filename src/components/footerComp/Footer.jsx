@@ -5,7 +5,7 @@ import { getFooterData } from '../../data/data';
 
 const footer = getFooterData();
 
-const Footer = ({ width, footerMenu, closeFooter, getId, setDisplayFooterMenu, boolChange }) => {
+const Footer = ({ width, footerMenu, closeFooter, getId, boolChange }) => {
 
   const footerHeader = {
     display: `${width > 767 ? 'none' : 'flex'}`

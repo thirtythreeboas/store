@@ -6,15 +6,12 @@ import ListItem from './ListItem';
 
 const ListContainer = ({ cart, wishList, width, addToList, removeFromCart, addToCartButton, removeOne, removeFromList }) => {
 
-  const reduceAmount = (a, b) => a + b.amount;
-  const totalQty = cart.reduce(reduceAmount, 0);
-
   return (
     <div className="wishlist-section">
       {
         width < 768 ?
-        <h3 className="subtotal">
-          <span>Qty: {totalQty}</span>
+        <h3 className="amount-of-items">
+          <span>Qty: {wishList.length}</span>
         </h3>
         :
         null

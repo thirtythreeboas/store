@@ -47,9 +47,9 @@ const App = () => {
     setWidth(width);
   };
 
-  // useEffect(() => {
-  //   console.log(wishList);
-  // }, [wishList])
+  useEffect(() => {
+    console.log(cart);
+  }, [cart])
 
   const closeFooter = () => {
     if (width < 768) {
@@ -93,13 +93,12 @@ const App = () => {
     let elem = item;
     let isInCart = cart.find(elem => elem.name === item.name);
     if (arr.includes(isInCart)) {
-      console.log('change');
       arr = arr.map(elem => {
         if (elem.name !== item.name) return elem;
         return {...elem, amount: elem.amount + 1};
       })
     } else {
-      console.log('add');
+      elem.amount = 0;
       elem.amount += 1;
       elem.inCart = true;
       arr.unshift(elem);
@@ -108,10 +107,7 @@ const App = () => {
   }
 
   const removeFromCart = item => {
-    let arr = cart;
-    let index = arr.indexOf(item);
-    arr.splice([index], 1);
-    setCart([...arr]);
+    setCart(cart.filter(i => i.name !== item.name));
   }
 
   const removeOneItemFromCart = item => {

@@ -879,6 +879,58 @@ const data = {
         }
       }
     }
+  ],
+  menu: [
+    {
+      name: 'Books',
+      path: 'books',
+      className: 'active-link'
+    },
+    {
+      name: 'Sports and Outdoors',
+      path: '#',
+      className: 'inactive-link'
+    },
+    {
+      name: 'Electronics',
+      path: '#',
+      className: 'inactive-link'
+    },
+    {
+      name: 'Clothing',
+      path: '#',
+      className: 'inactive-link'
+    },
+    {
+      name: 'Video Games',
+      path: '#',
+      className: 'inactive-link'
+    },
+    {
+      name: 'Phones',
+      path: 'phones',
+      className: 'active-link'
+    },
+    {
+      name: 'Appliances',
+      path: '#',
+      className: 'inactive-link'
+    },
+    {
+      name: 'Music',
+      path: '#',
+      className: 'inactive-link'
+    },
+    {
+      name: 'Tourism',
+      path: '#',
+      className: 'inactive-link'
+    },
+    {
+      name: 'Devices',
+      path: 'devices',
+      className: 'active-link'
+    }
   ]
 };
 
@@ -911,4 +963,8 @@ export function getSpecificCategory(val) {
 
 export function getFooterData() {
   return data.footer;
+}
+
+export function getMenu() {
+  return data.menu;
 }

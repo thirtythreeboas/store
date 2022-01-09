@@ -2,39 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/stylesheet.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getMenu } from '../../data/data';
 
 const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
 
   const [deletedCategories, setDeletedCategories] = useState([]);
-  // const [width, setWidth] = useState(0);
   const [sum, setSum] = useState(0);
   const [categoryArray, setCategoryArray] = useState([]);
-  const [categories, setCategories] = useState({
-    menu: [
-      'Books',
-      'Sports and Outdoors',
-      'Electronics',
-      'Clothing',
-      'Video Games',
-      'Phones',
-      'Appliances',
-      'Devices',
-      'Music',
-      'Tourism'
-    ]
-  })
   const [showMenu, setShowMenu] = useState(false);
-
-  // useEffect(() => {
-  //   updateDimensions();
-  //   window.addEventListener('resize', updateDimensions);
-  //   return () => window.removeEventListener('resize', updateDimensions);
-  // }, []);
-  //
-  // const updateDimensions = () => {
-  //   const width = window.innerWidth;
-  //   setWidth(width);
-  // };
+  const menu = getMenu();
 
   useEffect(() => {
     const obj = document.getElementsByClassName('category-item');
@@ -149,7 +125,7 @@ const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
   }, [width, sum])
 
 
-  const { menu } = categories;
+  // const { menu } = categories;
 
   const openHiddenMenu = () => {
     let css = document.getElementById('open-menu');
@@ -158,7 +134,9 @@ const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
   }
 
   const displayMenu = () => {
-    document.querySelector('.stack').style.display = `${showMenu === false ? 'none' : 'flex'}`;
+    let stack = document.querySelector('.stack');
+    if (width >= 768) return;
+    stack.style.display = `${showMenu === false ? 'none' : 'flex'}`;
     setShowMenu(!showMenu);
   }
 
@@ -281,10 +259,11 @@ const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
               {
                 menu.map((item, i) => (
                   <li
-                    key={i + item}
+                    key={i + item.name}
                     className="category-item"
+                    onClick={() => displayMenu()}
                   >
-                    <a href="">{item}</a>
+                    <Link className={item.className} to={item.path}>{item.name}</Link>
                   </li>
                 ))
               }

@@ -228,6 +228,11 @@
   &:hover {
     background-color: #77AF7A;
   }
+  .active-link {
+    text-decoration: underline;
+    text-decoration-color: #ab76ed;
+    text-decoration-thickness: 2px;
+  }
   a {
     min-width: 0;
     font-size: .8em;
@@ -237,6 +242,11 @@
     padding: 1em;
     border-bottom: 1px solid #fff;
   }
+}
+
+.inactive-link {
+  pointer-events: none;
+  cursor: default;
 }
 
 #collapse-menu {

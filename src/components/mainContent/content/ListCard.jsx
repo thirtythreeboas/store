@@ -3,13 +3,32 @@ import React from 'react';
 import '../../../css/stylesheet.scss';
 import { Link } from 'react-router-dom';
 
-const ListCard = ({ cart, item, path, addToCartButton, addToList, wishList }) => {
+const ListCard = ({ item, path, addToCartButton, addToList, wishList, cart }) => {
 
   const listToRender = Object.entries(item.detail).slice(0, 5);
+
   const css = {
     textDecoration: 'none',
-    color: 'black'
+    color: 'black',
+    padding: '0px 15px'
   }
+
+  const cssCart = {
+    backgroundColor: '#3dbe52',
+  }
+
+  const cssList = {
+    backgroundColor: '#ffa200',
+    color: '#fff'
+  }
+
+  const addedInCart = (
+    <button style={cssCart} className="cart-btn">In Cart</button>
+  );
+
+  const addedInList = (
+    <button style={cssList} className="favs">In List</button>
+  )
 
   return (
     <div className="list-card">
@@ -42,18 +61,28 @@ const ListCard = ({ cart, item, path, addToCartButton, addToList, wishList }) =>
             <p className="item-in-stock">{item.inStock}</p>
           </div>
           <div className="cart-block">
-            <button
-              className="cart-btn"
-              onClick={() => addToCartButton(item)}
-            >
-              Add to Cart
-            </button>
-            <button
-              className="favs"
-              onClick={() => addToList(item)}
-            >
-              Add to list
-            </button>
+            {
+              cart.indexOf(item) === -1 ?
+                <button
+                  className="cart-btn"
+                  onClick={() => addToCartButton(item)}
+                >
+                  Add to Cart
+                </button>
+              :
+                addedInCart
+            }
+            {
+              wishList.indexOf(item) === -1 ?
+                <button
+                  className="favs"
+                  onClick={() => addToList(item)}
+                >
+                  Add to list
+                </button>
+              :
+                addedInList
+            }
           </div>
         </div>
 

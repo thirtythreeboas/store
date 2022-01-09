@@ -16,7 +16,7 @@ const Button = ({ width, addToCartButton, addToList, data, cart, wishList }) => 
     height: `${width < 768 ? '38px' : 'auto'}`
   }
 
-  const addedinCart = (
+  const addedInCart = (
     <button style={cssCart} className="add-to-cart-button">In Cart</button>
   );
 
@@ -36,7 +36,7 @@ const Button = ({ width, addToCartButton, addToList, data, cart, wishList }) => 
             <div className="product-price">{data.price}</div>
           </button>
         :
-          addedinCart
+          addedInCart
       }
       {
         wishList.indexOf(data) === -1 ?
@@ -65,7 +65,7 @@ const Button = ({ width, addToCartButton, addToList, data, cart, wishList }) => 
             Add to Cart
           </button>
         :
-          addedinCart
+          addedInCart
       }
       {
         wishList.indexOf(data) === -1 ?

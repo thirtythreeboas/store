@@ -1,37 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import '../../css/stylesheet.scss';
+import CartButton from './CartButton';
+import CartInfoSection from './CartInfoSection';
 
-const CartItem = ({ item, width, addToList, removeFromCart }) => {
+const CartItem = ({ cart, item, addToList, removeFromCart, addToCartButton, removeOne, wishList }) => {
 
   return (
     <div className="cart-item">
-      <div className="cart-info">
-        <div className="cart-image">
-          <Link to={`/${item.category}/${item.name.replace(/\//g, '')}`}>
-            <img src={item.image} alt={item.name}/>
-          </Link>
-        </div>
-        <div className="cart-specs">
-          <h3>{item.price}</h3>
-          <h2><Link to={`/${item.category}/${item.name.replace(/\//g, '')}`}>{item.name}</Link></h2>
-          <p>Amount: {item.amount}</p>
-        </div>
-      </div>
-      <div className="cart-buttons">
-        <button
-          className="cart-list"
-          onClick={() => addToList(item)}
-        >
-          Add to List
-        </button>
-        <button
-          className="cart-remove"
-          onClick={() => removeFromCart(item)}
-        >
-          Remove
-        </button>
-      </div>
+      <CartInfoSection
+        cart={cart}
+        item={item}
+        addToCartButton={addToCartButton}
+        removeOne={removeOne}
+      />
+      <CartButton
+        cart={cart}
+        wishList={wishList}
+        item={item}
+        addToList={addToList}
+        removeFromCart={removeFromCart}
+        addToCartButton={addToCartButton}
+        removeOne={removeOne}
+      />
     </div>
   );
 }

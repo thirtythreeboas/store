@@ -8,7 +8,8 @@ import { getFooterData } from './data/data';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import NavBarComponent from './components/navigationComp/Navbar';
-import Cart from './components/cart/cart';
+import Cart from './components/cart/Cart';
+import WishList from './components/wishList/WishList';
 import Container from './components/mainContent/content/Container';
 import Footer from './components/footerComp/Footer';
 import FooterSupport from './components/footerComp/FooterSupport';
@@ -46,9 +47,9 @@ const App = () => {
     setWidth(width);
   };
 
-  useEffect(() => {
-    console.log(wishList);
-  }, [wishList])
+  // useEffect(() => {
+  //   console.log(wishList);
+  // }, [wishList])
 
   const closeFooter = () => {
     if (width < 768) {
@@ -92,11 +93,13 @@ const App = () => {
     let elem = item;
     let isInCart = cart.find(elem => elem.name === item.name);
     if (arr.includes(isInCart)) {
+      console.log('change');
       arr = arr.map(elem => {
         if (elem.name !== item.name) return elem;
         return {...elem, amount: elem.amount + 1};
       })
     } else {
+      console.log('add');
       elem.amount += 1;
       elem.inCart = true;
       arr.unshift(elem);
@@ -111,6 +114,13 @@ const App = () => {
     setCart([...arr]);
   }
 
+  const removeOneItemFromCart = item => {
+    let arr = cart;
+    let index = arr.indexOf(item);
+    arr[index].amount -= 1;
+    setCart([...arr]);
+  }
+
   const addToList = item => {
     let arr = wishList;
     let elem = item;
@@ -118,6 +128,13 @@ const App = () => {
     if (arr.includes(isInList)) return;
     arr.unshift(elem);
     setWishList([...arr])
+  }
+
+  const removeFromList = item => {
+    let arr = wishList;
+    let index = arr.indexOf(item);
+    arr.splice([index], 1);
+    setWishList([...arr]);
   }
 
   const footerMenu = {
@@ -145,8 +162,21 @@ const App = () => {
               width={width}
               cart={cart}
               wishList={wishList}
+              addToCartButton={addToCartButton}
+              wishList={wishList}
               addToList={addToList}
-              removeFromCart={removeFromCart} />}
+              removeFromCart={removeFromCart}
+              removeOne={removeOneItemFromCart} />}
+            />
+            <Route path="/wishList" element={<WishList
+              width={width}
+              cart={cart}
+              addToCartButton={addToCartButton}
+              wishList={wishList}
+              addToList={addToList}
+              removeFromList={removeFromList}
+              removeFromCart={removeFromCart}
+              removeOne={removeOneItemFromCart} />}
             />
             <Route path="/phones/:nameId" element={<Phone
               width={width}

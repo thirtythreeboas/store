@@ -1,8 +1,8 @@
 import React from 'react';
 import '../../css/stylesheet.scss';
-import CartContainer from './cartContainer';
+import CartContainer from './CartContainer';
 
-const Cart = ({ cart, width, removeFromCart, addToList }) => {
+const Cart = ({ cart, width, removeFromCart, addToList, addToCartButton, removeOne, wishList }) => {
 
   return (
     <div className="cart-container">
@@ -14,9 +14,12 @@ const Cart = ({ cart, width, removeFromCart, addToList }) => {
           </div>
         :
         <CartContainer
+          removeOne={removeOne}
           addToList={addToList}
+          addToCartButton={addToCartButton}
           removeFromCart={removeFromCart}
           cart={cart}
+          wishList={wishList}
           width={width}
         />
       }

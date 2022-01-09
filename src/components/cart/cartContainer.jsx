@@ -1,9 +1,9 @@
 import React from 'react';
 import '../../css/stylesheet.scss';
-import CartItem from './cartItem';
+import CartItem from './CartItem';
 
 
-const CartContainer = ({ cart, width, addToList, removeFromCart }) => {
+const CartContainer = ({ cart, width, addToList, removeFromCart, addToCartButton, removeOne, wishList }) => {
 
 
   const sumTotalPrice = () => {
@@ -19,7 +19,7 @@ const CartContainer = ({ cart, width, addToList, removeFromCart }) => {
 
 
   return (
-    <div className="cart-block">
+    <div className="cart-section">
       {
         width < 768 ?
         <h3 className="subtotal">
@@ -33,7 +33,11 @@ const CartContainer = ({ cart, width, addToList, removeFromCart }) => {
         {
           cart.map(item => (
             <CartItem
+              removeOne={removeOne}
+              cart={cart}
+              wishList={wishList}
               addToList={addToList}
+              addToCartButton={addToCartButton}
               removeFromCart={removeFromCart}
               key={item.key + item.price}
               item={item}

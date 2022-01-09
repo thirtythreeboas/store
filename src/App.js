@@ -47,9 +47,9 @@ const App = () => {
     setWidth(width);
   };
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart])
+  // useEffect(() => {
+  //   console.log(cart);
+  // }, [cart])
 
   const closeFooter = () => {
     if (width < 768) {

@@ -1,40 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
+import '../../../css/stylesheet.scss';
+import { getSliderImages } from '../../../data/data';
 import SliderContent from './SliderContent';
 import Slide from './Slide';
 import Arrow from './Arrow';
 import Dots from './Dots';
-import '../../../css/stylesheet.scss';
 
 const Slider = () => {
 
-  const images = [
-    {
-      key: 'dsa98432j',
-      name: 'ROCCAT Vulcan TKL Linear PC Gaming Keyboard',
-      image: 'https://i.ytimg.com/vi/IPrXJDHA6Jk/maxresdefault.jpg',
-      path: 'devices'
-    },
-    {
-      key: 'kjhj54fg',
-      name: 'Apple iPhone 12 Pro Max 512GB',
-      image: 'http://t.infibeam.com/img/html_widget_images/8687242/af9e3a85ffaae_capture.jpg.999xx.jpg',
-      path: 'phones'
-    },
-    {
-      key: 'xcv09-123',
-      name: '2021 HP Pavilion 15.6 Touch-Screen Laptop 4 Core Intel i5-1035G1',
-      image: 'https://m.media-amazon.com/images/S/aplus-media/vc/099c834d-e88b-4516-9b20-707f0205e518.__CR0,0,1464,600_PT0_SX1464_V1___.jpg',
-      path: 'devices'
-    },
-    {
-      key: '/.,=-0hgfl',
-      name: 'BenQ MOBIUZ EX2510 24.5 Inch 144Hz IPS Gaming Monitor',
-      image: 'https://www.benq.com/content/dam/b2c/en-ap/monitor/E-Series/ex2710/has-01.jpg',
-      path: 'devices'
-    }
-  ]
+  const images = getSliderImages();
 
-  let array = images;
+  const generateKey = param => {
+    return `${ param }_${ new Date().getTime() }`;
+  }
 
   const transEnd = useRef();
 
@@ -48,17 +26,12 @@ const Slider = () => {
 
   const { activeSlide, translate, transition } = state;
 
+
   useEffect(() => {
-    // BEGINNING.
-    // making a copy of objects to modify their key values to avoid key duplication
-    let first = Object.assign({}, images[3]);
-    first.key = `${first.key}lelo`;
-    let third = Object.assign({}, images[1]);
-    third.key = `${first.key}lelo`;
-    // END.
-    array.unshift(first);
-    array.push(third);
-    setSlides(array);
+    let arr = [...images];
+    arr.unshift(arr[3]);
+    arr.push(arr[1]);
+    setSlides([...arr]);
   }, []);
 
   useEffect(() => {
@@ -134,6 +107,7 @@ const Slider = () => {
   }
 
   const smooth = () => {
+    console.log('here');
     if (activeSlide === 0)
     setState((prevState) => ({
       ...prevState,
@@ -169,9 +143,9 @@ const Slider = () => {
           transition={transition}
         >
           {
-            slides.map(slide => (
+            slides.map((slide, i) => (
               <Slide
-                key={slide.key}
+                key={generateKey(i)}
                 width={width}
                 content={slide.image}
                 name={slide.name}

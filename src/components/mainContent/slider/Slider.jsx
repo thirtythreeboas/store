@@ -10,8 +10,6 @@ const Slider = () => {
 
   const images = getSliderImages();
 
-  let array = images;
-
   const generateKey = param => {
     return `${ param }_${ new Date().getTime() }`;
   }
@@ -36,19 +34,9 @@ const Slider = () => {
   }, []);
 
   useEffect(() => {
-    console.log(transition);
-    // let bool = true;
-    // if (bool === true) {
-    //   handleWidthValue();
-    //   handleTransition();
-    // }
     handleWidthValue();
     window.addEventListener('resize', handleWidthValue);
-    // window.addEventListener('transitionend', handleTransition)
-
-    // return () => {bool = false}
     return () => window.removeEventListener('resize', handleWidthValue);
-    // return () => window.removeEventListener('transitionend', handleTransition);
   }, [activeSlide]);
 
   const handleWidthValue = () => {
@@ -60,23 +48,13 @@ const Slider = () => {
     }));
   };
 
-  // const handleTransition = () => {
-  //   if (transition === 'initial')
-  //   setState((prevState) => ({...prevState, transition: 'transform ease-out 0.45s'}));
-  //   if (transition === 'transform ease-out 0.45s')
-  //   setState((prevState) => ({...prevState, transition: 'initial'}))
-  // }
-
-  const handleTransition = e => {
-    if (e.target.className.includes('smooth') && transition === 'initial')
-    setState((prevState) => ({...prevState, transition: 'transform ease-out 0.45s'}));
-    if (e.target.className.includes('smooth') && transition === 'transform ease-out 0.45s')
-    setState((prevState) => ({...prevState, transition: 'initial'}))
-  }
-
   useEffect(() => {
-    transEnd.current = smooth;
-  })
+    let execute = true;
+    if (execute === true) transEnd.current = smooth;
+    return () => {
+      execute = false;
+    }
+  }, [activeSlide])
 
   useEffect(() => {
     const fun = e => {

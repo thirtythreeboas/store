@@ -36,7 +36,10 @@ const Slider = () => {
   useEffect(() => {
     handleWidthValue();
     window.addEventListener('resize', handleWidthValue);
+    window.addEventListener('transitionend', handleTransition)
+
     return () => window.removeEventListener('resize', handleWidthValue);
+    return () => window.removeEventListener('transitionend', handleTransition);
   }, [activeSlide]);
 
   const handleWidthValue = () => {
@@ -47,6 +50,13 @@ const Slider = () => {
       translate: `${width <= 1050 ? (width * activeSlide) : 1050 * activeSlide}`
     }));
   };
+
+  const handleTransition = () => {
+    if (transition === 'initial')
+    setState((prevState) => ({...prevState, transition: 'transform ease-out 0.45s'}));
+    if (transition === 'transform ease-out 0.45s')
+    setState((prevState) => ({...prevState, transition: 'initial'}))
+ }
 
   useEffect(() => {
     let execute = true;
@@ -85,7 +95,6 @@ const Slider = () => {
 
   const handleSlide = e => {
     let arr = Array.from(document.getElementsByClassName('dotsArray'));
-
     setState((prevState) => ({
       ...prevState,
       transition: 'transform ease-out 0.45s',

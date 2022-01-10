@@ -48,10 +48,6 @@ const App = () => {
     setWidth(width);
   };
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart])
-
   const closeFooter = () => {
     if (width < 768) {
       setDisplayFooterMenu(displayFooterMenu => !displayFooterMenu);

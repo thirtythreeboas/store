@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../css/stylesheet.scss';
-import Button from './button';
+import Button from './Button';
 import { useParams } from 'react-router-dom';
 import { getPhoneData } from '../../../data/data';
 

@@ -931,6 +931,28 @@ const data = {
       path: 'devices',
       className: 'active-link'
     }
+  ],
+  sliderImages: [
+    {
+      name: 'ROCCAT Vulcan TKL Linear PC Gaming Keyboard',
+      image: 'https://i.ytimg.com/vi/IPrXJDHA6Jk/maxresdefault.jpg',
+      path: 'devices'
+    },
+    {
+      name: 'Apple iPhone 12 Pro Max 512GB',
+      image: 'http://t.infibeam.com/img/html_widget_images/8687242/af9e3a85ffaae_capture.jpg.999xx.jpg',
+      path: 'phones'
+    },
+    {
+      name: '2021 HP Pavilion 15.6 Touch-Screen Laptop 4 Core Intel i5-1035G1',
+      image: 'https://m.media-amazon.com/images/S/aplus-media/vc/099c834d-e88b-4516-9b20-707f0205e518.__CR0,0,1464,600_PT0_SX1464_V1___.jpg',
+      path: 'devices'
+    },
+    {
+      name: 'BenQ MOBIUZ EX2510 24.5 Inch 144Hz IPS Gaming Monitor',
+      image: 'https://www.benq.com/content/dam/b2c/en-ap/monitor/E-Series/ex2710/has-01.jpg',
+      path: 'devices'
+    }
   ]
 };
 
@@ -967,4 +989,8 @@ export function getFooterData() {
 
 export function getMenu() {
   return data.menu;
+}
+
+export function getSliderImages() {
+  return data.sliderImages;
 }

@@ -35,11 +35,12 @@ const Slider = () => {
 
   useEffect(() => {
     handleWidthValue();
-    window.addEventListener('resize', handleWidthValue);
-    window.addEventListener('transitionend', handleTransition)
+    let slider = document.getElementById('slider-component');
+    slider.addEventListener('resize', handleWidthValue);
+    slider.addEventListener('transitionend', handleTransition)
 
-    return () => window.removeEventListener('resize', handleWidthValue);
-    return () => window.removeEventListener('transitionend', handleTransition);
+    return () => slider.removeEventListener('resize', handleWidthValue);
+    return () => slider.removeEventListener('transitionend', handleTransition);
   }, [activeSlide]);
 
   const handleWidthValue = () => {
@@ -123,17 +124,17 @@ const Slider = () => {
    }))
   }
 
-  const slider = {
-    position: `relative`,
-    width: `${width}px`,
-    minWidth: `360px`,
-    maxWidth: `1050px`,
-    marginBottom: '25px',
-    overflow: `hidden`
-  };
+  // const slider = {
+  //   width: `${width}px`,
+  //   position: `relative`,
+  //   minWidth: `360px`,
+  //   maxWidth: `1050px`,
+  //   marginBottom: '25px',
+  //   overflow: `hidden`
+  // };
 
   return (
-      <div style={slider}>
+      <div id="slider-component" style={{width: `${width}px`}}>
         <SliderContent
           width={width * slides.length}
           slides={slides.length}

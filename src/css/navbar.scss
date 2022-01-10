@@ -169,8 +169,7 @@
   bottom: 0;
   width: 100%;
   min-width: 350px;
-  // background-color: #9292a2;
-  background-color: #5a5a6f;
+  background-color: #9292a2;
   text-align: center;
   .header-categories {
     display: flex;
@@ -232,7 +231,7 @@
   .active-link {
     text-decoration: underline;
     text-decoration-color: #ab76ed;
-    text-decoration-thickness: 4px;
+    text-decoration-thickness: 2px;
   }
   a {
     min-width: 0;

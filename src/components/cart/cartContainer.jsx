@@ -5,7 +5,6 @@ import CartItem from './CartItem';
 
 const CartContainer = ({ cart, width, addToList, removeFromCart, addToCartButton, removeOne, wishList }) => {
 
-
   const sumTotalPrice = () => {
     if (cart.length !== 0) {
       let reducePrice = (a, b) => a + b;

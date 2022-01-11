@@ -5,6 +5,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { getFooterData } from './data/data';
+import { getGoods } from './data/data';
 import { HashRouter } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
@@ -14,9 +15,7 @@ import WishList from './components/wishList/WishList';
 import Container from './components/mainContent/content/Container';
 import Footer from './components/footerComp/Footer';
 import FooterSupport from './components/footerComp/FooterSupport';
-import Phone from './components/mainContent/goods/Phone';
-import Book from './components/mainContent/goods/Book';
-import Device from './components/mainContent/goods/Device';
+import ProductPage from './components/mainContent/goods/ProductPage';
 import ProductList from './components/mainContent/content/ProductList';
 
 
@@ -26,6 +25,10 @@ const App = () => {
   faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart );
 
   const footerData = getFooterData();
+  const goods = getGoods();
+  const generateKey = param => {
+    return `${ param }_${ new Date().getTime() }`;
+  }
 
   const [width, setWidth] = useState(0);
   const [displayFooterMenu, setDisplayFooterMenu] = useState(false);
@@ -134,7 +137,7 @@ const App = () => {
     display: `${width > 767 ? 'flex' : displayFooterMenu === false ? 'none' : 'flex'}`
   }
 
-  // const goods = data.goods.map(() => <Route path={path} component={component} key={key} />)
+  const kek = <p>kek</p>
 
   return (
     <BrowserRouter>
@@ -173,27 +176,22 @@ const App = () => {
               removeFromCart={removeFromCart}
               removeOne={removeOneItemFromCart} />}
             />
-            <Route path="/phones/:nameId" element={<Phone
-              width={width}
-              cart={cart}
-              wishList={wishList}
-              addToCartButton={addToCartButton}
-              addToList={addToList} />}
-            />
-            <Route path="/books/:nameId" element={<Book
-              width={width}
-              cart={cart}
-              wishList={wishList}
-              addToCartButton={addToCartButton}
-              addToList={addToList} />}
-            />
-            <Route path="/devices/:nameId" element={<Device
-              width={width}
-              cart={cart}
-              wishList={wishList}
-              addToCartButton={addToCartButton}
-              addToList={addToList} />}
-            />
+            {
+              Object.entries(goods).map(([key]) => (
+                  <Route
+                    key={generateKey + key}
+                    path={`/${key}/:nameId`}
+                    element={<ProductPage
+                      width={width}
+                      cart={cart}
+                      wishList={wishList}
+                      addToCartButton={addToCartButton}
+                      addToList={addToList}
+                    />}
+                  />
+                )
+              )
+            }
             <Route path="/:pathName" element={<ProductList
               cart={cart}
               wishList={wishList}

@@ -1,13 +1,14 @@
 import React from 'react';
 import '../../../css/stylesheet.scss';
-import ImageBlock from './goodsComponents/ImageBlock';
-import DetailBlock from './goodsComponents/DetailBlock';
-import LogicBlock from './goodsComponents/LogicBlock';
-import BookDescription from './goodsComponents/BookDescription';
+import ImageBlock from './productComponents/ImageBlock';
+import DetailBlock from './productComponents/DetailBlock';
+import LogicBlock from './productComponents/LogicBlock';
+import BookDescription from './productComponents/BookDescription';
 import { useParams } from 'react-router-dom';
 import { getBooksData } from '../../../data/data';
+import { getGoods } from '../../../data/data';
 
-const Book = ({
+const ProductPage = ({
     width,
     addToCartButton,
     addToList,
@@ -16,8 +17,13 @@ const Book = ({
   }) => {
 
   const params = useParams();
-  const data = getBooksData(String(params.nameId));
-  const books = Object.entries(data.detail);
+  const goods = getGoods();
+  let data;
+  for (const product in goods) {
+    data = goods[product].find(i => i.name.replace(/\//g, '') === String(params.nameId))
+    if (data !== undefined) break;
+  }
+  const detail = Object.entries(data.detail);
 
   return (
     <div className="product-page">
@@ -30,7 +36,7 @@ const Book = ({
           width={width}
         />
         <DetailBlock
-          phones={books}
+          detail={detail}
         />
         <LogicBlock
           cart={cart}
@@ -46,4 +52,4 @@ const Book = ({
   );
 }
 
-export default Book;
+export default ProductPage;

@@ -960,24 +960,9 @@ export function getData() {
   return data;
 };
 
-export function getPhoneData(val) {
-  return data.goods.phones.find(
-    // replace method removes forward slashes in name prop to match url
-    item => item.name.replace(/\//g, '') === val
-  );
-}
-
-export function getBooksData(val) {
-  return data.goods.books.find(
-    item => item.name === val
-  );
-}
-
-export function getDevicesData(val) {
-  return data.goods.devices.find(
-    item => item.name === val
-  );
-}
+export function getGoods() {
+  return data.goods;
+};
 
 export function getSpecificCategory(val) {
   return data.goods[`${val}`];

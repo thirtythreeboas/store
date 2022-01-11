@@ -1,6 +1,7 @@
 import React from 'react';
 // css/commonProductStyles.scss
-import '../../../css/stylesheet.scss';
+import '../../../../css/stylesheet.scss';
+
 
 const LogicBlock = ({ width, addToCartButton, addToList, data, cart, wishList }) => {
 

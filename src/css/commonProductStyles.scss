@@ -2,6 +2,7 @@
   width: 100%;
   max-width: 1050px;
   min-width: 360px;
+  margin-bottom: 110px;
 }
 
 .product-header {
@@ -96,7 +97,6 @@
 }
 
 .specifications {
-  margin-bottom: 110px;
   padding: 0 10px;
 }
 
@@ -141,7 +141,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 110px;
   padding: 0.8em;
   p {
     text-align: justify;
@@ -236,6 +235,10 @@
 
 
 @media (min-width: 768px) {
+  .product-page {
+    margin-bottom: 0;
+  }
+
   .product-header {
     display: flex;
   }
@@ -272,12 +275,7 @@
   }
 
   .specifications {
-    margin: 0;
     padding: 0;
-  }
-
-  .book-desc-block {
-    margin-bottom: 0;
   }
 
   .logic-block {

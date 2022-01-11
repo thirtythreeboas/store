@@ -1,9 +1,9 @@
 import React from 'react';
 import '../../../css/stylesheet.scss';
-import ImageBlock from './ImageBlock';
-import DetailBlock from './DetailBlock';
-import LogicBlock from './LogicBlock';
-import BookDescription from './BookDescription';
+import ImageBlock from './goodsComponents/ImageBlock';
+import DetailBlock from './goodsComponents/DetailBlock';
+import LogicBlock from './goodsComponents/LogicBlock';
+import BookDescription from './goodsComponents/BookDescription';
 import { useParams } from 'react-router-dom';
 import { getBooksData } from '../../../data/data';
 
@@ -40,9 +40,8 @@ const Book = ({
           addToCartButton={addToCartButton}
           addToList={addToList}
         />
-        {width < 768 ? <BookDescription data={data} /> : null}
       </div>
-      {width > 768 ? <BookDescription data={data} /> : null}
+      {data.description !== undefined ? <BookDescription data={data} /> : null}
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import '../../../css/stylesheet.scss';
-import ImageBlock from './ImageBlock';
-import DetailBlock from './DetailBlock';
-import LogicBlock from './LogicBlock';
+import ImageBlock from './goodsComponents/ImageBlock';
+import DetailBlock from './goodsComponents/DetailBlock';
+import LogicBlock from './goodsComponents/LogicBlock';
 import { useParams } from 'react-router-dom';
 import { getPhoneData } from '../../../data/data';
 

@@ -134,7 +134,7 @@ const App = () => {
     display: `${width > 767 ? 'flex' : displayFooterMenu === false ? 'none' : 'flex'}`
   }
 
-  const goods = data.goods.map(() => <Route path={path} component={component} key={key} />)
+  // const goods = data.goods.map(() => <Route path={path} component={component} key={key} />)
 
   return (
     <BrowserRouter>

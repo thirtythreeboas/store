@@ -2,7 +2,7 @@ import React from 'react';
 // css/commonProductStyles.scss
 import '../../../css/stylesheet.scss';
 
-const Button = ({ width, addToCartButton, addToList, data, cart, wishList }) => {
+const LogicBlock = ({ width, addToCartButton, addToList, data, cart, wishList }) => {
 
   const cssCart = {
     backgroundColor: '#3dbe52',
@@ -82,10 +82,10 @@ const Button = ({ width, addToCartButton, addToList, data, cart, wishList }) => 
   );
 
   return (
-    <>
+    <div className="logic-block">
       {width > 767 ? largeScreenButton : lowScreenButton}
-    </>
+    </div>
   );
 }
 
-export default Button;
+export default LogicBlock;

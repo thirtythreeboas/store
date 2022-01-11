@@ -31,36 +31,58 @@ const Slider = () => {
     arr.unshift(arr[3]);
     arr.push(arr[1]);
     setSlides([...arr]);
-  }, []);
+  }, [images]);
 
   useEffect(() => {
-    handleWidthValue();
     let slider = document.getElementById('slider-component');
-    slider.addEventListener('resize', handleWidthValue);
+
+    const handleWidthValue = () => {
+      let width = window.innerWidth <= 360 ? 360 : window.innerWidth;
+      setWidth(width);
+      setState((prevState) => ({
+        ...prevState,
+        translate: `${width <= 1050 ? (width * activeSlide) : 1050 * activeSlide}`
+      }));
+    };
+
+    const handleTransition = () => {
+      if (transition === 'initial')
+      setState((prevState) => ({...prevState, transition: 'transform ease-out 0.45s'}));
+      if (transition === 'transform ease-out 0.45s')
+      setState((prevState) => ({...prevState, transition: 'initial'}))
+    }
+
+    handleWidthValue();
+    window.addEventListener('resize', handleWidthValue);
     slider.addEventListener('transitionend', handleTransition)
 
-    return () => slider.removeEventListener('resize', handleWidthValue);
-    return () => slider.removeEventListener('transitionend', handleTransition);
-  }, [activeSlide]);
+    return () => {
+      window.removeEventListener('resize', handleWidthValue);
+      slider.removeEventListener('transitionend', handleTransition);
+    }
+  }, [activeSlide, transition]);
 
-  const handleWidthValue = () => {
-    let width = window.innerWidth <= 360 ? 360 : window.innerWidth;
-    setWidth(width);
-    setState((prevState) => ({
-      ...prevState,
-      translate: `${width <= 1050 ? (width * activeSlide) : 1050 * activeSlide}`
-    }));
-  };
-
-  const handleTransition = () => {
-    if (transition === 'initial')
-    setState((prevState) => ({...prevState, transition: 'transform ease-out 0.45s'}));
-    if (transition === 'transform ease-out 0.45s')
-    setState((prevState) => ({...prevState, transition: 'initial'}))
- }
 
   useEffect(() => {
     let execute = true;
+
+    const smooth = () => {
+      if (activeSlide === 0)
+      setState((prevState) => ({
+        ...prevState,
+        transition: 'none',
+        activeSlide: slides.length - 2,
+        translate: width * (slides.length - 2)
+      }))
+      if (activeSlide === 5)
+      setState((prevState) => ({
+        ...prevState,
+        transition: 'none',
+        activeSlide: slides.length - activeSlide,
+        translate: width * (slides.length - activeSlide)
+      }))
+    }
+
     if (execute === true) transEnd.current = smooth;
     return () => {
       execute = false;
@@ -71,28 +93,13 @@ const Slider = () => {
     const fun = e => {
       if (e.target.className.includes('smooth')) transEnd.current();
     }
-    const transitionEnd = window.addEventListener('transitionend', fun);
+    let slider = document.getElementById('slider-component');
+    slider.addEventListener('transitionend', fun);
     return () => {
-      window.removeEventListener('transitionend', transitionEnd);
+      slider.removeEventListener('transitionend', fun);
     }
   }, [activeSlide]);
 
-  const smooth = () => {
-    if (activeSlide === 0)
-    setState((prevState) => ({
-      ...prevState,
-      transition: 'none',
-      activeSlide: slides.length - 2,
-      translate: width * (slides.length - 2)
-    }))
-    if (activeSlide === 5)
-    setState((prevState) => ({
-      ...prevState,
-      transition: 'none',
-      activeSlide: slides.length - activeSlide,
-      translate: width * (slides.length - activeSlide)
-    }))
-  }
 
   const handleSlide = e => {
     let arr = Array.from(document.getElementsByClassName('dotsArray'));
@@ -123,15 +130,6 @@ const Slider = () => {
      translate: width * (activeSlide - 1)
    }))
   }
-
-  // const slider = {
-  //   width: `${width}px`,
-  //   position: `relative`,
-  //   minWidth: `360px`,
-  //   maxWidth: `1050px`,
-  //   marginBottom: '25px',
-  //   overflow: `hidden`
-  // };
 
   return (
       <div id="slider-component" style={{width: `${width}px`}}>

@@ -26,7 +26,7 @@ const Content = ({ data, windowWidth, addToCartButton, cart }) => {
               to={`/phones/${data.goods.phones[8].name.replace(/\//g, '')}`}
             >
               <div>
-                <img src="https://i.citrus.ua/imgcache/size_800/uploads/shop/7/5/75cf577bd735788ace8078f7ec4d568d.jpg" alt=""/>
+                <img src="https://m.economictimes.com/thumb/msid-78825344,width-1200,height-900,resizemode-4,imgsize-247196/to-spread-the-festive-season-cheer-the-good-folks-at-apple-have-introduced-attractive-deals-and-offers-for-those-who-wish-to-save-on-their-purchase-of-the-latest-iphone-.jpg" alt=""/>
                 <p>
                   A superpowerful chip. 5G speed. An advanced dual‑camera system. A Ceramic Shield front that's tougher than any smartphone glass. And a bright, beautiful OLED display. iPhone 12 has it all — in two great sizes.
                 </p>

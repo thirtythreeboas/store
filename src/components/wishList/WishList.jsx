@@ -1,7 +1,7 @@
 import React from 'react';
 // import '../../css/stylesheet.scss';
 import '../../css/wishlist.scss';
-import ListContainer from './ListContainer';
+import ListContainer from './wishlistComponents/ListContainer';
 
 const WishList = ({ cart, wishList, width, removeFromCart, addToList, addToCartButton, removeOne, removeFromList }) => {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../css/stylesheet.scss';
-import CartContainer from './CartContainer';
+import CartContainer from './cartComponents/CartContainer';
 
 const Cart = ({ cart, width, removeFromCart, addToList, addToCartButton, removeOne, wishList }) => {
 

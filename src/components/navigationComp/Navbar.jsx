@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/stylesheet.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import HomePage from './navbarComponents/HomePage';
+import NavElements from './navbarComponents/NavElements';
+import SearchField from './navbarComponents/SearchField';
+import Categories from './navbarComponents/Categories';
 import { getMenu } from '../../data/data';
 
 const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
@@ -23,7 +27,6 @@ const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
     let itemsToNumbers = categoryArray.map(x => x.clientWidth);
     let sum = itemsToNumbers.reduce((a, b) => a + b);
     setSum(sum);
-
   }, [categoryArray, width]);
 
   useEffect(() => {
@@ -124,9 +127,6 @@ const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
 
   }, [width, sum])
 
-
-  // const { menu } = categories;
-
   const openHiddenMenu = () => {
     let css = document.getElementById('open-menu');
     let displayProp = css.style.display === 'none' ? 'flex' : 'none';
@@ -145,14 +145,6 @@ const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
     display: `${showMenu === false && width < 768 ? 'none': 'flex'}`
   }
 
-  const linkCss = {
-    display: 'flex',
-    color: '#fff',
-    textDecoration: 'none',
-    fontWeight: 300,
-    margin: 0
-  }
-
   const listMenuCss = {
     display: `${width > 767 ? 'none' : 'flex'}`,
   }
@@ -168,115 +160,25 @@ const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
   }
 
   return (
-    <>
-      <nav className="nav-container">
-        <div className="sub-nav-container">
-          <div className="sections">
-            <Link style={linkCss} to="/">
-              <div className="logo">
-                <span><FontAwesomeIcon icon="cloud-showers-heavy" /></span>
-                <span>rain</span>Store
-              </div>
-            </Link>
-            <div className="nav-elements">
-              <ul className="nav-list">
-
-                <li className="list">
-                  <a className="nav-link" href="#">
-                    <span><FontAwesomeIcon icon="sign-in-alt" /></span>
-                    <span>Sign in</span>
-                  </a>
-                </li>
-
-                <li className="list">
-                  <a className="nav-link" href="#">
-                    <span><FontAwesomeIcon icon="user-plus" /></span>
-                    <span>Sign up</span>
-                  </a>
-                </li>
-
-                <li
-                  className="list"
-                  style={listMenuCss}
-                  onClick={() => displayMenu()}
-                >
-                  <a className="nav-link" href="#">
-                    <span><FontAwesomeIcon
-                      icon="book-open"
-                    />
-                    </span>
-                    <span>Menu</span>
-                  </a>
-                </li>
-
-                <li
-                  className="list"
-                  onClick={() => closeFooter()}
-                >
-                  <a className="nav-link">
-                    <span><FontAwesomeIcon icon="question-circle" /></span>
-                    <span>Support</span>
-                  </a>
-                </li>
-
-                <li className="list">
-                  <Link to="/wishlist" className="nav-link" href="#">
-                    <span><FontAwesomeIcon icon="heart" />{listItems()}</span>
-                    <span>List</span>
-                  </Link>
-                </li>
-
-                <li className="list">
-                  <Link to="/cart" className="nav-link" href="#">
-                    <span><FontAwesomeIcon icon="shopping-cart" />{cartItems()}</span>
-                    <span>Cart</span>
-                  </Link>
-                </li>
-
-              </ul>
-            </div>
-
-            <div className="search-box">
-              <form>
-                <button>
-                  Search
-                </button>
-                <input type="text" name="search"/>
-              </form>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div style={categoryCss} id="categories">
-          <div className="header-categories">
-            <h3>Goods</h3>
-            <span className="close-navbar" onClick={() => displayMenu()}>&times;</span>
-          </div>
-          <div id="cat-menu-container">
-            <ul id="category-menu">
-              {
-                menu.map((item, i) => (
-                  <li
-                    key={i + item.name}
-                    className="category-item"
-                    onClick={() => displayMenu()}
-                  >
-                    <Link className={item.className} to={item.path}>{item.name}</Link>
-                  </li>
-                ))
-              }
-            </ul>
-            <button id="collapse-menu" onClick={() => openHiddenMenu()}>
-              <span><FontAwesomeIcon icon="ellipsis-v"/></span>
-              <ul id="open-menu" style={{display: 'none'}}>
-              </ul>
-            </button>
-          </div>
-        </div>
-      </nav>
-    </>
+    <nav className="nav-container">
+      <div className="sections">
+        <HomePage />
+        <NavElements
+          displayMenu={() => displayMenu()}
+          closeFooter={() => closeFooter()}
+          listItems={() => listItems()}
+          cartItems={() => cartItems()}
+          listMenuCss={listMenuCss}
+        />
+        <SearchField />
+      </div>
+      <Categories
+        categoryCss={categoryCss}
+        displayMenu={() => displayMenu()}
+        menu={menu}
+        openHiddenMenu={openHiddenMenu}
+      />
+    </nav>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import '../../css/stylesheet.scss';
+import '../../../css/stylesheet.scss';
 
 const CartInfoSection = ({ cart, item, addToCartButton, removeOne }) => {
 

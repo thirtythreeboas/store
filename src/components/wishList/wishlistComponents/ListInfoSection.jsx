@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 // import '../../css/stylesheet.scss';
-import '../../css/wishlist.scss';
+import '../../../css/wishlist.scss';
 
 const ListInfoSection = ({ item }) => {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 // import '../../css/stylesheet.scss';
-import '../../css/wishlist.scss';
+import '../../../css/wishlist.scss';
 import ListItem from './ListItem';
 
 

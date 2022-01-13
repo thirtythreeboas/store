@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/stylesheet.scss';
+import '../../../css/stylesheet.scss';
 
 const CartButton = ({ cart, item, addToList, removeFromCart, addToCartButton, removeOne, wishList }) => {
 

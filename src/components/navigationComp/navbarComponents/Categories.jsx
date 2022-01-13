@@ -2,13 +2,15 @@ import React from 'react';
 import '../../../css/stylesheet.scss';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getMenu } from '../../../data/data';
 
 const Categories = ({
     categoryCss,
     displayMenu,
-    menu,
     openHiddenMenu
   }) => {
+
+  const menu = getMenu();
 
   return (
     <div style={categoryCss} id="categories">

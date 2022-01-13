@@ -145,38 +145,23 @@ const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
     display: `${showMenu === false && width < 768 ? 'none': 'flex'}`
   }
 
-  const listMenuCss = {
-    display: `${width > 767 ? 'none' : 'flex'}`,
-  }
-
-  const cartItems = () => {
-    const reduceAmount = (a, b) => a + b.amount;
-    const totalQty = cart.reduce(reduceAmount, 0);
-    return cart.length !== 0 ? <span className="display-cart-items">{totalQty}</span> : null;
-  }
-
-  const listItems = () => {
-    return wishList.length !== 0 ? <span className="display-cart-items">{wishList.length}</span> : null;
-  }
-
   return (
     <nav className="nav-container">
       <div className="sections">
         <HomePage />
         <NavElements
-          displayMenu={() => displayMenu()}
-          closeFooter={() => closeFooter()}
-          listItems={() => listItems()}
-          cartItems={() => cartItems()}
-          listMenuCss={listMenuCss}
+          displayMenu={displayMenu}
+          closeFooter={closeFooter}
+          wishList={wishList}
+          cart={cart}
+          width={width}
         />
         <SearchField />
       </div>
       <Categories
         categoryCss={categoryCss}
         displayMenu={() => displayMenu()}
-        menu={menu}
-        openHiddenMenu={openHiddenMenu}
+        openHiddenMenu={() => openHiddenMenu()}
       />
     </nav>
   );

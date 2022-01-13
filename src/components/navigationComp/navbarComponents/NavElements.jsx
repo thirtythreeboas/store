@@ -6,10 +6,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const NavElements = ({
     displayMenu,
     closeFooter,
-    listItems,
-    cartItems,
-    listMenuCss
+    wishList,
+    cart,
+    width
 }) => {
+
+  const listItems = () => {
+    return wishList.length !== 0 ? <span className="display-cart-items">{wishList.length}</span> : null;
+  }
+
+  const cartItems = () => {
+    const reduceAmount = (a, b) => a + b.amount;
+    const totalQty = cart.reduce(reduceAmount, 0);
+    return cart.length !== 0 ? <span className="display-cart-items">{totalQty}</span> : null;
+  }
+
+  const listMenuCss = {
+    display: `${width > 767 ? 'none' : 'flex'}`,
+  }
 
   return (
     <div className="nav-elements">
@@ -73,16 +87,3 @@ const NavElements = ({
 }
 
 export default NavElements;
-
-
-// import React from 'react';
-// import '../../../css/stylesheet.scss';
-//
-// const NavBarElements = ({}) => {
-//
-//   return (
-//
-//   )
-// }
-//
-// export default NavBarElements;

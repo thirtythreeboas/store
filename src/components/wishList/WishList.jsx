@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../../css/stylesheet.scss';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import '../../css/wishlist.scss';
 import ListContainer from './wishlistComponents/ListContainer';
 
@@ -7,6 +7,9 @@ const WishList = ({ cart, wishList, width, removeFromCart, addToList, addToCartB
 
   return (
     <div className="wishlist-container">
+      <Helmet>
+        <title>List</title>
+      </Helmet>
       {
         wishList.length === 0 ?
           <div className="empty-list">

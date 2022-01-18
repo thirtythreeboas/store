@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import '../../css/stylesheet.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import '../../css/stylesheet.scss';
+import '../../css/navbar.scss';
 import HomePage from './navbarComponents/HomePage';
 import NavElements from './navbarComponents/NavElements';
 import SearchField from './navbarComponents/SearchField';
 import Categories from './navbarComponents/Categories';
 import { getMenu } from '../../data/data';
 
-const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
+const NavBarComponent = ({
+    closeFooter,
+    width,
+    cart,
+    wishList,
+    onChange,
+    handleResult,
+    value
+  }) => {
 
   const [deletedCategories, setDeletedCategories] = useState([]);
   const [sum, setSum] = useState(0);
@@ -156,7 +163,11 @@ const NavBarComponent = ({ closeFooter, width, cart, wishList }) => {
           cart={cart}
           width={width}
         />
-        <SearchField />
+        <SearchField
+          handleResult={handleResult} 
+          onChange={onChange}
+          value={value}
+        />
       </div>
       <Categories
         categoryCss={categoryCss}

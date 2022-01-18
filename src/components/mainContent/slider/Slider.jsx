@@ -35,9 +35,8 @@ const Slider = () => {
 
   useEffect(() => {
     let slider = document.getElementById('slider-component');
-
     const handleWidthValue = () => {
-      let width = window.innerWidth <= 360 ? 360 : window.innerWidth;
+      let width = slider.clientWidth <= 360 ? 360 : slider.clientWidth;
       setWidth(width);
       setState((prevState) => ({
         ...prevState,
@@ -100,7 +99,6 @@ const Slider = () => {
     }
   }, [activeSlide]);
 
-
   const handleSlide = e => {
     let arr = Array.from(document.getElementsByClassName('dotsArray'));
     setState((prevState) => ({
@@ -132,43 +130,43 @@ const Slider = () => {
   }
 
   return (
-      <div id="slider-component" style={{width: `${width}px`}}>
-        <SliderContent
-          width={width * slides.length}
-          slides={slides.length}
-          height={width}
-          translate={translate}
-          transition={transition}
-        >
-          {
-            slides.map((slide, i) => (
-              <Slide
-                key={generateKey(i)}
-                width={width}
-                content={slide.image}
-                name={slide.name}
-                path={slide.path}
-              />
-            ))
-          }
-        </SliderContent>
-        <Arrow
-          direction='right'
-          width={width}
-          handleClick={nextSlide}
-        />
-        <Arrow
-          direction='left'
-          width={width}
-          handleClick={prevSlide}
-        />
-        <Dots
-          width={width}
-          activeSlide={activeSlide}
-          slides={images}
-          handleSlide={handleSlide}
-        />
-      </div>
+    <div id="slider-component">
+      <SliderContent
+        width={width * slides.length}
+        slides={slides.length}
+        height={width}
+        translate={translate}
+        transition={transition}
+      >
+        {
+          slides.map((slide, i) => (
+            <Slide
+              key={generateKey(i)}
+              width={width}
+              content={slide.image}
+              name={slide.name}
+              path={slide.path}
+            />
+          ))
+        }
+      </SliderContent>
+      <Arrow
+        direction='right'
+        width={width}
+        handleClick={nextSlide}
+      />
+      <Arrow
+        direction='left'
+        width={width}
+        handleClick={prevSlide}
+      />
+      <Dots
+        width={width}
+        activeSlide={activeSlide}
+        slides={images}
+        handleSlide={handleSlide}
+      />
+    </div>
   )
 }
 

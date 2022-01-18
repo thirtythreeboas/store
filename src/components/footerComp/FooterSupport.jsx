@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { getFooterData } from '../../data/data';
 
 const footer = getFooterData();
@@ -23,6 +24,9 @@ const FooterSupport = ({ idValue, changeIdValue }) => {
 
   return (
     <div className="support-main">
+      <Helmet>
+        <title>Support</title>
+      </Helmet>
       {
         footer.map((footerElem, i) => (
           <div

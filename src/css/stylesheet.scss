@@ -5,7 +5,7 @@
 @import "./footer.scss";
 @import "./content.scss";
 @import "./commonProductStyles.scss";
-@import "./listcard.scss";
+// @import "./listcard.scss";
 @import "./footerSupport";
 @import "./cart";
 // @import "./wishlist";
@@ -21,8 +21,9 @@
 
 .main-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   width: 100%; //DELETE TO SHOW BOTTOM SCROLLBAR
+  margin-bottom: 50px;
 }
 
 .default-porps {

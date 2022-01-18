@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../../css/listcard.scss';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import ListCard from './ListCard'
 import { useParams } from 'react-router-dom';
+import ListCard from './ListCard';
+import { getGoods } from '../../../data/data';
 import { getSpecificCategory } from '../../../data/data';
 
-const ProductList = ({
+const SearchResult = ({
+    cart,
+    wishList,
     addToCartButton,
     addToList,
-    cart,
-    wishList
+    content,
+    value
   }) => {
-
-  const params = useParams();
-  const data = getSpecificCategory(String(params.pathName));
 
   return (
     <div className="list-of-goods">
       <Helmet>
-        <title>Products</title>
+        <title>RainStore: {value}</title>
       </Helmet>
       {
-        data.map(item => (
+        content.map(item => (
           <ListCard
             key={item.key + item.name}
             item={item}
@@ -37,4 +37,4 @@ const ProductList = ({
   );
 }
 
-export default ProductList;
+export default SearchResult;

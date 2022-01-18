@@ -346,7 +346,7 @@ const data = {
         description: 'One of the fundamental works of Western political thought, Aristotle’s masterwork is the first systematic treatise on the science of politics. For almost three decades, Carnes Lord’s justly acclaimed translation has served as the standard English edition. Widely regarded as the most faithful to both the original Greek and Aristotle’s distinctive style, it is also written in clear, contemporary English. This new edition of the Politics retains and adds to Lord’s already extensive notes, clarifying the flow of Aristotle’s argument and identifying literary and historical references. A glossary defines key terms in Aristotle’s philosophical-political vocabulary. Lord has made revisions to problematic passages throughout the translation in order to enhance both its accuracy and its readability. He has also substantially revised his introduction for the new edition, presenting an account of Aristotle’s life in relation to political events of his time; the character and history of his writings and of the Politics in particular; his overall conception of political science; and his impact on subsequent political thought from antiquity to the present. Further enhancing this new edition is an up-to-date selected bibliography.'
       },
       {
-        name: 'The Lover One',
+        name: 'The Loved One',
         price: 29.99,
         category: 'books',
         inCart: false,

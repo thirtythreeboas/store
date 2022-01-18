@@ -2,23 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../../css/stylesheet.scss';
 
-export default function Goods ({ section, path }) {
-
-  const css = {
-    textDecoration: 'none',
-    color: 'black'
-  }
+const Goods = ({ data }) => {
 
   return (
-    <div className='card-content'>
-      <Link style={css} to={`/${path}`}>
-        <div className="card">
-          <div className="image-card-container">
+    <div className="showCards">
+      {
+        data.listsOfgoods.map((section, i) => (
+          <Link key={i} className="card-content" to={`/${section.path}`}>
             <img src={section.image} alt={section.name} />
-          </div>
-          <p>{section.description}</p>
-        </div>
-      </Link>
+            <p>{section.description}</p>
+          </Link>
+        ))
+      }
     </div>
   )
 };
+
+export default Goods;

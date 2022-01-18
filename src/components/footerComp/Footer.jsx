@@ -40,9 +40,7 @@ const Footer = ({ width, footerMenu, closeFooter, getId, boolChange }) => {
                     </span>
                     {elem.name}
                   </a>
-
                   :
-
                   <span
                     key={i + elem.name}
                     className="footer-item-span"

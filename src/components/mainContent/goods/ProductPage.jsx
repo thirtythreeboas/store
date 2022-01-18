@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../../css/stylesheet.scss';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import ImageBlock from './productComponents/ImageBlock';
 import DetailBlock from './productComponents/DetailBlock';
 import LogicBlock from './productComponents/LogicBlock';
@@ -19,14 +20,19 @@ const ProductPage = ({
   const params = useParams();
   const goods = getGoods();
   let data;
+
   for (const product in goods) {
     data = goods[product].find(i => i.name.replace(/\//g, '') === String(params.nameId))
     if (data !== undefined) break;
   }
   const detail = Object.entries(data.detail);
+  const title = data.name;
 
   return (
     <div className="product-page">
+      <Helmet>
+        <title>{ title }</title>
+      </Helmet>
       <header className="product-header">
         <h1>{data.name}</h1>
       </header>

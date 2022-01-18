@@ -1,15 +1,20 @@
 import React from 'react';
 import '../../../css/stylesheet.scss';
 
-const SearchField = () => {
+const SearchField = ({ onChange, handleResult, value }) => {
+
+  const css = {
+    textDecoration: 'none',
+    color: '#fff'
+  }
 
   return (
     <div className="search-box">
       <form>
-        <button>
+        <button onClick={e => handleResult(e)}>
           Search
         </button>
-        <input type="text" name="search"/>
+        <input type="text" name="search" value={value} onChange={e => onChange(e)}/>
       </form>
     </div>
   )

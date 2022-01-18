@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../css/stylesheet.scss';
+import '../../../../css/stylesheet.scss';
 import { Link } from 'react-router-dom';
 
 export default function Card ({ item, path, addToCartButton, cart }) {

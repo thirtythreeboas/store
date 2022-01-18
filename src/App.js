@@ -4,23 +4,23 @@ import './App.scss';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faUserPlus, faQuestionCircle, faShoppingCart, faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { getFooterData } from './data/data';
 import { getGoods } from './data/data';
-import { HashRouter } from "react-router-dom";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import NavBarComponent from './components/navigationComp/Navbar';
 import Cart from './components/cart/Cart';
 import WishList from './components/wishList/WishList';
-import Container from './components/mainContent/content/Container';
+import Container from './components/mainContent/Container';
 import Footer from './components/footerComp/Footer';
 import FooterSupport from './components/footerComp/FooterSupport';
 import ProductPage from './components/mainContent/goods/ProductPage';
 import ProductList from './components/mainContent/content/ProductList';
+import SearchResult from './components/mainContent/content/SearchResult';
 
 
 const App = () => {
-
   library.add( fab, faUserPlus, faQuestionCircle, faShoppingCart,
   faCloudShowersHeavy, faBookOpen, faEllipsisV, faSignInAlt, faHeart );
 
@@ -29,12 +29,17 @@ const App = () => {
   const generateKey = param => {
     return `${ param }_${ new Date().getTime() }`;
   }
+  const navigate = useNavigate();
 
   const [width, setWidth] = useState(0);
   const [displayFooterMenu, setDisplayFooterMenu] = useState(false);
   const [idValue, setIdValue] = useState('');
   const [cart, setCart] = useState([]);
   const [wishList, setWishList] = useState([]);
+  // manages data display in SearchResult
+  const [value, setValue] = useState('');
+  const [products, setProducts] = useState([]);
+  const [content, setContent] = useState([]);
 
   useEffect(() => {
     updateDimensions();
@@ -45,6 +50,12 @@ const App = () => {
   useEffect(() => {
     if (width >= 768) setDisplayFooterMenu(false);
   }, [width])
+
+  useEffect(() => {
+    let arr = [];
+    arr = arr.concat(goods.books, goods.phones, goods.devices);
+    setProducts([...arr]);
+  }, []);
 
   const updateDimensions = () => {
     const width = window.innerWidth;
@@ -133,20 +144,37 @@ const App = () => {
     setWishList([...arr]);
   }
 
+  const handleResult = e => {
+    e.preventDefault();
+    if (value === '') return;
+    let arr = [];
+    const input = value.toLowerCase();
+    arr = products.filter(item => item.name.toLowerCase().includes(input) || item.category.toLowerCase().includes(input));
+    setValue('');
+    setContent([...arr]);
+    navigate('/results');
+  }
+
+  const onChange = e => setValue(e.target.value);
+
   const footerMenu = {
     display: `${width > 767 ? 'flex' : displayFooterMenu === false ? 'none' : 'flex'}`
   }
 
-  const kek = <p>kek</p>
-
   return (
-    <BrowserRouter>
+    <HelmetProvider>
       <div className="page">
+        <Helmet>
+          <title>RainStore</title>
+        </Helmet>
         <ScrollToTop />
         <NavBarComponent
-          closeFooter={closeFooter}
           width={width}
           cart={cart}
+          value={value}
+          closeFooter={closeFooter}
+          handleResult={handleResult}
+          onChange={onChange}
           wishList={wishList}
         />
         <div className="stack">
@@ -156,12 +184,20 @@ const App = () => {
               wishList={wishList}
               addToCartButton={addToCartButton} />}
             />
+            <Route path="/results" element={<SearchResult
+              cart={cart}
+              content={content}
+              wishList={wishList}
+              addToCartButton={addToCartButton}
+              addToList={addToList}
+              value={value}
+              />}
+            />
             <Route path="/cart" element={<Cart
               width={width}
               cart={cart}
               wishList={wishList}
               addToCartButton={addToCartButton}
-              wishList={wishList}
               addToList={addToList}
               removeFromCart={removeFromCart}
               removeOne={removeOneItemFromCart} />}
@@ -179,7 +215,7 @@ const App = () => {
             {
               Object.entries(goods).map(([key]) => (
                   <Route
-                    key={generateKey + key}
+                    key={generateKey() + key}
                     path={`/${key}/:nameId`}
                     element={<ProductPage
                       width={width}
@@ -220,7 +256,7 @@ const App = () => {
           getId={getId}
         />
       </div>
-    </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

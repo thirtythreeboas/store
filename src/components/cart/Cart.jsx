@@ -1,11 +1,15 @@
 import React from 'react';
 import '../../css/stylesheet.scss';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import CartContainer from './cartComponents/CartContainer';
 
 const Cart = ({ cart, width, removeFromCart, addToList, addToCartButton, removeOne, wishList }) => {
 
   return (
     <div className="cart-container">
+      <Helmet>
+        <title>Cart</title>
+      </Helmet>
       {
         cart.length === 0 ?
           <div className="empty-cart">
